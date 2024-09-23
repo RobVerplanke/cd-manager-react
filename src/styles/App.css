@@ -1,0 +1,23 @@
+/* Reset styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom properties */
+:root {
+}
+
+/* Global layout */
+.app-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-container__main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Elements */
