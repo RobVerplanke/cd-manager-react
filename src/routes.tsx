@@ -35,15 +35,15 @@ const router = createBrowserRouter([
         element: <AddItemPage />,
       },
       {
-        path: 'albums',
+        path: 'library/albums',
         element: <AllAlbumsPage />,
       },
       {
-        path: 'cds',
+        path: 'library/cds',
         element: <AllCdsPage />,
       },
       {
-        path: 'tracks',
+        path: 'library/tracks',
         element: <AllTracksPage />,
       },
       {
