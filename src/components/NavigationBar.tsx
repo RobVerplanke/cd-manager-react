@@ -14,17 +14,17 @@ function NavigationBar() {
         <button aria-label="Open library sub-menu">Library</button>
         <ul className="nav__buttons__list hidden">
           <li>
-            <Link to="/library/albums" aria-label="Open album library">
+            <Link to="/library/albums" aria-label="Go to album library">
               Albums
             </Link>
           </li>
           <li>
-            <Link to="/library/cds" aria-label="Open cd library">
+            <Link to="/library/cds" aria-label="Go to cd library">
               Cd's
             </Link>
           </li>
           <li>
-            <Link to="/library/tracks" aria-label="Open track library">
+            <Link to="/library/tracks" aria-label="Co to track library">
               Tracks
             </Link>
           </li>
