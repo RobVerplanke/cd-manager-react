@@ -1,4 +1,4 @@
-import { Album } from '../../types/types';
+import { Album } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
 
 function AllAlbumsPage() {

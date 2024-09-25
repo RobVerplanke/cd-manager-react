@@ -1,15 +1,15 @@
-import { Track } from '../../types/types';
+import { Track } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
 
 function AllTracksPage() {
-  const allAlbums = useData()?.allTracks;
+  const allTracks = useData()?.allTracks;
 
   return (
     <main>
-      <h1>List of all cd's</h1>
+      <h1>List of all tracks</h1>
       <div className="all-items-container">
         <ul>
-          {allAlbums?.map((track: Track) => (
+          {allTracks?.map((track: Track) => (
             <li key={track.title}>{track.title}</li>
           ))}
         </ul>

@@ -1,19 +1,15 @@
-import { useState, useContext, useEffect, ReactNode } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { createContext } from 'react';
-import { Album, Cd, Track } from '../types/types';
 import getAllItemsFromType from '../api/getAllItemsFromType';
 
-// Create a type for the children prop which contains other app components
-type DataProviderProps = {
-  children: ReactNode;
-};
-
-// Make sure the data is set with the correct types
-type Context = {
-  allAlbums: Album[];
-  allCds: Cd[];
-  allTracks: Track[];
-};
+// Import needed custom types
+import {
+  type Context,
+  type DataProviderProps,
+  type Album,
+  type Cd,
+  type Track,
+} from '../lib/types/types';
 
 const DataContext = createContext<Context | null>(null);
 

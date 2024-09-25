@@ -1,13 +1,11 @@
-import '../styles/MainHeader.css';
-
 function MainHeader() {
   return (
-    <header className="header">
-      <div className="header__searchbar">
-        <input type="text" />
-        Search
+    <header className="flex h-12 shadow-md items-center">
+      <div>
+        <input type="text" className="rounded" />
+        <button>Search</button>
       </div>
-      <div className="header__options">Options</div>
+      <div className="">Options</div>
     </header>
   );
 }

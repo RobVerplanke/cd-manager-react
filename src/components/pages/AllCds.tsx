@@ -1,15 +1,15 @@
-import { Cd } from '../../types/types';
+import { Cd } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
 
 function AllCdsPage() {
-  const allAlbums = useData()?.allCds;
+  const allCds = useData()?.allCds;
 
   return (
     <main>
-      <h1>List of all cd's</h1>
+      <h1>List of all cds</h1>
       <div className="all-items-container">
         <ul>
-          {allAlbums?.map((cd: Cd) => (
+          {allCds?.map((cd: Cd) => (
             <li key={cd.title}>{cd.title}</li>
           ))}
         </ul>

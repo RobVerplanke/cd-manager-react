@@ -1,4 +1,4 @@
-import { ItemType, Album, Cd, Track } from '../types/types';
+import { ItemType, Album, Cd, Track } from '../lib/types/types';
 
 export default async function getAllItemsFromType(type: ItemType) {
   let items: Album[] | Cd[] | Track[] = [];
