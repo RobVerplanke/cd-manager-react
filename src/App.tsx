@@ -9,15 +9,17 @@ import './index.css';
 
 function App() {
   return (
-    <div className="flex font-sans bg-gray-400 h-screen">
-      <div className=" bg-gray-700 h-screen">
+    <div className="font-sans text-[#333333] flex h-screen bg-gray-400">
+      <div className="bg-gray-700 h-full w-40 pt-28">
         <NavigationBar />
       </div>
-      <div>
+      <div className="flex flex-col flex-grow">
         <DataProvider>
           <MainHeader />
           <Profiler id="Outlet" onRender={onRender}>
-            <Outlet />
+            <div className="bg-gray-300 h-full ">
+              <Outlet />
+            </div>
           </Profiler>
         </DataProvider>
       </div>
