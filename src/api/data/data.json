@@ -1,6 +1,7 @@
 {
   "albums": [
     {
+      "id": 1,
       "type": "Album",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
@@ -16,12 +17,13 @@
       "extraInfo": "A synthwave masterpiece with an ethereal sound."
     },
     {
+      "id": 2,
       "type": "Album",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
       },
-      "cdCount": 1,
+      "cdCount": 4,
       "artist": "Rocking Stones",
       "featuringArtists": ["The Smooth Horns"],
       "title": "Rolling Thunder",
@@ -31,6 +33,7 @@
       "extraInfo": "A classic rock album filled with bluesy riffs and soulful vocals."
     },
     {
+      "id": 3,
       "type": "Album",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
@@ -48,13 +51,14 @@
   ],
   "cds": [
     {
+      "id": 4,
       "type": "Cd",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
       },
       "cdCount": 1,
-      "tracks": 10,
+      "trackCount": 10,
       "partOfAlbum": "Echoes in the Sky",
       "artist": "The Sonic Waves",
       "featuringArtists": ["DJ Echo"],
@@ -65,13 +69,14 @@
       "extraInfo": "The first CD in the Echoes in the Sky album."
     },
     {
+      "id": 5,
       "type": "Cd",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
       },
       "cdCount": 2,
-      "tracks": 15,
+      "trackCount": 15,
       "partOfAlbum": "Rolling Thunder",
       "artist": "Rocking Stones",
       "featuringArtists": [],
@@ -84,7 +89,12 @@
   ],
   "tracks": [
     {
+      "id": 6,
       "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
       "cdTitle": "The Abyss",
       "trackNumber": 1,
       "artist": "The Sonic Waves",
@@ -97,7 +107,12 @@
       "extraInfo": "An energetic track with a deep, bass-heavy beat."
     },
     {
+      "id": 7,
       "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
       "cdTitle": "The wind",
       "trackNumber": 4,
       "artist": "Rocking Stones",
@@ -106,11 +121,16 @@
       "tags": ["Rock", "Blues"],
       "year": 1998,
       "length": "5:10",
-      "rating": 4.5,
+      "rating": 3,
       "extraInfo": "A slow and melodic blues ballad with strong vocals."
     },
     {
+      "id": 8,
       "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
       "cdTitle": "Groovy",
       "trackNumber": 2,
       "artist": "Jazz Grooves Collective",
