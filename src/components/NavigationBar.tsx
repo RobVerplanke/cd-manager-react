@@ -23,12 +23,12 @@ function NavigationBar() {
       >
         Library
       </button>
-      <ul className="">
+      <ul className="h-fit bg-slate-600">
         <li>
           <Link
             to="/library/albums"
             aria-label="Go to album library"
-            className="flex justify-center items-center h-9 bg-slate-600 hover:bg-slate-500"
+            className="flex justify-center items-center h-9 hover:bg-slate-500"
           >
             Albums
           </Link>
@@ -37,16 +37,16 @@ function NavigationBar() {
           <Link
             to="/library/cds"
             aria-label="Go to cd library"
-            className="flex justify-center items-center h-9 bg-slate-600 hover:bg-slate-500"
+            className="flex justify-center items-center h-9 hover:bg-slate-500"
           >
-            Cd's
+            CDs
           </Link>
         </li>
         <li>
           <Link
             to="/library/tracks"
             aria-label="Co to track library"
-            className="flex justify-center items-center h-9 bg-slate-600 hover:bg-slate-500"
+            className="flex justify-center items-center h-9 hover:bg-slate-500"
           >
             Tracks
           </Link>

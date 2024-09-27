@@ -1,16 +1,17 @@
 import { Cd } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
+import RenderVerticalCardProps from '../cards/RenderVerticalCard';
 
 function AllCdsPage() {
   const allCds = useData()?.allCds;
 
   return (
-    <main>
-      <h1>List of all cds</h1>
-      <div className="all-items-container">
+    <main className="my-6 pl-6">
+      <span className="text-3xl">An overview of your CDs</span>
+      <div className="py-8 pl-6">
         <ul>
           {allCds?.map((cd: Cd) => (
-            <li key={cd.title}>{cd.title}</li>
+            <RenderVerticalCardProps key={cd.id} item={cd} />
           ))}
         </ul>
       </div>

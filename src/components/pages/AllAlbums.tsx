@@ -1,16 +1,17 @@
-import { Album } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
+import { Album } from '../../lib/types/types';
+import RenderVerticalCardProps from '../cards/RenderVerticalCard';
 
 function AllAlbumsPage() {
   const allAlbums = useData()?.allAlbums;
 
   return (
-    <main>
-      <h1>List of all albums</h1>
-      <div className="all-items-container">
+    <main className="my-6 pl-6">
+      <span className="text-3xl">An overview of your albums</span>
+      <div className="py-8 pl-6">
         <ul>
           {allAlbums?.map((album: Album) => (
-            <li key={album.title}>{album.title}</li>
+            <RenderVerticalCardProps key={album.id} item={album} />
           ))}
         </ul>
       </div>
