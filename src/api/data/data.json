@@ -99,11 +99,11 @@
       "trackNumber": 1,
       "artist": "The Sonic Waves",
       "featuringArtists": ["DJ Echo"],
-      "title": "Into the Abyss",
+      "title": "TenInto the Abyss",
       "tags": ["Synthwave", "Electronic"],
       "year": 2020,
       "length": "4:35",
-      "rating": 4.8,
+      "rating": 10,
       "extraInfo": "An energetic track with a deep, bass-heavy beat."
     },
     {
@@ -141,6 +141,168 @@
       "length": "6:45",
       "rating": 5.0,
       "extraInfo": "A smooth, extended jazz jam with an improvisational feel."
+    },
+    {
+      "id": 9,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "Winds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "5:10",
+      "rating": 3,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 10,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "Winds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "5:10",
+      "rating": 3,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 11,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "Winds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "9:10",
+      "rating": 3,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 12,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "NineWinds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "6:10",
+      "rating": 9,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 13,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "BWinds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "7:10",
+      "rating": 3,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 14,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "OneCWinds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "7:30",
+      "rating": 1,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 15,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "BWinds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "5:10",
+      "rating": 3,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 16,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "ZWinds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "5:10",
+      "rating": 6,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
+    },
+    {
+      "id": 17,
+      "type": "Track",
+      "cover": {
+        "thumbnail": "https://placehold.co/50x50",
+        "fullSize": "https://placehold.co/800x800"
+      },
+      "cdTitle": "The wind",
+      "trackNumber": 4,
+      "artist": "Rocking Stones",
+      "featuringArtists": ["The Smooth Horns"],
+      "title": "AWinds of Change",
+      "tags": ["Rock", "Blues"],
+      "year": 1998,
+      "length": "5:10",
+      "rating": 3,
+      "extraInfo": "A slow and melodic blues ballad with strong vocals."
     }
   ]
 }

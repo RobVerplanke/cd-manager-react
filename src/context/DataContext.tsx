@@ -38,7 +38,9 @@ export function DataProvider({ children }: DataProviderProps) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ allAlbums, allCds, allTracks }}>
+    <DataContext.Provider
+      value={{ allAlbums, allCds, allTracks: allTracks || [] }}
+    >
       {children}
     </DataContext.Provider>
   );

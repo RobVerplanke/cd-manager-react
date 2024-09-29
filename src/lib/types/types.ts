@@ -1,5 +1,17 @@
 import { ReactNode } from 'react';
 
+// A type for the children prop in the DataProvider component
+type DataProviderProps = {
+  children: ReactNode;
+};
+
+// Make sure the context data is set with the correct types
+type Context = {
+  allAlbums: Album[];
+  allCds: Cd[];
+  allTracks: Track[];
+};
+
 // Every item can only be one of these types
 type ItemType = 'album' | 'cd' | 'track';
 
@@ -43,19 +55,7 @@ type Cd = Item & {
 // Properties specific for an item of type Track
 type Track = Item & {
   cdTitle: string;
-  length: number;
-};
-
-// A type for the children prop in the DataProvider component
-type DataProviderProps = {
-  children: ReactNode;
-};
-
-// Make sure the context data is set with the correct types
-type Context = {
-  allAlbums: Album[];
-  allCds: Cd[];
-  allTracks: Track[];
+  length: string;
 };
 
 export {
