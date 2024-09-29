@@ -3,7 +3,7 @@ import { RenderHorizontalCardProps } from '../../lib/types/types';
 
 function RenderHorizontalCard({ item }: { item: RenderHorizontalCardProps }) {
   return (
-    <div className="grid grid-cols-[1fr_50px_100px_1fr] gap-2 items-center py-2 border-b">
+    <div className="grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">
       <div className="flex flex-col">
         <div className="flex items-center">
           <h3 className="mr-3 text-lg font-bold">{item.title}</h3>
