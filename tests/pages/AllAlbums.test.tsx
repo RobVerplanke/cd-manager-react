@@ -7,7 +7,7 @@ describe('All Albums page', () => {
   it('Renders the title', () => {
     render(<AllAlbumsPage />);
 
-    const foundTitle = screen.getByText('List of all albums');
+    const foundTitle = screen.getByText('An overview of your albums');
 
     expect(foundTitle).toBeInTheDocument();
   });

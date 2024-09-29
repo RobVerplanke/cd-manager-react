@@ -7,7 +7,7 @@ describe('All Cd page', () => {
   it('Renders the title', () => {
     render(<AllTracksPage />);
 
-    const foundTitle = screen.getByText('List of all tracks');
+    const foundTitle = screen.getByText('An overview of your tracks');
 
     expect(foundTitle).toBeInTheDocument();
   });

@@ -7,7 +7,7 @@ describe('All Cd page', () => {
   it('Renders the title', () => {
     render(<AllCdsPage />);
 
-    const foundTitle = screen.getByText('List of all cds');
+    const foundTitle = screen.getByText('An overview of your CDs');
 
     expect(foundTitle).toBeInTheDocument();
   });
