@@ -28,7 +28,7 @@ export function onRender(
 
 // Sort the items alphabetically, or inverted
 export function sortItemsByTitle(
-  items: Album[] | Cd[] | Track[],
+  items: (Album | Cd | Track)[],
   isSorted: boolean
 ) {
   return isSorted

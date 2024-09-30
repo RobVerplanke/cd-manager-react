@@ -12,7 +12,11 @@ import {
 } from '../lib/types/types';
 
 // Create the context
-const DataContext = createContext<Context | null>(null);
+const DataContext = createContext<Context>({
+  allAlbums: [],
+  allCds: [],
+  allTracks: [],
+});
 
 // Manage the state
 export function DataProvider({ children }: DataProviderProps) {

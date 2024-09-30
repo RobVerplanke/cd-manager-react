@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { AllAlbumsPage } from '../../src/components/pages';
+import { LibraryPage } from '../../src/components/pages';
 
 describe('All Albums page', () => {
   it('Renders the title', () => {
-    render(<AllAlbumsPage />);
+    render(<LibraryPage />);
 
     const foundTitle = screen.getByText('An overview of your albums');
 

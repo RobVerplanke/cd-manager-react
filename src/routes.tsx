@@ -6,9 +6,7 @@ import {
   ItemDetails,
   EditItemPage,
   AddItemPage,
-  AllAlbumsPage,
-  AllCdsPage,
-  AllTracksPage,
+  LibraryPage,
   SearchItemPage,
 } from './components/pages/index';
 
@@ -35,16 +33,8 @@ const router = createBrowserRouter([
         element: <AddItemPage />,
       },
       {
-        path: 'library/albums',
-        element: <AllAlbumsPage />,
-      },
-      {
-        path: 'library/cds',
-        element: <AllCdsPage />,
-      },
-      {
-        path: 'library/tracks',
-        element: <AllTracksPage />,
+        path: 'library/:itemCategory',
+        element: <LibraryPage />,
       },
       {
         path: 'search',

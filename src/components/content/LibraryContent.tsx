@@ -17,7 +17,7 @@ export function LibraryContent({ items }: { items: Album[] | Cd[] | Track[] }) {
     setFilterData(data);
   }, [data]);
 
-  // Update filterData based on the current page and items per page
+  // Update filtered data based on the current page and items per page
   useEffect(() => {
     const filtered = data.filter((item, index) => {
       return index >= page * n && index < (page + 1) * n;
@@ -25,7 +25,7 @@ export function LibraryContent({ items }: { items: Album[] | Cd[] | Track[] }) {
     setFilterData(filtered);
   }, [page, data]);
 
-  // Type Guards for narrowing the item types
+  // Type guards for narrowing the item types
   function isTrack(item: Album | Cd | Track): item is Track {
     return (item as Track).length !== undefined;
   }
