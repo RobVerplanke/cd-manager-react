@@ -16,8 +16,8 @@ type Context = {
 type ItemType = 'album' | 'cd' | 'track';
 
 // Cards can only be created with one of these types
-type RenderVerticalCardProps = Album;
-type RenderHorizontalCardProps = Cd | Track;
+type ItemCardProps = Track;
+type ItemWithCoverCardProps = Album | Cd;
 
 // A base type with common properties
 type Item = {
@@ -60,8 +60,8 @@ type Track = Item & {
 
 export {
   ItemType,
-  RenderVerticalCardProps,
-  RenderHorizontalCardProps,
+  ItemCardProps,
+  ItemWithCoverCardProps,
   Album,
   Cd,
   Track,

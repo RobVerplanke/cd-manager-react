@@ -5,9 +5,9 @@ import { AllTracksContent } from '../content/AllTracksContent';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import {
-  sortTracksByTitle,
-  sortTracksByLength,
-  sortTracksByRating,
+  sortItemsByTitle,
+  sortItemsByLength,
+  sortItemsByRating,
 } from '../../utils/helperFunctions';
 
 function AllTracksPage() {
@@ -55,8 +55,9 @@ function AllTracksPage() {
   // Sort the tracks alphabetically
   function handleClickTitleSort(e: React.MouseEvent<HTMLButtonElement>) {
     if (!setSortedTracks) return;
-    setSortedTracks((prevVal: Track[]) =>
-      sortTracksByTitle(prevVal, isTitleSortedDescendingly)
+    setSortedTracks(
+      (prevVal: Track[]) =>
+        sortItemsByTitle(prevVal, isTitleSortedDescendingly) as Track[]
     );
 
     // Set the correct arrow directions
@@ -67,7 +68,7 @@ function AllTracksPage() {
   function handleClickLengthSort(e: React.MouseEvent<HTMLButtonElement>) {
     if (!setSortedTracks) return;
     setSortedTracks((prevVal: Track[]) =>
-      sortTracksByLength(prevVal, isLengthSortedDescendingly)
+      sortItemsByLength(prevVal, isLengthSortedDescendingly)
     );
 
     // Set the correct arrow directions
@@ -77,8 +78,9 @@ function AllTracksPage() {
   // Sort the tracks on highest rating
   function handleClickRatingSort(e: React.MouseEvent<HTMLButtonElement>) {
     if (!setSortedTracks) return;
-    setSortedTracks((prevVal: Track[]) =>
-      sortTracksByRating(prevVal, isRatingSortedDescendingly)
+    setSortedTracks(
+      (prevVal: Track[]) =>
+        sortItemsByRating(prevVal, isRatingSortedDescendingly) as Track[]
     );
 
     // Set the correct arrow directions

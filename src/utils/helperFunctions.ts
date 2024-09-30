@@ -1,4 +1,4 @@
-import { Track } from '../lib/types/types';
+import { Album, Cd, Track } from '../lib/types/types';
 
 // Measure rendering performance
 export function onRender(
@@ -26,23 +26,36 @@ export function onRender(
   );
 }
 
-// Sort the tracks alphabetically, or inverted
-export function sortTracksByTitle(tracks: Track[], isSorted: boolean) {
+// Sort the items alphabetically, or inverted
+export function sortItemsByTitle(
+  items: Album[] | Cd[] | Track[],
+  isSorted: boolean
+) {
   return isSorted
-    ? [...tracks].sort((a, b) => a.title.localeCompare(b.title))
-    : [...tracks].sort((a, b) => b.title.localeCompare(a.title));
+    ? [...items].sort((a, b) => a.title.localeCompare(b.title))
+    : [...items].sort((a, b) => b.title.localeCompare(a.title));
 }
 
-// Sort the tracks on longest or shortest track length
-export function sortTracksByLength(tracks: Track[], isSorted: boolean) {
+// Sort the items on amount of cds
+export function sortItemsByAmount(items: Album[] | Cd[], isSorted: boolean) {
   return isSorted
-    ? [...tracks].sort((a, b) => a.length.localeCompare(b.length))
-    : [...tracks].sort((a, b) => b.length.localeCompare(a.length));
+    ? [...items].sort((a, b) => a.cdCount - b.cdCount)
+    : [...items].sort((a, b) => b.cdCount - a.cdCount);
 }
 
-// Sort the tracks on highest or lowest rating
-export function sortTracksByRating(tracks: Track[], isSorted: boolean) {
+// Sort the items on highest or lowest rating
+export function sortItemsByRating(
+  items: Album[] | Cd[] | Track[],
+  isSorted: boolean
+) {
   return isSorted
-    ? [...tracks].sort((a, b) => a.rating - b.rating)
-    : [...tracks].sort((a, b) => b.rating - a.rating);
+    ? [...items].sort((a, b) => a.rating - b.rating)
+    : [...items].sort((a, b) => b.rating - a.rating);
+}
+
+// Sort the items on longest or shortest length
+export function sortItemsByLength(items: Track[], isSorted: boolean) {
+  return isSorted
+    ? [...items].sort((a, b) => a.length.localeCompare(b.length))
+    : [...items].sort((a, b) => b.length.localeCompare(a.length));
 }

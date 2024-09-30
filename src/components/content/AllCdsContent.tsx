@@ -1,15 +1,15 @@
 import ReactPaginate from 'react-paginate'; // for pagination
 import { useEffect, useState } from 'react'; // useState for storing data and useEffect for changing data on click
-import { Track } from '../../lib/types/types';
-import ItemCard from '../cards/ItemCard';
-import { MAX_AMOUNT_TRACKS_PER_PAGE } from '../../lib/types/constants';
+import { Cd } from '../../lib/types/types';
+import ItemWithCoverCard from '../cards/ItemWithCoverCard';
+import { MAX_AMOUNT_CDS_PER_PAGE } from '../../lib/types/constants';
 
-export function AllTracksContent({ tracks }: { tracks: Track[] }) {
-  const data = tracks;
+export function AllCdsContent({ cds }: { cds: Cd[] }) {
+  const data = cds;
 
   const [page, setPage] = useState(0);
-  const [filterData, setFilterData] = useState<Track[]>();
-  const n = MAX_AMOUNT_TRACKS_PER_PAGE;
+  const [filterData, setFilterData] = useState<Cd[]>();
+  const n = MAX_AMOUNT_CDS_PER_PAGE;
 
   // When user sorts the data, update the displayed data
   useEffect(() => {
@@ -31,7 +31,7 @@ export function AllTracksContent({ tracks }: { tracks: Track[] }) {
         {filterData &&
           filterData.map((item) => (
             <li key={item.id}>
-              <ItemCard item={item} />
+              <ItemWithCoverCard item={item} />
             </li>
           ))}
       </ul>
