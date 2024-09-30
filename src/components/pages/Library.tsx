@@ -15,22 +15,12 @@ import {
 function LibraryPage() {
   // itemCategory can be 'albums', 'cds', or 'tracks'
   const { itemCategory } = useParams<{ itemCategory: string }>();
+
+  // Collect all data
   const { allAlbums, allCds, allTracks } = useData();
+
+  // Create one items list with corresponding category
   let allItems: (Album | Cd | Track)[] = [];
-
-  useEffect(() => {
-    if (itemCategory === 'albums') {
-      allItems = allAlbums;
-    } else if (itemCategory === 'cds') {
-      allItems = allCds;
-    } else if (itemCategory === 'tracks') {
-      allItems = allTracks;
-    }
-
-    if (allItems) {
-      setSortedItems(allItems);
-    }
-  }, [itemCategory, allAlbums, allCds, allTracks]);
 
   // Create a seperate list of the sorted tracks to prevent possible interference in other components
   // where a list of tracks is needed
@@ -45,14 +35,26 @@ function LibraryPage() {
   const [isRatingSortedDescendingly, setIsRatingSortedDescendingly] =
     useState<boolean>(false);
 
+  useEffect(() => {
+    if (itemCategory === 'albums') {
+      allItems = allAlbums;
+    } else if (itemCategory === 'cds') {
+      allItems = allCds;
+    } else if (itemCategory === 'tracks') {
+      allItems = allTracks;
+    }
+
+    if (allItems) {
+      setSortedItems(allItems);
+    }
+  }, [itemCategory]);
+
   // Initialize new array on mount
   useEffect(() => {
     if (allItems) setSortedItems(allItems);
   }, []);
 
   // Change the direction of the sorting arrows in the correct direction, depending on which category is active
-  // Reset all buttons at once because of when taking the amount of buttons in account, this has a low influence on the performence
-  // Otherwise it's needed to change the directions of the previous and active category only
   function setArrowsDirection(e: React.MouseEvent<HTMLButtonElement>) {
     const targetButton = e.currentTarget.dataset.sortType;
 
@@ -120,7 +122,7 @@ function LibraryPage() {
       (prevVal: (Album | Cd | Track)[]) =>
         sortItemsByRating(
           prevVal as (Album | Cd)[],
-          isLengthSortedDescendingly
+          isRatingSortedDescendingly
         ) as (Album | Cd)[]
     );
 
