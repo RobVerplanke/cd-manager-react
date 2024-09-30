@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useData } from '../../context/DataContext';
 import { Album } from '../../lib/types/types';
-import { AllAlbumsContent } from '../content/AllAlbumsContent';
+import { LibraryContent } from '../content/LibraryContent';
 import {
   sortItemsByTitle,
   sortItemsByAmount,
@@ -142,7 +142,7 @@ function AllAlbumsPage() {
               <span className="text-sm font-semibold">Tags</span>
             </div>
           </div>
-          {allAlbums && <AllAlbumsContent albums={sortedAlbums} />}
+          {allAlbums && <LibraryContent items={sortedAlbums} />}
         </ul>
       </div>
     </main>

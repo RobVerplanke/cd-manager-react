@@ -2,7 +2,7 @@
   "albums": [
     {
       "id": 1,
-      "type": "Album",
+      "type": "album",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "type": "Album",
+      "type": "album",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -34,7 +34,7 @@
     },
     {
       "id": 3,
-      "type": "Album",
+      "type": "album",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -52,7 +52,7 @@
   "cds": [
     {
       "id": 4,
-      "type": "Cd",
+      "type": "cd",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -70,7 +70,7 @@
     },
     {
       "id": 5,
-      "type": "Cd",
+      "type": "cd",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -90,7 +90,7 @@
   "tracks": [
     {
       "id": 6,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -108,7 +108,7 @@
     },
     {
       "id": 7,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -126,7 +126,7 @@
     },
     {
       "id": 8,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -144,7 +144,7 @@
     },
     {
       "id": 9,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -162,7 +162,7 @@
     },
     {
       "id": 10,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -180,7 +180,7 @@
     },
     {
       "id": 11,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -198,7 +198,7 @@
     },
     {
       "id": 12,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -216,7 +216,7 @@
     },
     {
       "id": 13,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -234,7 +234,7 @@
     },
     {
       "id": 14,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -252,7 +252,7 @@
     },
     {
       "id": 15,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -270,7 +270,7 @@
     },
     {
       "id": 16,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"
@@ -288,7 +288,7 @@
     },
     {
       "id": 17,
-      "type": "Track",
+      "type": "track",
       "cover": {
         "thumbnail": "https://placehold.co/50x50",
         "fullSize": "https://placehold.co/800x800"

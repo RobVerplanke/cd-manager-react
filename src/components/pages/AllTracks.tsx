@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Track } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
-import { AllTracksContent } from '../content/AllTracksContent';
+import { LibraryContent } from '../content/LibraryContent';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import {
@@ -142,7 +142,7 @@ function AllTracksPage() {
               <span className="text-sm font-semibold">Tags</span>
             </div>
           </div>
-          {allTracks && <AllTracksContent tracks={sortedTracks} />}
+          {allTracks && <LibraryContent items={sortedTracks} />}
         </ul>
       </div>
     </main>

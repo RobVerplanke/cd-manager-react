@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useData } from '../../context/DataContext';
 import { Cd } from '../../lib/types/types';
-import { AllCdsContent } from '../content/AllCdsContent';
+import { LibraryContent } from '../content/LibraryContent';
 import {
   sortItemsByTitle,
   sortItemsByAmount,
@@ -141,7 +141,7 @@ function AllCdsPage() {
               <span className="text-sm font-semibold">Tags</span>
             </div>
           </div>
-          {allCds && <AllCdsContent cds={sortedCds} />}
+          {allCds && <LibraryContent items={sortedCds} />}
         </ul>
       </div>
     </main>
