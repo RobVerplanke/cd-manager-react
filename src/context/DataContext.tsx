@@ -18,7 +18,7 @@ const DataContext = createContext<Context | null>(null);
 export function DataProvider({ children }: DataProviderProps) {
   const [allAlbums, setAllAlbums] = useState<Album[]>([]);
   const [allCds, setAllCds] = useState<Cd[]>([]);
-  const [allTracks, setAllTracks] = useState<Track[]>([]);
+  const [allTracks, setAllTracks] = useState<Track[]>();
 
   // Initially wait for data and put all items in their corresponding state
   useEffect(() => {

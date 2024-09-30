@@ -15,7 +15,9 @@ function AllTracksPage() {
 
   // Create a seperate list of the sorted tracks to prevent possible interference in other components
   // where a list of tracks is needed
-  const [sortedTracks, setSortedTracks] = useState<Track[]>([]);
+  const [sortedTracks, setSortedTracks] = useState<Track[]>(
+    allTracks ? allTracks : []
+  );
 
   const [isTitleSortedDescendingly, setIsTitleSortedDescendingly] =
     useState<boolean>(false);
@@ -138,7 +140,7 @@ function AllTracksPage() {
               <span className="text-sm font-semibold">Tags</span>
             </div>
           </div>
-          <AllTracksContent tracks={sortedTracks} />
+          {allTracks && <AllTracksContent tracks={sortedTracks} />}
         </ul>
       </div>
     </main>
