@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Album, Cd, Track } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
-import { LibraryContent } from '../content/LibraryContent';
+import { LibraryContent } from './LibraryContent';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import {
@@ -12,20 +11,21 @@ import {
   sortItemsByRating,
 } from '../../utils/helperFunctions';
 
-function LibraryPage() {
+//
+function SearchResultContent({
+  category,
+  filteredData,
+}: {
+  category: string;
+  filteredData: (Album | Cd | Track)[];
+}) {
   // itemCategory can be 'albums', 'cds', or 'tracks'
-  const { itemCategory } = useParams<{ itemCategory: string }>();
-
-  // Collect all data
-  let { allAlbums, allCds, allTracks } = useData();
-
-  // Create one items list with corresponding category
-  let allItems: (Album | Cd | Track)[] = [];
+  const itemCategory = category;
 
   // Create a seperate list of the sorted tracks to prevent possible interference in other components
   // where a list of tracks is needed
   const [sortedItems, setSortedItems] = useState<(Album | Cd | Track)[]>(
-    allItems ? allItems : []
+    filteredData ? filteredData : []
   );
 
   const [isTitleSortedDescendingly, setIsTitleSortedDescendingly] =
@@ -35,23 +35,9 @@ function LibraryPage() {
   const [isRatingSortedDescendingly, setIsRatingSortedDescendingly] =
     useState<boolean>(false);
 
-  useEffect(() => {
-    if (itemCategory === 'albums') {
-      allItems = allAlbums;
-    } else if (itemCategory === 'cds') {
-      allItems = allCds;
-    } else if (itemCategory === 'tracks') {
-      allItems = allTracks;
-    }
-
-    if (allItems) {
-      setSortedItems(allItems);
-    }
-  }, [itemCategory]);
-
   // Initialize new array on mount
   useEffect(() => {
-    if (allItems) setSortedItems(allItems);
+    if (filteredData) setSortedItems(filteredData);
   }, []);
 
   // Change the direction of the sorting arrows in the correct direction, depending on which category is active
@@ -129,11 +115,12 @@ function LibraryPage() {
     // Set the correct arrow directions
     setArrowsDirection(e);
   }
-
+  console.log('category: ', category);
+  console.log('sortedItems: ', sortedItems);
   return (
-    <main className="my-6 pl-6">
-      <span className="text-3xl">An overview of your {itemCategory}</span>
-      <div className="py-8 pl-6">
+    <main className="my-16 pl-6">
+      <span className="text-2xl">Found {itemCategory}s</span>
+      <div className="py-2 pl-6">
         <ul>
           <div className="grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">
             <div>
@@ -153,7 +140,7 @@ function LibraryPage() {
             </div>
             <div>
               {/* Display a "Length" sorting button for tracks or a "CDs" button for albums and cds */}
-              {itemCategory === 'tracks' ? (
+              {itemCategory === 'track' ? (
                 <button
                   aria-label="Sort tracks by length"
                   className="text-sm font-semibold"
@@ -202,15 +189,15 @@ function LibraryPage() {
               <span className="text-sm font-semibold">Tags</span>
             </div>
           </div>
-          {allItems && (
+          {sortedItems && (
             <>
-              {itemCategory === 'tracks' && (
+              {itemCategory === 'track' && (
                 <LibraryContent items={sortedItems as Track[]} />
               )}
-              {itemCategory === 'albums' && (
+              {itemCategory === 'album' && (
                 <LibraryContent items={sortedItems as Album[]} />
               )}
-              {itemCategory === 'cds' && (
+              {itemCategory === 'cd' && (
                 <LibraryContent items={sortedItems as Cd[]} />
               )}
             </>
@@ -221,4 +208,4 @@ function LibraryPage() {
   );
 }
 
-export default LibraryPage;
+export default SearchResultContent;
