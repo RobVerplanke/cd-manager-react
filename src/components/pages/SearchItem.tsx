@@ -12,22 +12,25 @@ function SearchItemPage() {
   //buttons need to be updated
   const [searchForCategory, setSearchForCategory] = useState<ItemType>('album');
 
-  // Control the search input field
+  // Control the search input element
   const [searchInput, setSearchInput] = useState('');
 
-  // Search results
+  // Data for search results
   const [filteredData, setFilteredData] = useState<(Album | Cd | Track)[]>([]);
 
   // Show results only when the search buttons is clicked
   const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(false);
 
+  // To control the search input element
   const searchKeyword = useRef<HTMLInputElement | null>(null);
 
+  // When user clicks the search button, make the selected category definitive and update the search results
   async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     setIsSearchButtonClicked(true);
     setSearchForCategory(seletedCategory);
 
+    // Fetch data from selected category only
     const data = await getAllItemsFromType(seletedCategory);
 
     // Find items with keyword in title or artistname
@@ -37,11 +40,12 @@ function SearchItemPage() {
           item.title.includes(searchInput) ||
           item.artist.includes(searchInput)
         )
-          return item;
+          return item; // When keyword is found, store the item in search results
       })
     );
   }
 
+  // Control the search input element
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchInput((prevVal) => (prevVal = e.target.value));
   }
@@ -60,7 +64,8 @@ function SearchItemPage() {
               type="radio"
               name="category"
               id="album"
-              onClick={() => setSelectedCategory('album')}
+              onChange={() => setSelectedCategory('album')}
+              checked={seletedCategory === 'album'} // Conditional checked prop
             />
             <label htmlFor="album">Album</label>
           </div>
@@ -70,7 +75,8 @@ function SearchItemPage() {
               type="radio"
               name="category"
               id="cd"
-              onClick={() => setSelectedCategory('cd')}
+              onChange={() => setSelectedCategory('cd')}
+              checked={seletedCategory === 'cd'}
             />
             <label htmlFor="cd">CD</label>
           </div>
@@ -80,7 +86,8 @@ function SearchItemPage() {
               type="radio"
               name="category"
               id="track"
-              onClick={() => setSelectedCategory('track')}
+              onChange={() => setSelectedCategory('track')}
+              checked={seletedCategory === 'track'}
             />
             <label htmlFor="track">Track</label>
           </div>
