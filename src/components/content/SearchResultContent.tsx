@@ -38,7 +38,7 @@ function SearchResultContent({
   // Initialize new array on mount
   useEffect(() => {
     if (filteredData) setSortedItems(filteredData);
-  }, []);
+  }, [filteredData]);
 
   // Change the direction of the sorting arrows in the correct direction, depending on which category is active
   function setArrowsDirection(e: React.MouseEvent<HTMLButtonElement>) {
@@ -115,8 +115,7 @@ function SearchResultContent({
     // Set the correct arrow directions
     setArrowsDirection(e);
   }
-  console.log('category: ', category);
-  console.log('sortedItems: ', sortedItems);
+
   return (
     <main className="my-16 pl-6">
       <span className="text-2xl">Found {itemCategory}s</span>

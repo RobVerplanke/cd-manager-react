@@ -2,19 +2,31 @@ import SearchIcon from '@mui/icons-material/Search';
 import SearchResultContent from '../content/SearchResultContent';
 import getAllItemsFromType from '../../api/getAllItemsFromType';
 import { Album, Cd, Track, ItemType } from '../../lib/types/types';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 function SearchItemPage() {
   // Use a state to keep track of active radiobutton
   const [seletedCategory, setSelectedCategory] = useState<ItemType>('album');
+
+  // This state of the selected category is used when search button is clicked and the result headings/sort
+  //buttons need to be updated
+  const [searchForCategory, setSearchForCategory] = useState<ItemType>('album');
+
+  // Control the search input field
   const [searchInput, setSearchInput] = useState('');
+
+  // Search results
   const [filteredData, setFilteredData] = useState<(Album | Cd | Track)[]>([]);
+
+  // Show results only when the search buttons is clicked
   const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(false);
 
   const searchKeyword = useRef<HTMLInputElement | null>(null);
 
   async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
+    setIsSearchButtonClicked(true);
+    setSearchForCategory(seletedCategory);
 
     const data = await getAllItemsFromType(seletedCategory);
 
@@ -28,7 +40,6 @@ function SearchItemPage() {
           return item;
       })
     );
-    setIsSearchButtonClicked(true);
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -93,7 +104,7 @@ function SearchItemPage() {
       <div>
         {isSearchButtonClicked && (
           <SearchResultContent
-            category={seletedCategory}
+            category={searchForCategory}
             filteredData={filteredData}
           />
         )}
