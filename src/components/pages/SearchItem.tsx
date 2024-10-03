@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 
 function SearchItemPage() {
   // Use a state to keep track of active radiobutton
-  const [seletedCategory, setSelectedCategory] = useState<ItemType>('album');
+  const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
 
   // This state of the selected category is used when search button is clicked and the result headings/sort
   //buttons need to be updated
@@ -24,16 +24,17 @@ function SearchItemPage() {
   // To control the search input element
   const searchKeyword = useRef<HTMLInputElement | null>(null);
 
-  // When user clicks the search button, make the selected category definitive and update the search results
-  async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
+  // Make the selected category definitive and update the search results
+  async function executeSearch() {
     setIsSearchButtonClicked(true);
-    setSearchForCategory(seletedCategory);
+
+    // Definitive search keyword(s) is set after user clicks/presses enter to submit search
+    setSearchForCategory(selectedCategory);
 
     // Fetch data from selected category only
-    const data = await getAllItemsFromType(seletedCategory);
+    const data = await getAllItemsFromType(selectedCategory);
 
-    // Find items with keyword in title or artistname
+    // Find items with keyword(s) in title or artistname
     setFilteredData(
       data.filter((item) => {
         if (
@@ -48,6 +49,20 @@ function SearchItemPage() {
   // Control the search input element
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchInput((prevVal) => (prevVal = e.target.value));
+  }
+
+  // When user clicks the search button, execute search
+  async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    await executeSearch();
+  }
+
+  // When user presses the "Enter" key, execute search
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      executeSearch();
+    }
   }
 
   return (
@@ -65,7 +80,7 @@ function SearchItemPage() {
               name="category"
               id="album"
               onChange={() => setSelectedCategory('album')}
-              checked={seletedCategory === 'album'} // Conditional checked prop
+              checked={selectedCategory === 'album'} // Conditional checked prop
             />
             <label htmlFor="album">Album</label>
           </div>
@@ -76,7 +91,7 @@ function SearchItemPage() {
               name="category"
               id="cd"
               onChange={() => setSelectedCategory('cd')}
-              checked={seletedCategory === 'cd'}
+              checked={selectedCategory === 'cd'}
             />
             <label htmlFor="cd">CD</label>
           </div>
@@ -87,7 +102,7 @@ function SearchItemPage() {
               name="category"
               id="track"
               onChange={() => setSelectedCategory('track')}
-              checked={seletedCategory === 'track'}
+              checked={selectedCategory === 'track'}
             />
             <label htmlFor="track">Track</label>
           </div>
@@ -97,6 +112,7 @@ function SearchItemPage() {
         <input
           ref={searchKeyword}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           value={searchInput}
           className="rounded-md h-7 p-2 mr-0.5 w-1/3"
           placeholder="Search for keywords..."
