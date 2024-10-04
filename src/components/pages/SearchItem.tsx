@@ -1,3 +1,4 @@
+import CategorySelector from '../CategorySelector';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultContent from '../content/SearchResultContent';
 import getAllItemsFromType from '../../api/getAllItemsFromType';
@@ -70,44 +71,10 @@ function SearchItemPage() {
       <div className="text-3xl">
         <span>Search</span>
       </div>
-      <div className="py-8 pl-6">
-        <span className="text-sm font-semibold">Select category:</span>
-        <div role="menu" className="flex flex-col gap-1 mt-2 text-[13px]">
-          <div>
-            <input
-              className="mr-2"
-              type="radio"
-              name="category"
-              id="album"
-              onChange={() => setSelectedCategory('album')}
-              checked={selectedCategory === 'album'} // Conditional checked prop
-            />
-            <label htmlFor="album">Album</label>
-          </div>
-          <div>
-            <input
-              className="mr-2"
-              type="radio"
-              name="category"
-              id="cd"
-              onChange={() => setSelectedCategory('cd')}
-              checked={selectedCategory === 'cd'}
-            />
-            <label htmlFor="cd">CD</label>
-          </div>
-          <div>
-            <input
-              className="mr-2"
-              type="radio"
-              name="category"
-              id="track"
-              onChange={() => setSelectedCategory('track')}
-              checked={selectedCategory === 'track'}
-            />
-            <label htmlFor="track">Track</label>
-          </div>
-        </div>
-      </div>
+      <CategorySelector
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       <div className="pl-6">
         <input
           ref={searchKeyword}

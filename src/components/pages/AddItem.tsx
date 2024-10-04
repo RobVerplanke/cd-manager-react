@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Item, Album, Cd, Track, ItemType } from '../../lib/types/types';
+import { Album, Cd, Track, ItemType } from '../../lib/types/types';
+import CategorySelector from '../CategorySelector';
 
 function AddItemPage() {
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
@@ -57,42 +58,10 @@ function AddItemPage() {
         <span>Add new item</span>
       </div>
       {/* Radio buttons to select category */}
-      <div role="menu" className="flex flex-col text-[13px] py-8 pl-6">
-        <span className="text-sm font-semibold">Select category:</span>
-        <div>
-          <input
-            className="mr-2"
-            type="radio"
-            name="category"
-            id="album"
-            onChange={() => setSelectedCategory('album')}
-            checked={selectedCategory === 'album'} // Conditional checked prop
-          />
-          <label htmlFor="album">Album</label>
-        </div>
-        <div>
-          <input
-            className="mr-2"
-            type="radio"
-            name="category"
-            id="cd"
-            onChange={() => setSelectedCategory('cd')}
-            checked={selectedCategory === 'cd'}
-          />
-          <label htmlFor="cd">CD</label>
-        </div>
-        <div>
-          <input
-            className="mr-2"
-            type="radio"
-            name="category"
-            id="track"
-            onChange={() => setSelectedCategory('track')}
-            checked={selectedCategory === 'track'}
-          />
-          <label htmlFor="track">Track</label>
-        </div>
-      </div>
+      <CategorySelector
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       {/* Common fields for all categories */}
       <form className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium">
         <label htmlFor="artist" className="text-gray-700">
