@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Album, Cd, Track } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
-import { LibraryContent } from '../content/LibraryContent';
+import { ItemsListContent } from '../content/ItemsListContent';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import {
@@ -36,11 +36,11 @@ function LibraryPage() {
     useState<boolean>(false);
 
   useEffect(() => {
-    if (itemCategory === 'albums') {
+    if (itemCategory === 'album') {
       allItems = allAlbums;
-    } else if (itemCategory === 'cds') {
+    } else if (itemCategory === 'cd') {
       allItems = allCds;
-    } else if (itemCategory === 'tracks') {
+    } else if (itemCategory === 'track') {
       allItems = allTracks;
     }
 
@@ -153,7 +153,7 @@ function LibraryPage() {
             </div>
             <div>
               {/* Display a "Length" sorting button for tracks or a "CDs" button for albums and cds */}
-              {itemCategory === 'tracks' ? (
+              {itemCategory === 'track' ? (
                 <button
                   aria-label="Sort tracks by length"
                   className="text-sm font-semibold"
@@ -204,14 +204,14 @@ function LibraryPage() {
           </div>
           {allItems && (
             <>
-              {itemCategory === 'tracks' && (
-                <LibraryContent items={sortedItems as Track[]} />
+              {itemCategory === 'track' && (
+                <ItemsListContent items={sortedItems as Track[]} />
               )}
-              {itemCategory === 'albums' && (
-                <LibraryContent items={sortedItems as Album[]} />
+              {itemCategory === 'album' && (
+                <ItemsListContent items={sortedItems as Album[]} />
               )}
-              {itemCategory === 'cds' && (
-                <LibraryContent items={sortedItems as Cd[]} />
+              {itemCategory === 'cd' && (
+                <ItemsListContent items={sortedItems as Cd[]} />
               )}
             </>
           )}

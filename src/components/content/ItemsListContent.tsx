@@ -5,7 +5,11 @@ import ItemCard from '../cards/ItemCard';
 import ItemWithCoverCard from '../cards/ItemWithCoverCard';
 import { MAX_AMOUNT_TRACKS_PER_PAGE } from '../../lib/types/constants';
 
-export function LibraryContent({ items }: { items: Album[] | Cd[] | Track[] }) {
+export function ItemsListContent({
+  items,
+}: {
+  items: Album[] | Cd[] | Track[];
+}) {
   const data = items;
 
   const [page, setPage] = useState(0);

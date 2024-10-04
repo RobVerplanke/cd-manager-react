@@ -26,7 +26,7 @@ function NavigationBar() {
       <ul className="h-fit bg-slate-600">
         <li>
           <Link
-            to="/library/albums"
+            to="/library/album"
             aria-label="Go to album library"
             className="flex justify-center items-center h-9 hover:bg-slate-500"
           >
@@ -35,7 +35,7 @@ function NavigationBar() {
         </li>
         <li>
           <Link
-            to="/library/cds"
+            to="/library/cd"
             aria-label="Go to cd library"
             className="flex justify-center items-center h-9 hover:bg-slate-500"
           >
@@ -44,7 +44,7 @@ function NavigationBar() {
         </li>
         <li>
           <Link
-            to="/library/tracks"
+            to="/library/track"
             aria-label="Co to track library"
             className="flex justify-center items-center h-9 hover:bg-slate-500"
           >

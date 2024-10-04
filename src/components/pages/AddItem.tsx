@@ -116,9 +116,10 @@ function AddItemPage() {
           className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        {/* Category-specific fields zoals hieronder */}
+        {/* Category-specific fields */}
         {renderCategorySpecificFields()}
 
+        {/* Extra information field will always be renderd at last */}
         <label htmlFor="extraInfo" className="text-gray-700">
           Extra Info:
         </label>
@@ -128,6 +129,7 @@ function AddItemPage() {
           className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         ></textarea>
 
+        {/* Submit button */}
         <button
           type="submit"
           className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"

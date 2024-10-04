@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Album, Cd, Track } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
-import { LibraryContent } from './LibraryContent';
+import { ItemsListContent } from './ItemsListContent';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import {
@@ -11,7 +11,6 @@ import {
   sortItemsByRating,
 } from '../../utils/helperFunctions';
 
-//
 function SearchResultContent({
   category,
   filteredData,
@@ -191,13 +190,13 @@ function SearchResultContent({
           {sortedItems && (
             <>
               {itemCategory === 'track' && (
-                <LibraryContent items={sortedItems as Track[]} />
+                <ItemsListContent items={sortedItems as Track[]} />
               )}
               {itemCategory === 'album' && (
-                <LibraryContent items={sortedItems as Album[]} />
+                <ItemsListContent items={sortedItems as Album[]} />
               )}
               {itemCategory === 'cd' && (
-                <LibraryContent items={sortedItems as Cd[]} />
+                <ItemsListContent items={sortedItems as Cd[]} />
               )}
             </>
           )}
