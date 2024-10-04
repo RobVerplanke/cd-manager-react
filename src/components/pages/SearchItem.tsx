@@ -71,10 +71,12 @@ function SearchItemPage() {
       <div className="text-3xl">
         <span>Search</span>
       </div>
+      {/* Render section where category can be selected */}
       <CategorySelector
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
+      {/* Searchbar */}
       <div className="pl-6">
         <input
           ref={searchKeyword}
@@ -92,6 +94,7 @@ function SearchItemPage() {
         </button>
       </div>
       <div>
+        {/* Search results */}
         {isSearchButtonClicked && (
           <SearchResultContent
             category={searchForCategory}
