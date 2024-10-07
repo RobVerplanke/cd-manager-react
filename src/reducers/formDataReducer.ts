@@ -1,4 +1,4 @@
-import { Item } from '../lib/types/types';
+import { Item, ItemType } from '../lib/types/types';
 import { createNewItemObject } from '../utils/helperFunctions';
 
 const newObject: Item = createNewItemObject();
@@ -11,6 +11,8 @@ export default function formDataReducer(
   switch (action.type) {
     case 'cleared_form':
       return { ...state, ...newObject };
+    case 'selected_form':
+      return { ...state, type: action.payload.inputValue as ItemType };
     case 'added_title':
       return { ...state, title: action.payload.inputValue as string };
     case 'added_artist':

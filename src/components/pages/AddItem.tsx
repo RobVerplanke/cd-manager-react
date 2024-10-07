@@ -3,6 +3,7 @@ import { type ItemType, type Item } from '../../lib/types/types';
 import CategorySelector from '../CategorySelector';
 import formDataReducer from '../../reducers/formDataReducer';
 import { createNewItemObject } from '../../utils/helperFunctions';
+import addNewItem from '../../api/addNewItemAPI';
 
 function AddItemPage() {
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
@@ -13,11 +14,18 @@ function AddItemPage() {
   // Store data for new item
   const [state, dispatch] = useReducer(formDataReducer, newItem);
 
-  // Clear form when user changes item category
+  // When user changes item category, clear the form and set itemtype to selected category
   useEffect(() => {
+    // Clear form to initial values
     dispatch({
       type: 'cleared_form',
       payload: { inputValue: '' },
+    });
+
+    // Update type property
+    dispatch({
+      type: 'selected_form',
+      payload: { inputValue: selectedCategory },
     });
   }, [selectedCategory]);
 
@@ -35,6 +43,7 @@ function AddItemPage() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log('Submitted item:', state);
+    addNewItem(selectedCategory, state);
   }
 
   // Conditionally render category-specific fields based on selected category
