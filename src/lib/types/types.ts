@@ -22,7 +22,7 @@ type ItemWithCoverCardProps = Album | Cd;
 // A base type with common properties
 type Item = {
   id: number;
-  type: ItemType;
+  type: string;
   artist: string;
   featuringArtists?: string[];
   title: string;
@@ -30,6 +30,29 @@ type Item = {
   year: number;
   rating: number;
   extraInfo: string;
+  specificFields: {
+    album: {
+      cdCount: number;
+      cover: {
+        thumbnail: string;
+        fullSize: string;
+      };
+    };
+    cd: {
+      cdCount: number;
+      trackCount: number;
+      partOfAlbum?: string;
+      cover: {
+        thumbnail: string;
+        fullSize: string;
+      };
+    };
+    track: {
+      cdTitle: string;
+      trackNumber: number;
+      length: string;
+    };
+  };
 };
 
 // Properties specific for an item of type Album
@@ -59,6 +82,7 @@ type Track = Item & {
 };
 
 export {
+  Item,
   ItemType,
   ItemCardProps,
   ItemWithCoverCardProps,

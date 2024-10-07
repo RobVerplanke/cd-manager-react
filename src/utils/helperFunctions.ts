@@ -59,3 +59,41 @@ export function sortItemsByLength(items: Track[], isSorted: boolean) {
     ? [...items].sort((a, b) => a.length.localeCompare(b.length))
     : [...items].sort((a, b) => b.length.localeCompare(a.length));
 }
+
+// Template for new item
+export function createNewItemObject() {
+  return {
+    id: Date.now(),
+    type: '',
+    artist: '',
+    featuringArtists: [],
+    title: '',
+    year: 0,
+    rating: 0,
+    tags: [],
+    extraInfo: '',
+    specificFields: {
+      album: {
+        cdCount: 0,
+        cover: {
+          thumbnail: '',
+          fullSize: '',
+        },
+      },
+      cd: {
+        cdCount: 0,
+        trackCount: 0,
+        partOfAlbum: '',
+        cover: {
+          thumbnail: '',
+          fullSize: '',
+        },
+      },
+      track: {
+        cdTitle: '',
+        trackNumber: 0,
+        length: '',
+      },
+    },
+  };
+}
