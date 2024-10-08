@@ -3,12 +3,24 @@ import { ItemWithCoverCardProps } from '../../lib/types/types';
 import InfoIcon from '@mui/icons-material/Info';
 
 function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
+  console.log('ItemWithCoverCard called with: ', item);
+
+  const coverThumbnail =
+    item.type === 'album'
+      ? item.specificFields.album.cover.thumbnail
+      : item.specificFields.cd.cover.thumbnail;
+
+  const cdCount =
+    item.type === 'album'
+      ? item.specificFields.album.cdCount
+      : item.specificFields.cd.cdCount;
+
   return (
     <div className="grid grid-cols-[50px_1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">
       {/* Cover Thumbnail */}
       <div className="w-full h-full">
         <img
-          src="https://placehold.co/30x30"
+          src={coverThumbnail || 'default-thumbnail.jpg'}
           alt={item.title}
           className="object-cover w-full h-full rounded"
         />
@@ -28,9 +40,9 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
         <p className="text-sm text-gray-600">{item.artist}</p>
       </div>
 
-      {/* Length or CD count */}
+      {/* Display the length of the track or the amount of CDs for albums or CDs */}
       <div className="text-sm text-gray-600">
-        {'cdCount' in item && item.cdCount}
+        {cdCount !== undefined ? cdCount : 'N/A'}
       </div>
 
       {/* Rating */}

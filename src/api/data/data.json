@@ -1,90 +1,21 @@
 {
   "albums": [
     {
-      "id": "1",
+      "id": "1728329777008",
       "type": "album",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdCount": 2,
-      "artist": "Rob Waves",
-      "featuringArtists": [
-        "DJ Echo",
-        "Synth Star"
-      ],
-      "title": "Echoes in the Sky",
-      "tags": [
-        "Synthwave",
-        "Electronic",
-        "Chill"
-      ],
-      "year": 2020,
+      "artist": "The Imaginary Band",
+      "featuringArtists": ["Artist A", "Artist B"],
+      "title": "Dreamscapes",
+      "year": 2021,
       "rating": 4.5,
-      "extraInfo": "A synthwave masterpiece with an ethereal sound."
-    },
-    {
-      "id": "2",
-      "type": "album",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdCount": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "Rolling Thunder",
-      "tags": [
-        "Rock",
-        "Blues",
-        "Classic"
-      ],
-      "year": 1998,
-      "rating": 4,
-      "extraInfo": "A classic rock album filled with bluesy riffs and soulful vocals."
-    },
-    {
-      "id": "3",
-      "type": "album",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdCount": 3,
-      "artist": "Jazz Grooves Collective",
-      "featuringArtists": [],
-      "title": "Midnight Sessions",
-      "tags": [
-        "Jazz",
-        "Instrumental",
-        "Live"
-      ],
-      "year": 2015,
-      "rating": 5,
-      "extraInfo": "A live recording of jazz sessions from various midnight performances."
-    },
-    {
-      "id": 1728329293318,
-      "type": "",
-      "artist": "test artiest",
-      "featuringArtists": [
-        "test feat artiesten"
-      ],
-      "title": "test title",
-      "year": "2024",
-      "rating": "5",
-      "tags": [
-        "ttest"
-      ],
-      "extraInfo": "test info",
+      "tags": ["alternative", "dream pop"],
+      "extraInfo": "A collection of ethereal sounds.",
       "specificFields": {
         "album": {
-          "cdCount": "4",
+          "cdCount": 1,
           "cover": {
-            "thumbnail": "test thumbnail",
-            "fullSize": "test fullsize"
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
           }
         },
         "cd": {
@@ -104,23 +35,21 @@
       }
     },
     {
-      "id": 1728329808110,
+      "id": "1728329777011",
       "type": "album",
-      "artist": "hhhhhhh",
-      "featuringArtists": [
-        "ff"
-      ],
-      "title": "",
-      "year": 0,
-      "rating": 0,
-      "tags": [],
-      "extraInfo": "",
+      "artist": "The Time Travelers",
+      "featuringArtists": [],
+      "title": "Timeless Melodies",
+      "year": 2023,
+      "rating": 4.8,
+      "tags": ["rock", "nostalgia"],
+      "extraInfo": "Rock anthems that stand the test of time.",
       "specificFields": {
         "album": {
-          "cdCount": 0,
+          "cdCount": 2,
           "cover": {
-            "thumbnail": "",
-            "fullSize": ""
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
           }
         },
         "cd": {
@@ -142,61 +71,15 @@
   ],
   "cds": [
     {
-      "id": "4",
+      "id": "1728329777009",
       "type": "cd",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdCount": 1,
-      "trackCount": 10,
-      "partOfAlbum": "Echoes in the Sky",
-      "artist": "The Rob Waves",
-      "featuringArtists": [
-        "DJ Echo"
-      ],
-      "title": "Echo Disc One",
-      "tags": [
-        "Synthwave",
-        "Electronic"
-      ],
-      "year": 2020,
-      "rating": 4.2,
-      "extraInfo": "The first CD in the Echoes in the Sky album."
-    },
-    {
-      "id": "5",
-      "type": "cd",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdCount": 2,
-      "trackCount": 15,
-      "partOfAlbum": "Rolling Thunder",
-      "artist": "Rocking Stones",
+      "artist": "Fictional Symphony",
       "featuringArtists": [],
-      "title": "Thunderstruck CD",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "rating": 4.7,
-      "extraInfo": "Second CD with extended versions of the original tracks."
-    },
-    {
-      "id": 1728329808110,
-      "type": "cd",
-      "artist": "mmmn",
-      "featuringArtists": [
-        "nn"
-      ],
-      "title": "",
-      "year": 0,
-      "rating": 0,
-      "tags": [],
-      "extraInfo": "",
+      "title": "Orchestral Adventures",
+      "year": 2019,
+      "rating": 5,
+      "tags": ["classical", "orchestra"],
+      "extraInfo": "An epic journey through classical music.",
       "specificFields": {
         "album": {
           "cdCount": 0,
@@ -206,12 +89,46 @@
           }
         },
         "cd": {
+          "cdCount": 1,
+          "trackCount": 10,
+          "partOfAlbum": "Symphonic Collections",
+          "cover": {
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
+          }
+        },
+        "track": {
+          "cdTitle": "",
+          "trackNumber": 0,
+          "length": ""
+        }
+      }
+    },
+    {
+      "id": "1728329777012",
+      "type": "cd",
+      "artist": "Jazz Quintet",
+      "featuringArtists": ["Special Guest"],
+      "title": "Jazz Nights",
+      "year": 2020,
+      "rating": 4.2,
+      "tags": ["jazz", "live"],
+      "extraInfo": "A live recording of an unforgettable night.",
+      "specificFields": {
+        "album": {
           "cdCount": 0,
-          "trackCount": 0,
-          "partOfAlbum": "",
           "cover": {
             "thumbnail": "",
             "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 4,
+          "trackCount": 8,
+          "partOfAlbum": "Live Recordings",
+          "cover": {
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
           }
         },
         "track": {
@@ -224,293 +141,15 @@
   ],
   "tracks": [
     {
-      "id": "6",
+      "id": "1728329777010",
       "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The Abyss",
-      "trackNumber": 1,
-      "artist": "The Sonic Waves",
-      "featuringArtists": [
-        "DJ Echo"
-      ],
-      "title": "TenInto the Abyss",
-      "tags": [
-        "Synthwave",
-        "Electronic"
-      ],
-      "year": 2020,
-      "length": "4:35",
-      "rating": 10,
-      "extraInfo": "An energetic track with a deep, bass-heavy beat."
-    },
-    {
-      "id": "7",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "Winds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "5:10",
-      "rating": 3,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "8",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "Groovy",
-      "trackNumber": 2,
-      "artist": "Jazz Grooves Collective",
-      "featuringArtists": [],
-      "title": "Midnight Jam",
-      "tags": [
-        "Jazz",
-        "Instrumental"
-      ],
-      "year": 2015,
-      "length": "6:45",
-      "rating": 5,
-      "extraInfo": "A smooth, extended jazz jam with an improvisational feel."
-    },
-    {
-      "id": "9",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "Winds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "5:10",
-      "rating": 3,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "10",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "Winds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "5:10",
-      "rating": 3,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "11",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "the wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "Winds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "9:10",
-      "rating": 3,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "12",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "NineWinds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "6:10",
-      "rating": 9,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "13",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "Rob of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "7:10",
-      "rating": 3,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "14",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rob Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "OneCWinds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "7:30",
-      "rating": 1,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "15",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "BWinds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "5:10",
-      "rating": 3,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "16",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "ZWinds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "5:10",
-      "rating": 6,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": "17",
-      "type": "track",
-      "cover": {
-        "thumbnail": "https://placehold.co/50x50",
-        "fullSize": "https://placehold.co/800x800"
-      },
-      "cdTitle": "The wind",
-      "trackNumber": 4,
-      "artist": "Rocking Stones",
-      "featuringArtists": [
-        "The Smooth Horns"
-      ],
-      "title": "AWinds of Change",
-      "tags": [
-        "Rock",
-        "Blues"
-      ],
-      "year": 1998,
-      "length": "5:10",
-      "rating": 3,
-      "extraInfo": "A slow and melodic blues ballad with strong vocals."
-    },
-    {
-      "id": 1728329777008,
-      "type": "track",
-      "artist": "ffgh",
-      "featuringArtists": [
-        "hhgf"
-      ],
-      "title": "fgh",
-      "year": "5",
-      "rating": "3",
-      "tags": [
-        "fghffhf"
-      ],
-      "extraInfo": "f",
+      "artist": "Solo Artist",
+      "featuringArtists": ["Guest Singer"],
+      "title": "Echoes in Time",
+      "year": 2022,
+      "rating": 4,
+      "tags": ["pop", "single"],
+      "extraInfo": "A catchy pop single that resonates.",
       "specificFields": {
         "album": {
           "cdCount": 0,
@@ -529,26 +168,22 @@
           }
         },
         "track": {
-          "cdTitle": "ddfgh",
-          "trackNumber": 0,
-          "length": "h"
+          "cdTitle": "Echoes",
+          "trackNumber": 1,
+          "length": "3:45"
         }
       }
     },
     {
-      "id": 1728329808110,
+      "id": "1728329777013",
       "type": "track",
-      "artist": "aaaaa",
-      "featuringArtists": [
-        "bbbbb"
-      ],
-      "title": "ccccc",
-      "year": "2000",
-      "rating": "5",
-      "tags": [
-        "dddddddd"
-      ],
-      "extraInfo": "ggggggg",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["indie", "alternative"],
+      "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
           "cdCount": 0,
@@ -567,9 +202,9 @@
           }
         },
         "track": {
-          "cdTitle": "eeeeeee",
-          "trackNumber": 0,
-          "length": "111"
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 2,
+          "length": "4:20"
         }
       }
     }

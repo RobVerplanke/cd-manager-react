@@ -1,6 +1,7 @@
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import { ItemCardProps } from '../../lib/types/types';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
 function ItemCard({ item }: { item: ItemCardProps }) {
   return (
@@ -8,9 +9,9 @@ function ItemCard({ item }: { item: ItemCardProps }) {
       <div className="flex flex-col">
         <div className="flex items-center">
           <h3 className="mr-2 text-lg font-bold">{item.title}</h3>
-          <button className="pt-0.5 text-gray-500">
+          <Link to={`/details/${item.id}`} className="pt-0.5 text-gray-500">
             <InfoIcon sx={{ fontSize: 18 }} />
-          </button>
+          </Link>
           <button className="pt-0.5 pl-2 text-gray-600">
             <EditNoteOutlinedIcon fontSize="small" />
           </button>
@@ -19,7 +20,8 @@ function ItemCard({ item }: { item: ItemCardProps }) {
       </div>
 
       <div className="text-sm text-gray-600">
-        {'length' in item && item.length}
+        {'length' in item.specificFields.track &&
+          item.specificFields.track.length}
       </div>
       <p>⭐⭐⭐⭐⭐</p>
       <div className="flex flex-wrap gap-2">

@@ -31,16 +31,15 @@ export function ItemsListContent({
 
   // Type guards for narrowing the item types
   function isTrack(item: Album | Cd | Track): item is Track {
-    return (item as Track).length !== undefined;
+    return (item as Track).specificFields.track.length !== '';
   }
 
   function isAlbumOrCd(item: Album | Cd | Track): item is Album | Cd {
     return (
-      (item as Album).cdCount !== undefined ||
-      (item as Cd).cdCount !== undefined
+      (item as Album).specificFields.album.cdCount !== 0 ||
+      (item as Cd).specificFields.cd.cdCount !== 0
     );
   }
-
   return (
     <>
       <ul>
