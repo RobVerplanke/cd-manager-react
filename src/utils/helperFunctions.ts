@@ -63,7 +63,7 @@ export function sortItemsByLength(items: Track[], isSorted: boolean) {
 // Template for new item
 export function createNewItemObject() {
   return {
-    id: Date.now(),
+    id: Date.now().toString(),
     type: '',
     artist: '',
     featuringArtists: [],

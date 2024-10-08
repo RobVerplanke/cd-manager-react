@@ -21,7 +21,7 @@ type ItemWithCoverCardProps = Album | Cd;
 
 // A base type with common properties
 type Item = {
-  id: number;
+  id: string;
   type: string;
   artist: string;
   featuringArtists?: string[];
