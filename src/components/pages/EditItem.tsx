@@ -1,6 +1,5 @@
 import { useEffect, useReducer, useState } from 'react';
-import { type ItemType, type Item } from '../../lib/types/types';
-import CategorySelector from '../CategorySelector';
+import { type Item } from '../../lib/types/types';
 import formDataReducer from '../../reducers/formDataReducer';
 import getItemById from '../../api/getItemById';
 import { useParams } from 'react-router-dom';
@@ -16,7 +15,7 @@ function EditItemPage() {
   // Item to replace, initlally an empty object until the data is loaded
   const [item, setItem] = useState<Item>(newItem);
 
-  // Item object that will replace the old item data
+  // Item object that will replace the current item
   const [state, dispatch] = useReducer(formDataReducer, item);
 
   // Fetch item data on mount when ID is available

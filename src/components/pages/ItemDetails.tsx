@@ -109,7 +109,7 @@ function ViewItemPAge() {
               <dt className="font-semibold">Cover:</dt>
               <dd>
                 <img
-                  src={item.specificFields.cd.cover.thumbnail}
+                  src={item.specificFields.cd.cover.fullSize}
                   alt="CD cover"
                 />
               </dd>

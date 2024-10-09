@@ -12,9 +12,9 @@ export default function formDataReducer(
   }
 ): Item {
   switch (action.type) {
-    case 'filled_form': // Replace current item with new item
+    case 'filled_form': // Edit: Replace current item with new item
       return { ...state, ...action.payload.item };
-    case 'cleared_form': // Replace all values with empty values
+    case 'cleared_form': // Clear: Replace all values with empty values
       return { ...state, ...newItem };
     case 'selected_form':
       return { ...state, type: action.payload.inputValue as ItemType };

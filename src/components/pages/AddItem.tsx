@@ -14,7 +14,7 @@ function AddItemPage() {
   // Store data for new item
   const [state, dispatch] = useReducer(formDataReducer, newItem);
 
-  // When user changes item category, clear the form and set itemtype to selected category
+  // When user changes item category, clear the form and set 'type'-property value to selected category
   useEffect(() => {
     // Clear form to initial values
     dispatch({
@@ -22,7 +22,7 @@ function AddItemPage() {
       payload: { inputValue: '' },
     });
 
-    // Update type property
+    // Set type property
     dispatch({
       type: 'selected_form',
       payload: { inputValue: selectedCategory },
