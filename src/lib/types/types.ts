@@ -12,17 +12,17 @@ type Context = {
   allTracks: Track[];
 };
 
-// Every item can only be one of these types
-type ItemType = 'album' | 'cd' | 'track';
-
 // Cards can only be created with one of these types
 type ItemCardProps = Track;
 type ItemWithCoverCardProps = Album | Cd;
 
+// Every item can only be one of these types
+type ItemType = 'album' | 'cd' | 'track' | 'unknown';
+
 // A base type with common properties
 type Item = {
   id: string;
-  type: string;
+  type: ItemType;
   artist: string;
   featuringArtists?: string[];
   title: string;

@@ -12,9 +12,9 @@ function ItemCard({ item }: { item: ItemCardProps }) {
           <Link to={`/details/${item.id}`} className="pt-0.5 text-gray-500">
             <InfoIcon sx={{ fontSize: 18 }} />
           </Link>
-          <button className="pt-0.5 pl-2 text-gray-600">
+          <Link to={`/edit/${item.id}`} className="pt-0.5 pl-2 text-gray-600">
             <EditNoteOutlinedIcon fontSize="small" />
-          </button>
+          </Link>
         </div>
         <p className="text-sm text-gray-600">{item.artist}</p>
       </div>

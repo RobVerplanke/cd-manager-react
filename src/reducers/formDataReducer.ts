@@ -1,16 +1,21 @@
 import { Item, ItemType } from '../lib/types/types';
 import { createNewItemObject } from '../utils/helperFunctions';
 
-const newObject: Item = createNewItemObject();
+const newItem: Item = createNewItemObject();
 
 // Reducer function for adding items to the library
 export default function formDataReducer(
   state: Item,
-  action: { type: string; payload: { inputValue: string | number } }
+  action: {
+    type: string;
+    payload: { inputValue: string | number; item?: Item };
+  }
 ): Item {
   switch (action.type) {
-    case 'cleared_form':
-      return { ...state, ...newObject };
+    case 'filled_form': // Replace current item with new item
+      return { ...state, ...action.payload.item };
+    case 'cleared_form': // Replace all values with empty values
+      return { ...state, ...newItem };
     case 'selected_form':
       return { ...state, type: action.payload.inputValue as ItemType };
     case 'added_title':

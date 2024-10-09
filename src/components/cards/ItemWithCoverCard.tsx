@@ -1,10 +1,9 @@
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import { ItemWithCoverCardProps } from '../../lib/types/types';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
 function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
-  console.log('ItemWithCoverCard called with: ', item);
-
   const coverThumbnail =
     item.type === 'album'
       ? item.specificFields.album.cover.thumbnail
@@ -30,12 +29,12 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
       <div className="flex flex-col">
         <div className="flex items-center">
           <h3 className="mr-2 text-lg font-bold">{item.title}</h3>
-          <button className="pt-0.5 text-gray-500">
+          <Link to={`/details/${item.id}`} className="pt-0.5 text-gray-500">
             <InfoIcon sx={{ fontSize: 18 }} />
-          </button>
-          <button className="pt-0.5 pl-2 text-gray-600">
+          </Link>
+          <Link to={`/edit/${item.id}`} className="pt-0.5 pl-2 text-gray-600">
             <EditNoteOutlinedIcon fontSize="small" />
-          </button>
+          </Link>
         </div>
         <p className="text-sm text-gray-600">{item.artist}</p>
       </div>

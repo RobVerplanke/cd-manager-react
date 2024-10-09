@@ -4,11 +4,17 @@
       "id": "1728329777008",
       "type": "album",
       "artist": "The Imaginary Band",
-      "featuringArtists": ["Artist A", "Artist B"],
+      "featuringArtists": [
+        "Artist A",
+        "Artist B"
+      ],
       "title": "Dreamscapes",
       "year": 2021,
       "rating": 4.5,
-      "tags": ["alternative", "dream pop"],
+      "tags": [
+        "alternative",
+        "dream pop"
+      ],
       "extraInfo": "A collection of ethereal sounds.",
       "specificFields": {
         "album": {
@@ -42,7 +48,10 @@
       "title": "Timeless Melodies",
       "year": 2023,
       "rating": 4.8,
-      "tags": ["rock", "nostalgia"],
+      "tags": [
+        "rock",
+        "nostalgia"
+      ],
       "extraInfo": "Rock anthems that stand the test of time.",
       "specificFields": {
         "album": {
@@ -73,12 +82,15 @@
     {
       "id": "1728329777009",
       "type": "cd",
-      "artist": "Fictional Symphony",
+      "artist": "Fictional Symphony 2",
       "featuringArtists": [],
       "title": "Orchestral Adventures",
       "year": 2019,
       "rating": 5,
-      "tags": ["classical", "orchestra"],
+      "tags": [
+        "classical",
+        "orchestra"
+      ],
       "extraInfo": "An epic journey through classical music.",
       "specificFields": {
         "album": {
@@ -108,11 +120,16 @@
       "id": "1728329777012",
       "type": "cd",
       "artist": "Jazz Quintet",
-      "featuringArtists": ["Special Guest"],
+      "featuringArtists": [
+        "Special Guest"
+      ],
       "title": "Jazz Nights",
       "year": 2020,
       "rating": 4.2,
-      "tags": ["jazz", "live"],
+      "tags": [
+        "jazz",
+        "live"
+      ],
       "extraInfo": "A live recording of an unforgettable night.",
       "specificFields": {
         "album": {
@@ -144,11 +161,16 @@
       "id": "1728329777010",
       "type": "track",
       "artist": "Solo Artist",
-      "featuringArtists": ["Guest Singer"],
+      "featuringArtists": [
+        "Guest Singer"
+      ],
       "title": "Echoes in Time",
       "year": 2022,
       "rating": 4,
-      "tags": ["pop", "single"],
+      "tags": [
+        "pop",
+        "single"
+      ],
       "extraInfo": "A catchy pop single that resonates.",
       "specificFields": {
         "album": {
@@ -170,7 +192,7 @@
         "track": {
           "cdTitle": "Echoes",
           "trackNumber": 1,
-          "length": "3:45"
+          "length": "4:45"
         }
       }
     },
@@ -178,11 +200,16 @@
       "id": "1728329777013",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves",
       "year": 2024,
       "rating": 4.3,
-      "tags": ["indie", "alternative"],
+      "tags": [
+        "indie",
+        "alternative"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {

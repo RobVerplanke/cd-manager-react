@@ -1,4 +1,4 @@
-import { Album, Cd, Track } from '../lib/types/types';
+import { Album, Cd, Item, Track } from '../lib/types/types';
 
 // Measure rendering performance
 export function onRender(
@@ -61,10 +61,10 @@ export function sortItemsByLength(items: Track[], isSorted: boolean) {
 }
 
 // Template for new item
-export function createNewItemObject() {
+export function createNewItemObject(): Item {
   return {
     id: Date.now().toString(),
-    type: '',
+    type: 'unknown',
     artist: '',
     featuringArtists: [],
     title: '',
