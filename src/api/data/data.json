@@ -8,7 +8,7 @@
       "title": "Dreamscapes",
       "year": 2021,
       "rating": 4.5,
-      "tags": ["alternative", "dream pop"],
+      "tags": ["alternative", "dream pop", "trance"],
       "extraInfo": "A collection of ethereal sounds.",
       "specificFields": {
         "album": {
@@ -35,7 +35,7 @@
       }
     },
     {
-      "id": "1728329777011",
+      "id": "1718329777011",
       "type": "album",
       "artist": "The Time Travelers",
       "featuringArtists": [],
@@ -73,7 +73,7 @@
     {
       "id": "1728329777009",
       "type": "cd",
-      "artist": "Fictional Symphony 2",
+      "artist": "Fictional Symphony",
       "featuringArtists": [],
       "title": "Orchestral Adventures",
       "year": 2019,
@@ -105,7 +105,177 @@
       }
     },
     {
+      "id": "1728329777010",
+      "type": "cd",
+      "artist": "Fictional Orchestra",
+      "featuringArtists": [],
+      "title": "Symphony of Dreams",
+      "year": 2020,
+      "rating": 4.8,
+      "tags": ["classical", "symphony"],
+      "extraInfo": "A mesmerizing symphonic journey.",
+      "specificFields": {
+        "album": {
+          "cdCount": 1,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 1,
+          "trackCount": 12,
+          "partOfAlbum": "Dreams in Symphony",
+          "cover": {
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
+          }
+        },
+        "track": {
+          "cdTitle": "",
+          "trackNumber": 0,
+          "length": ""
+        }
+      }
+    },
+    {
+      "id": "1728329777011",
+      "type": "cd",
+      "artist": "Epic Ensemble",
+      "featuringArtists": [],
+      "title": "Epic Crescendo",
+      "year": 2021,
+      "rating": 4.9,
+      "tags": ["orchestra", "epic", "alternative"],
+      "extraInfo": "An epic crescendo that soars through the musical scales.",
+      "specificFields": {
+        "album": {
+          "cdCount": 2,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 1,
+          "trackCount": 9,
+          "partOfAlbum": "Epic Series",
+          "cover": {
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
+          }
+        },
+        "track": {
+          "cdTitle": "",
+          "trackNumber": 0,
+          "length": ""
+        }
+      }
+    },
+    {
       "id": "1728329777012",
+      "type": "cd",
+      "artist": "Mystical Chamber Orchestra",
+      "featuringArtists": [],
+      "title": "Mystical Melodies",
+      "year": 2022,
+      "rating": 4.7,
+      "tags": ["classical", "chamber music", "trance"],
+      "extraInfo": "A collection of enchanting chamber pieces.",
+      "specificFields": {
+        "album": {
+          "cdCount": 1,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 1,
+          "trackCount": 8,
+          "partOfAlbum": "Mystical Sounds",
+          "cover": {
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
+          }
+        },
+        "track": {
+          "cdTitle": "",
+          "trackNumber": 0,
+          "length": ""
+        }
+      }
+    },
+    {
+      "id": "1728329777013",
+      "type": "cd",
+      "artist": "Grand Philharmonic",
+      "featuringArtists": [],
+      "title": "Philharmonic Rhapsody",
+      "year": 2023,
+      "rating": 5,
+      "tags": ["philharmonic", "rhapsody"],
+      "extraInfo": "A grand rhapsody performed by the Philharmonic.",
+      "specificFields": {
+        "album": {
+          "cdCount": 2,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 1,
+          "trackCount": 11,
+          "partOfAlbum": "Rhapsody in Music",
+          "cover": {
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
+          }
+        },
+        "track": {
+          "cdTitle": "",
+          "trackNumber": 0,
+          "length": ""
+        }
+      }
+    },
+    {
+      "id": "1728329777014",
+      "type": "cd",
+      "artist": "Cinematic Orchestra",
+      "featuringArtists": [],
+      "title": "Cinematic Soundscapes",
+      "year": 2024,
+      "rating": 4.6,
+      "tags": ["cinematic", "orchestral"],
+      "extraInfo": "An evocative collection of cinematic orchestral music.",
+      "specificFields": {
+        "album": {
+          "cdCount": 1,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 1,
+          "trackCount": 10,
+          "partOfAlbum": "Soundscapes Series",
+          "cover": {
+            "thumbnail": "https://placehold.co/30x30",
+            "fullSize": "https://placehold.co/400x400"
+          }
+        },
+        "track": {
+          "cdTitle": "",
+          "trackNumber": 0,
+          "length": ""
+        }
+      }
+    },
+    {
+      "id": "1738329777012",
       "type": "cd",
       "artist": "Jazz Quintet",
       "featuringArtists": ["Special Guest"],
@@ -141,7 +311,7 @@
   ],
   "tracks": [
     {
-      "id": "1728329777010",
+      "id": "1718329777010",
       "type": "track",
       "artist": "Solo Artist",
       "featuringArtists": ["Guest Singer"],
@@ -175,7 +345,7 @@
       }
     },
     {
-      "id": "1728329777013",
+      "id": "1738329777013",
       "type": "track",
       "artist": "Indie Band",
       "featuringArtists": ["Collaborator"],
@@ -204,7 +374,347 @@
         "track": {
           "cdTitle": "Summer Vibes",
           "trackNumber": 2,
-          "length": "4:20"
+          "length": "4:30"
+        }
+      }
+    },
+    {
+      "id": "1708329777011",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 1",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["indie", "alternative"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 1,
+          "length": "4:30"
+        }
+      }
+    },
+    {
+      "id": "1748329777012",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 2",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["indie", "alternative", "trance"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 2,
+          "length": "5:23"
+        }
+      }
+    },
+    {
+      "id": "1718329777013",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 3",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["trance", "alternative"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 3,
+          "length": "7:55"
+        }
+      }
+    },
+    {
+      "id": "1738329777014",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 4",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["rock", "alternative"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 4,
+          "length": "2:35"
+        }
+      }
+    },
+    {
+      "id": "1728329777015",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 5",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["rock", "metal"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 5,
+          "length": "5:40"
+        }
+      }
+    },
+    {
+      "id": "1728329777016",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 6",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["indie", "alternative"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 6,
+          "length": "4:44"
+        }
+      }
+    },
+    {
+      "id": "1728329777017",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 7",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["classical", "alternative"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 7,
+          "length": "6:08"
+        }
+      }
+    },
+    {
+      "id": "1728329777018",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 8",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["pop", "dance"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 8,
+          "length": "3:22"
+        }
+      }
+    },
+    {
+      "id": "1728329777019",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 9",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["indie", "dance"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 9,
+          "length": "5:55"
+        }
+      }
+    },
+    {
+      "id": "1728329777020",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": ["Collaborator"],
+      "title": "Waves 10",
+      "year": 2024,
+      "rating": 4.3,
+      "tags": ["pop", "rock"],
+      "extraInfo": "An indie anthem for the summer.",
+      "specificFields": {
+        "album": {
+          "cdCount": 0,
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "cd": {
+          "cdCount": 0,
+          "trackCount": 0,
+          "partOfAlbum": "",
+          "cover": {
+            "thumbnail": "",
+            "fullSize": ""
+          }
+        },
+        "track": {
+          "cdTitle": "Summer Vibes",
+          "trackNumber": 10,
+          "length": "6:34"
         }
       }
     }
