@@ -70,6 +70,10 @@ export default function SortWithItems({
     }
   }, [itemCategory]);
 
+  useEffect(() => {
+    setSortedItems(filteredData);
+  }, [filteredData]);
+
   // Sort the tracks alphabetically
   function handleClickTitleSort(e: React.MouseEvent<HTMLButtonElement>) {
     if (!setSortedItems) return;
@@ -130,6 +134,8 @@ export default function SortWithItems({
     // Set the correct arrow directions
     setArrowsDirection(e);
   }
+
+  console.log('sortedItems: ', filteredData);
 
   return (
     <div className="py-2 pl-6">
