@@ -1,7 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import getItemById from '../../api/getItemById';
 import { Album, Cd, Track } from '../../lib/types/types';
 import { useEffect, useState } from 'react';
+import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import DeleteItem from '../../api/deleteItemAPI';
 
 function ViewItemPAge() {
   const { id } = useParams<{ id: string }>();
@@ -22,6 +25,10 @@ function ViewItemPAge() {
       fetchData();
     }
   }, [id]);
+
+  function handleDelete() {
+    if (item) DeleteItem(item.type, item);
+  }
 
   // Display loading message when data is not available (yet)
   if (!item) return <div>Loading data...</div>;
@@ -133,6 +140,16 @@ function ViewItemPAge() {
           </>
         )}
       </dl>
+      <Link to={`/edit/${item.id}`} className="pt-0.5 pl-2 text-gray-600">
+        <EditNoteOutlinedIcon fontSize="small" />
+      </Link>
+      <Link
+        to={`/`}
+        className="pt-0.5 pl-2 text-gray-600"
+        onClick={handleDelete}
+      >
+        <DeleteForeverIcon fontSize="small" />
+      </Link>
     </main>
   );
 }

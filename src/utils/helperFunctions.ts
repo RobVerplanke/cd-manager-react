@@ -1,4 +1,4 @@
-import { Album, Cd, Item, Track } from '../lib/types/types';
+import { Album, Cd, Item, ItemType, Track } from '../lib/types/types';
 
 // Measure rendering performance
 export function onRender(
@@ -37,10 +37,28 @@ export function sortItemsByTitle(
 }
 
 // Sort the items on amount of cds
-export function sortItemsByAmount(items: Album[] | Cd[], isSorted: boolean) {
+export function sortItemsByAmount(
+  items: Album[] | Cd[],
+  isSorted: boolean,
+  itemCategory: ItemType
+) {
   return isSorted
-    ? [...items].sort((a, b) => a.cdCount - b.cdCount)
-    : [...items].sort((a, b) => b.cdCount - a.cdCount);
+    ? itemCategory === 'cd'
+      ? [...items].sort(
+          (a, b) => a.specificFields.cd.cdCount - b.specificFields.cd.cdCount
+        )
+      : [...items].sort(
+          (a, b) =>
+            a.specificFields.album.cdCount - b.specificFields.album.cdCount
+        )
+    : itemCategory === 'cd'
+    ? [...items].sort(
+        (a, b) => b.specificFields.cd.cdCount - a.specificFields.cd.cdCount
+      )
+    : [...items].sort(
+        (a, b) =>
+          b.specificFields.album.cdCount - a.specificFields.album.cdCount
+      );
 }
 
 // Sort the items on highest or lowest rating
@@ -56,8 +74,16 @@ export function sortItemsByRating(
 // Sort the items on longest or shortest length
 export function sortItemsByLength(items: Track[], isSorted: boolean) {
   return isSorted
-    ? [...items].sort((a, b) => a.length.localeCompare(b.length))
-    : [...items].sort((a, b) => b.length.localeCompare(a.length));
+    ? [...items].sort((a, b) =>
+        a.specificFields.track.length.localeCompare(
+          b.specificFields.track.length
+        )
+      )
+    : [...items].sort((a, b) =>
+        b.specificFields.track.length.localeCompare(
+          a.specificFields.track.length
+        )
+      );
 }
 
 // Template for new item
