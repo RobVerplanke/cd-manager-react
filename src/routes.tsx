@@ -8,6 +8,7 @@ import {
   AddItemPage,
   LibraryPage,
   SearchItemPage,
+  TagSelectionPage,
 } from './components/pages/index';
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: 'search',
         element: <SearchItemPage />,
+      },
+      {
+        path: 'tag-selection/:tag',
+        element: <TagSelectionPage />,
       },
     ],
   },

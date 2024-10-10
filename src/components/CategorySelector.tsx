@@ -4,9 +4,11 @@ function CategorySelector({
   selectedCategory,
   setSelectedCategory,
 }: {
-  selectedCategory: ItemType;
+  selectedCategory: string;
   setSelectedCategory: React.Dispatch<React.SetStateAction<ItemType>>;
 }) {
+  console.log('selectedCategory: ', selectedCategory);
+
   return (
     <div className="py-8 pl-6">
       <span className="text-sm font-semibold">Select category:</span>

@@ -26,12 +26,13 @@ function ItemCard({ item }: { item: ItemCardProps }) {
       <p>⭐⭐⭐⭐⭐</p>
       <div className="flex flex-wrap gap-2">
         {item.tags.map((tag) => (
-          <button
+          <Link
+            to={`/tag-selection/${tag}`}
             key={tag}
             className="bg-gray-200 rounded-full px-2 py-1 text-xs"
           >
             {tag}
-          </button>
+          </Link>
         ))}
       </div>
     </div>

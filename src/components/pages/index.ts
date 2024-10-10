@@ -5,6 +5,7 @@ import BrowseItemsPage from './BrowseItems';
 import EditItemPage from './EditItem';
 import SearchItemPage from './SearchItem';
 import ErrorPage from './ErrorPage';
+import TagSelectionPage from './TagSelection';
 
 export {
   ItemDetails,
@@ -14,4 +15,5 @@ export {
   EditItemPage,
   SearchItemPage,
   ErrorPage,
+  TagSelectionPage,
 };

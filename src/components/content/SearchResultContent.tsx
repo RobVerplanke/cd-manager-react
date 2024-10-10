@@ -88,7 +88,7 @@ function SearchResultContent({
   // Sort the tracks on longest track length
   function handleClickAmountSort(
     e: React.MouseEvent<HTMLButtonElement>,
-    itemType: ItemType
+    itemType: string
   ) {
     if (!setSortedItems) return;
     setSortedItems(
@@ -161,7 +161,7 @@ function SearchResultContent({
                   aria-label="Sort tracks by length"
                   className="text-sm font-semibold"
                   onClick={(e) =>
-                    handleClickAmountSort(e, itemCategory as ItemType)
+                    handleClickAmountSort(e, itemCategory as string)
                   }
                   data-sort-type="length"
                 >

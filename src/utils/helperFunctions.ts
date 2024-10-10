@@ -40,7 +40,7 @@ export function sortItemsByTitle(
 export function sortItemsByAmount(
   items: Album[] | Cd[],
   isSorted: boolean,
-  itemCategory: ItemType
+  itemCategory: string
 ) {
   return isSorted
     ? itemCategory === 'cd'

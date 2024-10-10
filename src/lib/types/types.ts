@@ -19,6 +19,9 @@ type ItemWithCoverCardProps = Album | Cd;
 // Every item can only be one of these types
 type ItemType = 'album' | 'cd' | 'track' | 'unknown';
 
+// Tags must be a string
+type Tag = string;
+
 // A base type with common properties
 type Item = {
   id: string;
@@ -86,6 +89,7 @@ export {
   ItemType,
   ItemCardProps,
   ItemWithCoverCardProps,
+  Tag,
   Album,
   Cd,
   Track,
