@@ -10,13 +10,15 @@ import getAllTracks from '../../api/getAllTracks';
 function TagSelectionPage() {
   const { tag } = useParams();
 
+  // Keep track of the selected category
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
 
-  // Data for search results
+  // Storage for the search results
   const [filteredAlbums, setFilteredAlbums] = useState<Album[]>([]);
   const [filteredCDs, setFilteredCDs] = useState<Cd[]>([]);
   const [filteredTracks, setFilteredTracks] = useState<Track[]>([]);
 
+  // Retreive all data and filter all items with the corresponding tag
   async function executeSearch() {
     // Fetch all items
     const albums = await getAllAlbums();

@@ -42,7 +42,6 @@ function AddItemPage() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log('Submitted item:', state);
     addNewItem(selectedCategory, state);
   }
 

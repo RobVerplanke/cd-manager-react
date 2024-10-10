@@ -6,7 +6,7 @@ import SortWithItems from '../SortWithItems';
 import { useData } from '../../context/DataContext';
 
 function LibraryPage() {
-  // itemCategory can be 'albums', 'cds', or 'tracks'
+  // itemCategory can be 'album', 'cd', or 'track'
   const { itemCategory } = useParams<{ itemCategory: string }>();
   const [sortedItems, setSortedItems] = useState<(Album | Cd | Track)[]>();
 
@@ -16,6 +16,7 @@ function LibraryPage() {
   // Create one items list with corresponding category
   let allItems: (Album | Cd | Track)[] = [];
 
+  // If the user changes the category, update the data directly
   useEffect(() => {
     if (itemCategory === 'album') {
       allItems = allAlbums;

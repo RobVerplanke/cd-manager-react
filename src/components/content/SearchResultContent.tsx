@@ -13,18 +13,11 @@ function SearchResultContent({
   // itemCategory can be 'album', 'cd', or 'track'
   const itemCategory = category;
 
-  const [sortedItems, setSortedItems] = useState<(Album | Cd | Track)[]>(
-    filteredData ? filteredData : []
-  );
-
-  useEffect(() => {
-    setSortedItems(filteredData);
-  }, [filteredData]);
-
+  // Display results with sorting options
   return (
     <main className="my-16 pl-6">
       <SortWithItems
-        filteredData={sortedItems as (Album | Cd | Track)[]}
+        filteredData={filteredData as (Album | Cd | Track)[]}
         itemCategory={itemCategory ? itemCategory : 'unknown'}
       />
     </main>

@@ -11,6 +11,7 @@ import {
 import { ItemsListContent } from './content/ItemsListContent';
 import { useData } from '../context/DataContext';
 
+// Generate a list of items with sorting options at the top
 export default function SortWithItems({
   filteredData,
   itemCategory,
@@ -18,13 +19,15 @@ export default function SortWithItems({
   filteredData: (Album | Cd | Track)[];
   itemCategory: string;
 }) {
+  // First collect all items
   let { allAlbums, allCds, allTracks } = useData();
-  let allItems: (Album | Cd | Track)[] = [];
 
+  // A list for the eventual sorted items
   const [sortedItems, setSortedItems] = useState<(Album | Cd | Track)[]>(
     filteredData ? filteredData : []
   );
 
+  // Keep track of how the data is currently sorted
   const [isTitleSortedDescendingly, setIsTitleSortedDescendingly] =
     useState<boolean>(false);
   const [isLengthSortedDescendingly, setIsLengthSortedDescendingly] =
@@ -38,7 +41,7 @@ export default function SortWithItems({
   function setArrowsDirection(e: React.MouseEvent<HTMLButtonElement>) {
     const targetButton = e.currentTarget.dataset.sortType;
 
-    // First reset all buttons to downward direction
+    // Reset all buttons to downward direction
     setIsTitleSortedDescendingly(false);
     setIsLengthSortedDescendingly(false);
     setIsAmountSortedDescendingly(false);
@@ -56,20 +59,18 @@ export default function SortWithItems({
     }
   }
 
+  // If the user changes the category, update the data directly
   useEffect(() => {
     if (itemCategory === 'album') {
-      allItems = allAlbums;
+      setSortedItems(allAlbums);
     } else if (itemCategory === 'cd') {
-      allItems = allCds;
+      setSortedItems(allCds);
     } else if (itemCategory === 'track') {
-      allItems = allTracks;
-    }
-
-    if (allItems) {
-      setSortedItems(allItems);
+      setSortedItems(allTracks);
     }
   }, [itemCategory]);
 
+  // If the data changes in the tag component (after the user clicked on an other tag) update the displayed data
   useEffect(() => {
     setSortedItems(filteredData);
   }, [filteredData]);
@@ -135,8 +136,6 @@ export default function SortWithItems({
     setArrowsDirection(e);
   }
 
-  console.log('sortedItems: ', filteredData);
-
   return (
     <div className="py-2 pl-6">
       <ul>
@@ -182,7 +181,7 @@ export default function SortWithItems({
                 data-sort-type="amount"
               >
                 CDs
-                {isLengthSortedDescendingly ? (
+                {isAmountSortedDescendingly ? (
                   <ArrowDropUpIcon />
                 ) : (
                   <ArrowDropDownIcon />

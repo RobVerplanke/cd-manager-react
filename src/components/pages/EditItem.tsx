@@ -34,6 +34,7 @@ function EditItemPage() {
     }
   }, []);
 
+  // Prefill the new form with all values of the current item
   useEffect(() => {
     dispatch({
       type: 'filled_form',
