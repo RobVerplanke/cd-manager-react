@@ -17,8 +17,6 @@ function SearchResultContent({
     filteredData ? filteredData : []
   );
 
-  console.log('sortedItems: ', sortedItems);
-
   useEffect(() => {
     setSortedItems(filteredData);
   }, [filteredData]);
