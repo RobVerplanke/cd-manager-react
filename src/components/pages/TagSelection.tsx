@@ -1,7 +1,7 @@
 import CategorySelector from '../CategorySelector';
 import SearchResultContent from '../content/SearchResultContent';
-import { Album, Cd, Track, ItemType, Tag } from '../../lib/types/types';
-import { useEffect, useRef, useState } from 'react';
+import { Album, Cd, Track, ItemType } from '../../lib/types/types';
+import { useEffect, useState } from 'react';
 import getAllAlbums from '../../api/getAllAlbums';
 import { useParams } from 'react-router-dom';
 import getAllCDs from '../../api/getAllCDs';
@@ -18,15 +18,15 @@ function TagSelectionPage() {
   const [filteredTracks, setFilteredTracks] = useState<Track[]>([]);
 
   async function executeSearch() {
-    // Fetch all albums
+    // Fetch all items
     const albums = await getAllAlbums();
     const cds = await getAllCDs();
     const tracks = await getAllTracks();
 
-    // Find items with selected keyword in their tags list
+    // Find items with the selected keyword in its tags list
     setFilteredAlbums(
       albums.filter((album) => {
-        if (album.tags.includes(tag as string)) return album; // When keyword is found, store the item
+        if (album.tags.includes(tag as string)) return album;
       })
     );
 
@@ -43,23 +43,24 @@ function TagSelectionPage() {
     );
   }
 
+  // Keep the results up-to-date when user clicks on a tag in one of the items on the results page
   useEffect(() => {
     executeSearch();
   }, [tag]);
 
-  // useEffect(() => {
-
-  // }, [tag])
-
   return (
     <main className="my-6 pl-6">
       <div className="text-3xl">
-        <span>Items with tag {tag}</span>
+        <span>Items with tag: {tag}</span>
+
+        {/* User can select the category of the items that should be displayed */}
       </div>
       <CategorySelector
         selectedCategory={selectedCategory as string}
         setSelectedCategory={setSelectedCategory}
       />
+
+      {/* Conditionally render the corresponding items in the results section */}
       <div>
         <SearchResultContent
           category={selectedCategory}

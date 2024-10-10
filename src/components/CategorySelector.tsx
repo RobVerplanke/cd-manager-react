@@ -1,5 +1,6 @@
 import { ItemType } from '../lib/types/types';
 
+// Generate a selection section where the user can select the preferred category
 function CategorySelector({
   selectedCategory,
   setSelectedCategory,
@@ -7,8 +8,6 @@ function CategorySelector({
   selectedCategory: string;
   setSelectedCategory: React.Dispatch<React.SetStateAction<ItemType>>;
 }) {
-  console.log('selectedCategory: ', selectedCategory);
-
   return (
     <div className="py-8 pl-6">
       <span className="text-sm font-semibold">Select category:</span>
@@ -20,7 +19,7 @@ function CategorySelector({
             name="category"
             id="album"
             onChange={() => setSelectedCategory('album')}
-            checked={selectedCategory === 'album'} // Conditional checked prop
+            checked={selectedCategory === 'album'}
           />
           <label htmlFor="album">Album</label>
         </div>
