@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Album, Cd, Track } from '../../lib/types/types';
+import { Album, Cd, ItemType, Track } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
 import { ItemsListContent } from '../content/ItemsListContent';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -32,6 +32,8 @@ function LibraryPage() {
     useState<boolean>(false);
   const [isLengthSortedDescendingly, setIsLengthSortedDescendingly] =
     useState<boolean>(false);
+  const [isAmountSortedDescendingly, setIsAmountSortedDescendingly] =
+    useState<boolean>(false);
   const [isRatingSortedDescendingly, setIsRatingSortedDescendingly] =
     useState<boolean>(false);
 
@@ -61,6 +63,7 @@ function LibraryPage() {
     // First reset all buttons to downward direction
     setIsTitleSortedDescendingly(false);
     setIsLengthSortedDescendingly(false);
+    setIsAmountSortedDescendingly(false);
     setIsRatingSortedDescendingly(false);
 
     // Then change the the direction of the active category
@@ -68,6 +71,8 @@ function LibraryPage() {
       setIsTitleSortedDescendingly(!isTitleSortedDescendingly);
     } else if (targetButton === 'length') {
       setIsLengthSortedDescendingly(!isLengthSortedDescendingly);
+    } else if (targetButton === 'amount') {
+      setIsAmountSortedDescendingly(!isAmountSortedDescendingly);
     } else {
       setIsRatingSortedDescendingly(!isRatingSortedDescendingly);
     }
@@ -100,14 +105,18 @@ function LibraryPage() {
     setArrowsDirection(e);
   }
 
-  // Sort the tracks on longest track length
-  function handleClickAmountSort(e: React.MouseEvent<HTMLButtonElement>) {
+  // Sort the tracks on amoutn of CDs
+  function handleClickAmountSort(
+    e: React.MouseEvent<HTMLButtonElement>,
+    itemType: ItemType
+  ) {
     if (!setSortedItems) return;
     setSortedItems(
       (prevVal: (Album | Cd | Track)[]) =>
         sortItemsByAmount(
           prevVal as (Album | Cd)[],
-          isLengthSortedDescendingly
+          isAmountSortedDescendingly,
+          itemCategory as ItemType
         ) as (Album | Cd)[]
     );
 
@@ -169,13 +178,15 @@ function LibraryPage() {
                 </button>
               ) : (
                 <button
-                  aria-label="Sort tracks by length"
+                  aria-label="Sort tracks by amount of CDs"
                   className="text-sm font-semibold"
-                  onClick={handleClickAmountSort}
-                  data-sort-type="length"
+                  onClick={(e) =>
+                    handleClickAmountSort(e, itemCategory as ItemType)
+                  }
+                  data-sort-type="amount"
                 >
                   CDs
-                  {isLengthSortedDescendingly ? (
+                  {isAmountSortedDescendingly ? (
                     <ArrowDropUpIcon />
                   ) : (
                     <ArrowDropDownIcon />

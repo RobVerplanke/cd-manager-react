@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Album, Cd, Track } from '../../lib/types/types';
+import { Album, Cd, ItemType, Track } from '../../lib/types/types';
 import { useData } from '../../context/DataContext';
 import { ItemsListContent } from './ItemsListContent';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -86,13 +86,17 @@ function SearchResultContent({
   }
 
   // Sort the tracks on longest track length
-  function handleClickAmountSort(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleClickAmountSort(
+    e: React.MouseEvent<HTMLButtonElement>,
+    itemType: ItemType
+  ) {
     if (!setSortedItems) return;
     setSortedItems(
       (prevVal: (Album | Cd | Track)[]) =>
         sortItemsByAmount(
           prevVal as (Album | Cd)[],
-          isLengthSortedDescendingly
+          isLengthSortedDescendingly,
+          itemType
         ) as (Album | Cd)[]
     );
 
@@ -156,7 +160,9 @@ function SearchResultContent({
                 <button
                   aria-label="Sort tracks by length"
                   className="text-sm font-semibold"
-                  onClick={handleClickAmountSort}
+                  onClick={(e) =>
+                    handleClickAmountSort(e, itemCategory as ItemType)
+                  }
                   data-sort-type="length"
                 >
                   CDs
