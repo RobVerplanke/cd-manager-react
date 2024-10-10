@@ -25,9 +25,6 @@ export default function SortWithItems({
     filteredData ? filteredData : []
   );
 
-  console.log('sortedItems: ', sortedItems);
-  console.log('filteredData: ', filteredData);
-
   const [isTitleSortedDescendingly, setIsTitleSortedDescendingly] =
     useState<boolean>(false);
   const [isLengthSortedDescendingly, setIsLengthSortedDescendingly] =
@@ -111,7 +108,7 @@ export default function SortWithItems({
         sortItemsByAmount(
           prevVal as (Album | Cd)[],
           isAmountSortedDescendingly,
-          itemCategory as ItemType
+          itemType as ItemType
         ) as (Album | Cd)[]
     );
 
@@ -176,7 +173,7 @@ export default function SortWithItems({
                 onClick={(e) =>
                   handleClickAmountSort(e, itemCategory as string)
                 }
-                data-sort-type="length"
+                data-sort-type="amount"
               >
                 CDs
                 {isLengthSortedDescendingly ? (
@@ -206,16 +203,16 @@ export default function SortWithItems({
             <span className="text-sm font-semibold">Tags</span>
           </div>
         </div>
-        {filteredData && (
+        {sortedItems && (
           <>
             {itemCategory === 'track' && (
-              <ItemsListContent items={filteredData as Track[]} />
+              <ItemsListContent items={sortedItems as Track[]} />
             )}
             {itemCategory === 'album' && (
-              <ItemsListContent items={filteredData as Album[]} />
+              <ItemsListContent items={sortedItems as Album[]} />
             )}
             {itemCategory === 'cd' && (
-              <ItemsListContent items={filteredData as Cd[]} />
+              <ItemsListContent items={sortedItems as Cd[]} />
             )}
           </>
         )}
