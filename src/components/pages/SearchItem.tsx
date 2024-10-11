@@ -2,7 +2,7 @@ import CategorySelector from '../CategorySelector';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultContent from '../content/SearchResultContent';
 import getAllItemsFromType from '../../api/getAllItemsFromType';
-import { Album, Cd, Track, ItemType } from '../../lib/types/types';
+import { Album, Cd, Track, ItemType, Item } from '../../lib/types/types';
 import { useRef, useState } from 'react';
 
 function SearchItemPage() {
@@ -25,6 +25,17 @@ function SearchItemPage() {
   // To control the search input element
   const searchKeyword = useRef<HTMLInputElement | null>(null);
 
+  function isKeywordInTags(item: Item, keyword: string) {
+    let foundKeywords = [];
+    const found = item.tags.find((tag) => tag.includes(keyword));
+
+    if (found) {
+      foundKeywords.push(found);
+    }
+
+    return foundKeywords.length;
+  }
+
   // Make the selected category definitive and update the search results
   async function executeSearch() {
     setIsSearchButtonClicked(true);
@@ -40,7 +51,8 @@ function SearchItemPage() {
       data.filter((item) => {
         if (
           item.title.includes(searchInput) ||
-          item.artist.includes(searchInput)
+          item.artist.includes(searchInput) ||
+          isKeywordInTags(item, searchInput)
         )
           return item; // When keyword is found, store the item in search results
       })
