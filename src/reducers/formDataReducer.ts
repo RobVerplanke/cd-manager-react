@@ -31,7 +31,7 @@ export default function formDataReducer(
       let featArtistsArray = new Array();
       {
         !isNumber(action.payload.inputValue) &&
-          (featArtistsArray = action.payload.inputValue.split(','));
+          (featArtistsArray = action.payload.inputValue.split(', '));
       }
       return {
         ...state,
@@ -45,7 +45,7 @@ export default function formDataReducer(
       let tagsArray = new Array();
       {
         !isNumber(action.payload.inputValue) &&
-          (tagsArray = action.payload.inputValue.split(','));
+          (tagsArray = action.payload.inputValue.split(', '));
       }
       return {
         ...state,
