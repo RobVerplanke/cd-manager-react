@@ -25,15 +25,29 @@ function SearchItemPage() {
   // To control the search input element
   const searchKeyword = useRef<HTMLInputElement | null>(null);
 
+  // Check whether the tags list contains the keyword
   function isKeywordInTags(item: Item, keyword: string) {
     let foundKeywords = [];
-    const found = item.tags.find((tag) => tag.includes(keyword));
+    const found = item.tags.find((tag) =>
+      tag.toUpperCase().includes(keyword.toUpperCase())
+    );
 
     if (found) {
       foundKeywords.push(found);
     }
 
     return foundKeywords.length;
+  }
+
+  // Make search case insensitive
+  function compareCaseInsensitive(item: Item, keyword: string) {
+    let isFound = false;
+    if (item.title.toUpperCase().includes(keyword.toUpperCase()))
+      isFound = true;
+    if (item.artist.toUpperCase().includes(keyword.toUpperCase()))
+      isFound = true;
+
+    return isFound;
   }
 
   // Make the selected category definitive and update the search results
@@ -46,12 +60,11 @@ function SearchItemPage() {
     // Fetch data from selected category only
     const data = await getAllItemsFromType(selectedCategory);
 
-    // Find items with keyword(s) in title or artistname
+    // Find items with keyword(s) in title, artistname or its tags
     setFilteredData(
       data.filter((item) => {
         if (
-          item.title.includes(searchInput) ||
-          item.artist.includes(searchInput) ||
+          compareCaseInsensitive(item, searchInput) ||
           isKeywordInTags(item, searchInput)
         )
           return item; // When keyword is found, store the item in search results
