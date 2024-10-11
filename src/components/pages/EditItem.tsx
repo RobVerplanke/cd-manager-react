@@ -6,8 +6,11 @@ import { useParams } from 'react-router-dom';
 import EditItem from '../../api/editItemAPI';
 import { createNewItemObject } from '../../utils/helperFunctions';
 import { RATING_VALUES } from '../../lib/constants';
+import { useData } from '../../context/DataContext';
 
 function EditItemPage() {
+  const { allAlbums } = useData();
+
   const { id } = useParams<{ id: string }>();
 
   // Create empty template object
@@ -116,13 +119,16 @@ function EditItemPage() {
             onChange={(e) => handleChange('added_tracksCount', e)}
           />
           <label htmlFor="partOfAlbum">Part of Album:</label>
-          <input
-            type="text"
+          <select
             id="partOfAlbum"
             name="partOfAlbum"
             value={state.specificFields.cd.partOfAlbum}
             onChange={(e) => handleChange('added_partOfAlbum', e)}
-          />
+          >
+            {allAlbums.map((album) => (
+              <option>{album.title}</option>
+            ))}
+          </select>
           <label htmlFor="thumbnail">Thumbnail cover:</label>
           <input
             type="text"

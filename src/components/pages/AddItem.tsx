@@ -5,8 +5,11 @@ import formDataReducer from '../../reducers/formDataReducer';
 import { createNewItemObject } from '../../utils/helperFunctions';
 import addNewItem from '../../api/addNewItemAPI';
 import { RATING_VALUES } from '../../lib/constants';
+import { useData } from '../../context/DataContext';
 
 function AddItemPage() {
+  const { allAlbums } = useData();
+
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
 
   // Create a template object for the new item
@@ -102,13 +105,17 @@ function AddItemPage() {
             onChange={(e) => handleChange('added_tracksCount', e)}
           />
           <label htmlFor="partOfAlbum">Part of Album:</label>
-          <input
-            type="text"
+          {/* Generate an title selection in case the current CD is part of an ablum */}
+          <select
             id="partOfAlbum"
             name="partOfAlbum"
             value={state.specificFields.cd.partOfAlbum}
             onChange={(e) => handleChange('added_partOfAlbum', e)}
-          />
+          >
+            {allAlbums.map((album) => (
+              <option>{album.title}</option>
+            ))}
+          </select>
           <label htmlFor="thumbnail">Thumbnail cover:</label>
           <input
             type="text"
