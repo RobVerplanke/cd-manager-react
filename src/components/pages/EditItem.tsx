@@ -5,6 +5,7 @@ import getItemById from '../../api/getItemById';
 import { useParams } from 'react-router-dom';
 import EditItem from '../../api/editItemAPI';
 import { createNewItemObject } from '../../utils/helperFunctions';
+import { RATING_VALUES } from '../../lib/constants';
 
 function EditItemPage() {
   const { id } = useParams<{ id: string }>();
@@ -45,7 +46,9 @@ function EditItemPage() {
   // While the user is typing, update the property values of the new object
   function handleChange(
     inputType: string,
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) {
     dispatch({
       type: inputType,
@@ -223,16 +226,19 @@ function EditItemPage() {
         <label htmlFor="rating" className="text-gray-700">
           Rating:
         </label>
-        <input
-          type="number"
+        <select
           id="rating"
           name="rating"
-          min="0"
-          max="5"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.rating}
+          className="border rounded-md h-7 w-20 focus:outline-none focus:ring-2 focus:ring-blue-500"
           onChange={(e) => handleChange('added_rating', e)}
-        />
+        >
+          {RATING_VALUES.map((rating) => (
+            <option key={rating} value={rating}>
+              {rating}
+            </option>
+          ))}
+        </select>
 
         <label htmlFor="tags" className="text-gray-700">
           Tags:

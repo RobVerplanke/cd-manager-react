@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'; // useState for storing data and us
 import { Album, Cd, Track } from '../../lib/types/types';
 import ItemCard from '../cards/ItemCard';
 import ItemWithCoverCard from '../cards/ItemWithCoverCard';
-import { MAX_AMOUNT_TRACKS_PER_PAGE } from '../../lib/types/constants';
+import { MAX_AMOUNT_TRACKS_PER_PAGE } from '../../lib/constants';
 
 export function ItemsListContent({
   items,

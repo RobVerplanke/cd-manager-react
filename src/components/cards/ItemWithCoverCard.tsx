@@ -2,6 +2,7 @@ import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import { ItemWithCoverCardProps } from '../../lib/types/types';
 import InfoIcon from '@mui/icons-material/Info';
 import { Link } from 'react-router-dom';
+import getRatingStars from '../RatingStars';
 
 function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
   const coverThumbnail =
@@ -45,7 +46,7 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
       </div>
 
       {/* Rating */}
-      <p>⭐⭐⭐⭐⭐</p>
+      {getRatingStars(item.rating)}
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2">

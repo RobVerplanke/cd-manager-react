@@ -4,11 +4,18 @@
       "id": "1728329777008",
       "type": "album",
       "artist": "The Imaginary Band",
-      "featuringArtists": ["Artist A", "Artist B"],
+      "featuringArtists": [
+        "Artist A",
+        "Artist B"
+      ],
       "title": "Dreamscapes",
       "year": 2021,
-      "rating": 4.5,
-      "tags": ["alternative", "dream pop", "trance"],
+      "rating": 5,
+      "tags": [
+        "alternative",
+        "dream pop",
+        "trance"
+      ],
       "extraInfo": "A collection of ethereal sounds.",
       "specificFields": {
         "album": {
@@ -41,8 +48,11 @@
       "featuringArtists": [],
       "title": "Timeless Melodies",
       "year": 2023,
-      "rating": 4.8,
-      "tags": ["rock", "nostalgia"],
+      "rating": 4,
+      "tags": [
+        "rock",
+        "nostalgia"
+      ],
       "extraInfo": "Rock anthems that stand the test of time.",
       "specificFields": {
         "album": {
@@ -78,7 +88,10 @@
       "title": "Orchestral Adventures",
       "year": 2019,
       "rating": 5,
-      "tags": ["classical", "orchestra"],
+      "tags": [
+        "classical",
+        "orchestra"
+      ],
       "extraInfo": "An epic journey through classical music.",
       "specificFields": {
         "album": {
@@ -111,8 +124,11 @@
       "featuringArtists": [],
       "title": "Symphony of Dreams",
       "year": 2020,
-      "rating": 4.8,
-      "tags": ["classical", "symphony"],
+      "rating": 3,
+      "tags": [
+        "classical",
+        "symphony"
+      ],
       "extraInfo": "A mesmerizing symphonic journey.",
       "specificFields": {
         "album": {
@@ -145,8 +161,12 @@
       "featuringArtists": [],
       "title": "Epic Crescendo",
       "year": 2021,
-      "rating": 4.9,
-      "tags": ["orchestra", "epic", "alternative"],
+      "rating": 4,
+      "tags": [
+        "orchestra",
+        "epic",
+        "alternative"
+      ],
       "extraInfo": "An epic crescendo that soars through the musical scales.",
       "specificFields": {
         "album": {
@@ -179,8 +199,12 @@
       "featuringArtists": [],
       "title": "Mystical Melodies",
       "year": 2022,
-      "rating": 4.7,
-      "tags": ["classical", "chamber music", "trance"],
+      "rating": 2,
+      "tags": [
+        "classical",
+        "chamber music",
+        "trance"
+      ],
       "extraInfo": "A collection of enchanting chamber pieces.",
       "specificFields": {
         "album": {
@@ -214,7 +238,10 @@
       "title": "Philharmonic Rhapsody",
       "year": 2023,
       "rating": 5,
-      "tags": ["philharmonic", "rhapsody"],
+      "tags": [
+        "philharmonic",
+        "rhapsody"
+      ],
       "extraInfo": "A grand rhapsody performed by the Philharmonic.",
       "specificFields": {
         "album": {
@@ -247,8 +274,11 @@
       "featuringArtists": [],
       "title": "Cinematic Soundscapes",
       "year": 2024,
-      "rating": 4.6,
-      "tags": ["cinematic", "orchestral"],
+      "rating": 3,
+      "tags": [
+        "cinematic",
+        "orchestral"
+      ],
       "extraInfo": "An evocative collection of cinematic orchestral music.",
       "specificFields": {
         "album": {
@@ -278,11 +308,16 @@
       "id": "1738329777012",
       "type": "cd",
       "artist": "Jazz Quintet",
-      "featuringArtists": ["Special Guest"],
+      "featuringArtists": [
+        "Special Guest"
+      ],
       "title": "Jazz Nights",
       "year": 2020,
-      "rating": 4.2,
-      "tags": ["jazz", "live"],
+      "rating": 4,
+      "tags": [
+        "jazz",
+        "live"
+      ],
       "extraInfo": "A live recording of an unforgettable night.",
       "specificFields": {
         "album": {
@@ -314,11 +349,16 @@
       "id": "1718329777010",
       "type": "track",
       "artist": "Solo Artist",
-      "featuringArtists": ["Guest Singer"],
+      "featuringArtists": [
+        "Guest Singer"
+      ],
       "title": "Echoes in Time",
       "year": 2022,
-      "rating": 4,
-      "tags": ["pop", "single"],
+      "rating": 3,
+      "tags": [
+        "pop",
+        "single"
+      ],
       "extraInfo": "A catchy pop single that resonates.",
       "specificFields": {
         "album": {
@@ -348,11 +388,16 @@
       "id": "1738329777013",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["indie", "alternative"],
+      "rating": 4,
+      "tags": [
+        "indie",
+        "alternative"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -382,11 +427,16 @@
       "id": "1708329777011",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 1",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["indie", "alternative"],
+      "rating": "0",
+      "tags": [
+        "indie",
+        "alternative"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -416,11 +466,17 @@
       "id": "1748329777012",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 2",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["indie", "alternative", "trance"],
+      "rating": 3,
+      "tags": [
+        "indie",
+        "alternative",
+        "trance"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -450,11 +506,16 @@
       "id": "1718329777013",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 3",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["trance", "alternative"],
+      "rating": 4,
+      "tags": [
+        "trance",
+        "alternative"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -484,11 +545,16 @@
       "id": "1738329777014",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 4",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["rock", "alternative"],
+      "rating": 5,
+      "tags": [
+        "rock",
+        "alternative"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -518,11 +584,16 @@
       "id": "1728329777015",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 5",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["rock", "metal"],
+      "rating": 4,
+      "tags": [
+        "rock",
+        "metal"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -552,11 +623,16 @@
       "id": "1728329777016",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 6",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["indie", "alternative"],
+      "rating": 5,
+      "tags": [
+        "indie",
+        "alternative"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -586,11 +662,16 @@
       "id": "1728329777017",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 7",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["classical", "alternative"],
+      "rating": 1,
+      "tags": [
+        "classical",
+        "alternative"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -620,11 +701,16 @@
       "id": "1728329777018",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 8",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["pop", "dance"],
+      "rating": 3,
+      "tags": [
+        "pop",
+        "dance"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -654,11 +740,16 @@
       "id": "1728329777019",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 9",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["indie", "dance"],
+      "rating": 3,
+      "tags": [
+        "indie",
+        "dance"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {
@@ -688,11 +779,16 @@
       "id": "1728329777020",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": ["Collaborator"],
+      "featuringArtists": [
+        "Collaborator"
+      ],
       "title": "Waves 10",
       "year": 2024,
-      "rating": 4.3,
-      "tags": ["pop", "rock"],
+      "rating": 5,
+      "tags": [
+        "pop",
+        "rock"
+      ],
       "extraInfo": "An indie anthem for the summer.",
       "specificFields": {
         "album": {

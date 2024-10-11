@@ -4,6 +4,7 @@ import CategorySelector from '../CategorySelector';
 import formDataReducer from '../../reducers/formDataReducer';
 import { createNewItemObject } from '../../utils/helperFunctions';
 import addNewItem from '../../api/addNewItemAPI';
+import { RATING_VALUES } from '../../lib/constants';
 
 function AddItemPage() {
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
@@ -32,7 +33,9 @@ function AddItemPage() {
   // While the user is typing, update the property values of the new object
   function handleChange(
     inputType: string,
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) {
     dispatch({
       type: inputType,
@@ -205,7 +208,7 @@ function AddItemPage() {
           type="number"
           id="year"
           name="year"
-          className="border rounded-md h-7 w-20 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.year}
           onChange={(e) => handleChange('added_year', e)}
         />
@@ -213,16 +216,19 @@ function AddItemPage() {
         <label htmlFor="rating" className="text-gray-700">
           Rating:
         </label>
-        <input
-          type="number"
+        <select
           id="rating"
           name="rating"
-          min="0"
-          max="5"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.rating}
+          className="border rounded-md h-7 w-20 focus:outline-none focus:ring-2 focus:ring-blue-500"
           onChange={(e) => handleChange('added_rating', e)}
-        />
+        >
+          {RATING_VALUES.map((rating) => (
+            <option key={rating} value={rating}>
+              {rating}
+            </option>
+          ))}
+        </select>
 
         <label htmlFor="tags" className="text-gray-700">
           Tags:
