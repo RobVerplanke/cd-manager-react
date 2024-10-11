@@ -11,6 +11,11 @@ export default function formDataReducer(
     payload: { inputValue: string | number; item?: Item };
   }
 ): Item {
+  // Type guard for narrowing the item type
+  function isNumber(item: number | string): item is number {
+    return typeof (item as number) === 'number';
+  }
+
   switch (action.type) {
     case 'filled_form': // Edit: Replace current item with new item
       return { ...state, ...action.payload.item };
@@ -23,16 +28,29 @@ export default function formDataReducer(
     case 'added_artist':
       return { ...state, artist: action.payload.inputValue as string };
     case 'added_feat-artists':
+      let featArtistsArray = new Array();
+      {
+        !isNumber(action.payload.inputValue) &&
+          (featArtistsArray = action.payload.inputValue.split(','));
+      }
       return {
         ...state,
-        featuringArtists: [action.payload.inputValue] as string[],
+        featuringArtists: featArtistsArray,
       };
     case 'added_year':
       return { ...state, year: action.payload.inputValue as number };
     case 'added_rating':
       return { ...state, rating: action.payload.inputValue as number };
     case 'added_tags':
-      return { ...state, tags: [action.payload.inputValue] as string[] };
+      let tagsArray = new Array();
+      {
+        !isNumber(action.payload.inputValue) &&
+          (tagsArray = action.payload.inputValue.split(','));
+      }
+      return {
+        ...state,
+        tags: tagsArray,
+      };
     case 'added_extraInfo':
       return { ...state, extraInfo: action.payload.inputValue as string };
     case 'added_album-thumbnail':
