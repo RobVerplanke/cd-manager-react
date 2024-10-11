@@ -27,31 +27,22 @@ function SearchItemPage() {
 
   // Check whether the tags list contains the keyword
   function isKeywordInTags(item: Item, keyword: string) {
-    let foundKeywords = [];
-    const found = item.tags.find((tag) =>
+    return item.tags.find((tag) =>
       tag.toUpperCase().includes(keyword.toUpperCase())
     );
-
-    if (found) {
-      foundKeywords.push(found);
-    }
-
-    return foundKeywords.length;
   }
 
   // Make search case insensitive
   function compareCaseInsensitive(item: Item, keyword: string) {
-    let isFound = false;
-    if (item.title.toUpperCase().includes(keyword.toUpperCase()))
-      isFound = true;
-    if (item.artist.toUpperCase().includes(keyword.toUpperCase()))
-      isFound = true;
-
-    return isFound;
+    return (
+      item.title.toUpperCase().includes(keyword.toUpperCase()) ||
+      item.artist.toUpperCase().includes(keyword.toUpperCase())
+    );
   }
 
   // Make the selected category definitive and update the search results
   async function executeSearch() {
+    // Update search button state
     setIsSearchButtonClicked(true);
 
     // Definitive search keyword(s) is set after user clicks/presses enter to submit search
