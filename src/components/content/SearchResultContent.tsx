@@ -16,10 +16,14 @@ function SearchResultContent({
   // Display results with sorting options
   return (
     <main className="my-16 pl-6">
-      <SortWithItems
-        filteredData={filteredData as (Album | Cd | Track)[]}
-        itemCategory={itemCategory ? itemCategory : 'unknown'}
-      />
+      {filteredData.length ? (
+        <SortWithItems
+          filteredData={filteredData as (Album | Cd | Track)[]}
+          itemCategory={itemCategory ? itemCategory : 'unknown'}
+        />
+      ) : (
+        <p>No items found...</p>
+      )}
     </main>
   );
 }
