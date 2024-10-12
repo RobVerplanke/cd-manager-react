@@ -21,11 +21,11 @@ const router = createBrowserRouter([
         element: <BrowseItemsPage />,
       },
       {
-        path: '/details/:id',
+        path: 'details/:id',
         element: <ItemDetails />,
       },
       {
-        path: '/edit/:id',
+        path: 'edit/:id',
         element: <ItemFormPage isEditMode={true} />,
       },
       {
