@@ -4,11 +4,10 @@ import {
   ErrorPage,
   BrowseItemsPage,
   ItemDetails,
-  EditItemPage,
-  AddItemPage,
   LibraryPage,
   SearchItemPage,
   TagSelectionPage,
+  ItemFormPage,
 } from './components/pages/index';
 
 const router = createBrowserRouter([
@@ -27,11 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/edit/:id',
-        element: <EditItemPage />,
+        element: <ItemFormPage isEditMode={true} />,
       },
       {
         path: 'add',
-        element: <AddItemPage />,
+        element: <ItemFormPage isEditMode={false} />,
       },
       {
         path: 'library/:itemCategory',

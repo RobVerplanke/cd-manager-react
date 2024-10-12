@@ -1,52 +1,77 @@
 import { useEffect, useReducer, useState } from 'react';
-import { type Item } from '../../lib/types/types';
+import { type Item, type ItemType } from '../../lib/types/types';
 import formDataReducer from '../../reducers/formDataReducer';
 import getItemById from '../../api/getItemById';
-import { useParams } from 'react-router-dom';
 import EditItem from '../../api/editItemAPI';
+import addNewItem from '../../api/addNewItemAPI';
 import { createNewItemObject } from '../../utils/helperFunctions';
 import { RATING_VALUES } from '../../lib/constants';
+import { useParams } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
+import CategorySelector from '../CategorySelector';
 
-function EditItemPage() {
+function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   const { allAlbums, allCds } = useData();
-
   const { id } = useParams<{ id: string }>();
 
-  // Create empty template object
+  // Create an empty template object for a new item
   const newItem: Item = createNewItemObject();
 
-  // Item to replace, initlally an empty object until the data is loaded
+  // State for the current item
   const [item, setItem] = useState<Item>(newItem);
 
-  // Item object that will replace the current item
+  // Selected category (only for add mode)
+  const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
+
+  // Use reducer to manage form data
   const [state, dispatch] = useReducer(formDataReducer, item);
 
-  // Fetch item data on mount when ID is available
+  // If in edit mode, fetch the item data by ID
   useEffect(() => {
-    if (id) {
+    if (isEditMode && id) {
       const fetchData = async () => {
         const data = await getItemById(id);
         if (data) {
-          setItem(data); // Set item only if data exists
+          setItem(data);
         } else {
           console.error('Item not found');
-          setItem(newItem); // Explicitly set to empty object if no item is found
+          setItem(newItem);
         }
       };
       fetchData();
     }
-  }, []);
+  }, [id, isEditMode]);
 
-  // Prefill the new form with all values of the current item
+  // Add/remove type specific form elements when user changes the category
   useEffect(() => {
-    dispatch({
-      type: 'filled_form',
-      payload: { inputValue: '', item: item },
-    });
-  }, [item]);
+    setSelectedCategory(item.type);
+  }, [item.type]);
 
-  // While the user is typing, update the property values of the new object
+  // Prefill the form with item data in edit mode
+  useEffect(() => {
+    if (isEditMode) {
+      dispatch({
+        type: 'filled_form',
+        payload: { inputValue: '', item: item },
+      });
+    }
+  }, [item, isEditMode]);
+
+  // When category changes in add mode, clear form and set new category
+  useEffect(() => {
+    if (!isEditMode) {
+      dispatch({
+        type: 'cleared_form',
+        payload: { inputValue: '' },
+      });
+      dispatch({
+        type: 'selected_form',
+        payload: { inputValue: selectedCategory },
+      });
+    }
+  }, [selectedCategory, isEditMode]);
+
+  // Handle form field changes
   function handleChange(
     inputType: string,
     event: React.ChangeEvent<
@@ -59,15 +84,21 @@ function EditItemPage() {
     });
   }
 
-  // Send data to the edit API
+  // Handle form submission for both add and edit
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    EditItem(item.type, state);
+    if (isEditMode) {
+      EditItem(item.type, state);
+    } else {
+      addNewItem(selectedCategory, state);
+    }
   }
 
-  // Conditionally render category-specific fields based on selected category
+  // Render category-specific fields
   function renderCategorySpecificFields() {
-    if (item.type === 'album') {
+    const currentType = isEditMode ? item.type : selectedCategory;
+
+    if (currentType === 'album') {
       return (
         <>
           <label htmlFor="cdCount">Amount of CDs:</label>
@@ -97,7 +128,7 @@ function EditItemPage() {
           />
         </>
       );
-    } else if (item.type === 'cd') {
+    } else if (selectedCategory === 'cd') {
       return (
         <>
           <label htmlFor="cdCount">Amount of CDs:</label>
@@ -119,6 +150,7 @@ function EditItemPage() {
             onChange={(e) => handleChange('added_tracksCount', e)}
           />
           <label htmlFor="partOfAlbum">Part of Album:</label>
+          {/* Generate an title selection in case the current CD is part of an ablum */}
           <select
             id="partOfAlbum"
             name="partOfAlbum"
@@ -127,7 +159,7 @@ function EditItemPage() {
           >
             <option>--- None ---</option>
             {allAlbums.map((album) => (
-              <option>{album.title}</option>
+              <option key={album.id}>{album.title}</option>
             ))}
           </select>
           <label htmlFor="thumbnail">Thumbnail cover:</label>
@@ -148,7 +180,7 @@ function EditItemPage() {
           />
         </>
       );
-    } else if (item.type === 'track') {
+    } else if (selectedCategory === 'track') {
       return (
         <>
           <label htmlFor="cdTitle">CD Title:</label>
@@ -160,7 +192,7 @@ function EditItemPage() {
           >
             <option>--- None ---</option>
             {allCds.map((cd) => (
-              <option>{cd.title}</option>
+              <option key={cd.id}>{cd.title}</option>
             ))}
           </select>
           <label htmlFor="length">Track Length:</label>
@@ -179,12 +211,18 @@ function EditItemPage() {
   return (
     <main className="my-6 pl-6">
       <div className="text-3xl">
-        <span>Edit item</span>
+        {isEditMode ? <h1>Edit item</h1> : <h1>Add new item</h1>}
       </div>
-
+      {/* Radio buttons to select category */}
+      {!isEditMode && (
+        <CategorySelector
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+      )}
       {/* Common fields for all categories */}
       <form
-        className="flex flex-col w-full my-4 pl-6 max-w-lg space-y-1 text-sm font-medium"
+        className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
         onSubmit={(e) => handleSubmit(e)}
       >
         <label htmlFor="artist" className="text-gray-700">
@@ -229,7 +267,7 @@ function EditItemPage() {
           type="number"
           id="year"
           name="year"
-          className="border rounded-md h-7 w-20 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.year}
           onChange={(e) => handleChange('added_year', e)}
         />
@@ -289,4 +327,4 @@ function EditItemPage() {
     </main>
   );
 }
-export default EditItemPage;
+export default ItemFormPage;
