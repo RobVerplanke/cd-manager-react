@@ -22,7 +22,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   const [item, setItem] = useState<Item>(newItem);
 
   // Selected category (only for add mode)
-  const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
+  const [selectedCategory, setSelectedCategory] = useState<ItemType>('unknown');
 
   // Use reducer to manage form data
   const [state, dispatch] = useReducer(formDataReducer, item);
@@ -122,7 +122,10 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="thumbnail"
             name="thumbnail"
-            value={state.specificFields.album.cover.thumbnail}
+            value={
+              state.specificFields.album.cover.thumbnail ||
+              'https://placehold.co/30x30'
+            }
             onChange={(e) => handleChange('added_album-thumbnail', e)}
           />
           <label htmlFor="fullSize">Full Size cover:</label>
@@ -130,7 +133,10 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="fullSize"
             name="fullSize"
-            value={state.specificFields.album.cover.fullSize}
+            value={
+              state.specificFields.album.cover.fullSize ||
+              'https://placehold.co/400x400'
+            }
             onChange={(e) => handleChange('added_album-fullSize', e)}
           />
         </>
@@ -174,7 +180,10 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="thumbnail"
             name="thumbnail"
-            value={state.specificFields.cd.cover.thumbnail}
+            value={
+              state.specificFields.cd.cover.thumbnail ||
+              'https://placehold.co/30x30'
+            }
             onChange={(e) => handleChange('added_cd-thumbnail', e)}
           />
           <label htmlFor="fullSize">Full Size cover:</label>
@@ -182,7 +191,10 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="fullSize"
             name="fullSize"
-            value={state.specificFields.cd.cover.fullSize}
+            value={
+              state.specificFields.cd.cover.fullSize ||
+              'https://placehold.co/400x400'
+            }
             onChange={(e) => handleChange('added_album-fullSize', e)}
           />
         </>
@@ -229,111 +241,114 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         />
       )}
       {/* Common fields for all categories */}
-      <form
-        className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
-        // onSubmit={(e) => handleSubmit(e)}
-      >
-        <label htmlFor="artist" className="text-gray-700">
-          Artist name:
-        </label>
-        <input
-          type="text"
-          id="artist"
-          name="artist"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={state.artist}
-          onChange={(e) => handleChange('added_artist', e)}
-        />
-        <label htmlFor="feat-artists" className="text-gray-700">
-          Featuring artists:
-        </label>
-        <input
-          type="text"
-          id="feat-artists"
-          name="feat-artists"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={state.featuringArtists}
-          onChange={(e) => handleChange('added_feat-artists', e)}
-        />
 
-        <label htmlFor="title" className="text-gray-700">
-          Title:
-        </label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={state.title}
-          onChange={(e) => handleChange('added_title', e)}
-        />
-
-        <label htmlFor="year" className="text-gray-700">
-          Release year:
-        </label>
-        <input
-          type="number"
-          id="year"
-          name="year"
-          className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={state.year}
-          onChange={(e) => handleChange('added_year', e)}
-        />
-
-        <label htmlFor="rating" className="text-gray-700">
-          Rating:
-        </label>
-        <select
-          id="rating"
-          name="rating"
-          value={state.rating}
-          className="border rounded-md h-7 w-20 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          onChange={(e) => handleChange('added_rating', e)}
+      {selectedCategory != 'unknown' && (
+        <form
+          className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
+          // onSubmit={(e) => handleSubmit(e)}
         >
-          {RATING_VALUES.map((rating) => (
-            <option key={rating} value={rating}>
-              {rating}
-            </option>
-          ))}
-        </select>
+          <label htmlFor="artist" className="text-gray-700">
+            Artist name:
+          </label>
+          <input
+            type="text"
+            id="artist"
+            name="artist"
+            className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.artist}
+            onChange={(e) => handleChange('added_artist', e)}
+          />
+          <label htmlFor="feat-artists" className="text-gray-700">
+            Featuring artists:
+          </label>
+          <input
+            type="text"
+            id="feat-artists"
+            name="feat-artists"
+            className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.featuringArtists}
+            onChange={(e) => handleChange('added_feat-artists', e)}
+          />
 
-        <label htmlFor="tags" className="text-gray-700">
-          Tags:
-        </label>
-        <input
-          type="text"
-          id="tags"
-          name="tags"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={state.tags}
-          onChange={(e) => handleChange('added_tags', e)}
-        />
+          <label htmlFor="title" className="text-gray-700">
+            Title:
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.title}
+            onChange={(e) => handleChange('added_title', e)}
+          />
 
-        {/* Category-specific fields */}
-        {renderCategorySpecificFields()}
+          <label htmlFor="year" className="text-gray-700">
+            Release year:
+          </label>
+          <input
+            type="number"
+            id="year"
+            name="year"
+            className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.year}
+            onChange={(e) => handleChange('added_year', e)}
+          />
 
-        {/* Extra information field will always be renderd at last */}
-        <label htmlFor="extraInfo" className="text-gray-700">
-          Extra Info:
-        </label>
-        <textarea
-          id="extraInfo"
-          name="extraInfo"
-          className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={state.extraInfo}
-          onChange={(e) => handleChange('added_extraInfo', e)}
-        ></textarea>
+          <label htmlFor="rating" className="text-gray-700">
+            Rating:
+          </label>
+          <select
+            id="rating"
+            name="rating"
+            value={state.rating}
+            className="border rounded-md h-7 w-20 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onChange={(e) => handleChange('added_rating', e)}
+          >
+            {RATING_VALUES.map((rating) => (
+              <option key={rating} value={rating}>
+                {rating}
+              </option>
+            ))}
+          </select>
 
-        {/* Submit button */}
-        <Link
-          to="/"
-          type="submit"
-          onClick={handleSubmit}
-          className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          Submit
-        </Link>
-      </form>
+          <label htmlFor="tags" className="text-gray-700">
+            Tags:
+          </label>
+          <input
+            type="text"
+            id="tags"
+            name="tags"
+            className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.tags}
+            onChange={(e) => handleChange('added_tags', e)}
+          />
+
+          {/* Category-specific fields */}
+          {renderCategorySpecificFields()}
+
+          {/* Extra information field will always be renderd at last */}
+          <label htmlFor="extraInfo" className="text-gray-700">
+            Extra Info:
+          </label>
+          <textarea
+            id="extraInfo"
+            name="extraInfo"
+            className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.extraInfo}
+            onChange={(e) => handleChange('added_extraInfo', e)}
+          ></textarea>
+
+          {/* Submit button */}
+          <Link
+            to="/"
+            type="submit"
+            onClick={handleSubmit}
+            className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Submit
+          </Link>
+        </form>
+      )}
     </main>
   );
 }
