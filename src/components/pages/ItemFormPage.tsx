@@ -86,10 +86,10 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   }
 
   // Handle form submission for both add and edit
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit() {
     console.log('handle submit called');
 
-    event.preventDefault();
+    // event.preventDefault();
     if (isEditMode) {
       EditItem(item.type, state);
     } else {
@@ -229,7 +229,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
       {/* Common fields for all categories */}
       <form
         className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
-        onSubmit={(e) => handleSubmit(e)}
+        // onSubmit={(e) => handleSubmit(e)}
       >
         <label htmlFor="artist" className="text-gray-700">
           Artist name:
@@ -323,12 +323,14 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         ></textarea>
 
         {/* Submit button */}
-        <button
+        <Link
+          to="/"
           type="submit"
+          onClick={handleSubmit}
           className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           Submit
-        </button>
+        </Link>
       </form>
     </main>
   );
