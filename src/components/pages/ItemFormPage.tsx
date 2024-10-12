@@ -6,10 +6,11 @@ import EditItem from '../../api/editItemAPI';
 import addNewItem from '../../api/addNewItemAPI';
 import { createNewItemObject } from '../../utils/helperFunctions';
 import { RATING_VALUES } from '../../lib/constants';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 import CategorySelector from '../CategorySelector';
 
+// Depending on the argument value, form elements are rendered dynamicly
 function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   const { allAlbums, allCds } = useData();
   const { id } = useParams<{ id: string }>();
@@ -86,18 +87,22 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
 
   // Handle form submission for both add and edit
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    console.log('handle submit called');
+
     event.preventDefault();
     if (isEditMode) {
       EditItem(item.type, state);
     } else {
       addNewItem(selectedCategory, state);
     }
+    alert(`${state.type} is ${isEditMode ? `edited` : `added!`}`);
   }
 
   // Render category-specific fields
   function renderCategorySpecificFields() {
     const currentType = isEditMode ? item.type : selectedCategory;
 
+    // Render the corresponding form elements
     if (currentType === 'album') {
       return (
         <>
@@ -208,6 +213,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     }
   }
 
+  // Render the common form elements
   return (
     <main className="my-6 pl-6">
       <div className="text-3xl">

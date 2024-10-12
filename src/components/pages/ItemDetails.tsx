@@ -27,7 +27,10 @@ function ViewItemPAge() {
   }, [id]);
 
   function handleDelete() {
-    if (item) DeleteItem(item.type, item);
+    if (item && confirm(`Are you sure you want to delete ${item.title}?`)) {
+      DeleteItem(item.type, item);
+      alert(`${item.type} is deleted!`);
+    }
   }
 
   // Display loading message when data is not available (yet)
