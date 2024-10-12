@@ -12,7 +12,7 @@ import CategorySelector from '../CategorySelector';
 
 // Depending on the argument value, form elements are rendered dynamicly
 function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
-  const { allAlbums, allCds } = useData();
+  const { allAlbums, allCds, setIsItemMutated } = useData();
   const { id } = useParams<{ id: string }>();
 
   // Create an empty template object for a new item
@@ -92,8 +92,10 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     // event.preventDefault();
     if (isEditMode) {
       EditItem(item.type, state);
+      setIsItemMutated(true);
     } else {
       addNewItem(selectedCategory, state);
+      setIsItemMutated(true);
     }
     alert(`${state.type} is ${isEditMode ? `edited` : `added!`}`);
   }

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 
 // A type for the children prop in the DataProvider component
 type DataProviderProps = {
@@ -10,6 +10,7 @@ type Context = {
   allAlbums: Album[];
   allCds: Cd[];
   allTracks: Track[];
+  setIsItemMutated: Dispatch<SetStateAction<boolean>>;
 };
 
 // Cards can only be created with one of these types
