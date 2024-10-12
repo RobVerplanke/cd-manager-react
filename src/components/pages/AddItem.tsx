@@ -8,7 +8,7 @@ import { RATING_VALUES } from '../../lib/constants';
 import { useData } from '../../context/DataContext';
 
 function AddItemPage() {
-  const { allAlbums } = useData();
+  const { allAlbums, allCds } = useData();
 
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
 
@@ -112,6 +112,7 @@ function AddItemPage() {
             value={state.specificFields.cd.partOfAlbum}
             onChange={(e) => handleChange('added_partOfAlbum', e)}
           >
+            <option>--- None ---</option>
             {allAlbums.map((album) => (
               <option>{album.title}</option>
             ))}
@@ -138,13 +139,17 @@ function AddItemPage() {
       return (
         <>
           <label htmlFor="cdTitle">CD Title:</label>
-          <input
-            type="text"
+          <select
             id="cdTitle"
             name="cdTitle"
             value={state.specificFields.track.cdTitle}
             onChange={(e) => handleChange('added_cdTitle', e)}
-          />
+          >
+            <option>--- None ---</option>
+            {allCds.map((cd) => (
+              <option>{cd.title}</option>
+            ))}
+          </select>
           <label htmlFor="length">Track Length:</label>
           <input
             type="text"
