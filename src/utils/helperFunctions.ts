@@ -44,21 +44,11 @@ export function sortItemsByAmount(
 ) {
   return isSorted
     ? itemCategory === 'cd'
-      ? [...items].sort(
-          (a, b) => a.specificFields.cd.cdCount - b.specificFields.cd.cdCount
-        )
-      : [...items].sort(
-          (a, b) =>
-            a.specificFields.album.cdCount - b.specificFields.album.cdCount
-        )
+      ? [...items].sort((a, b) => a.cdCount - b.cdCount)
+      : [...items].sort((a, b) => a.cdCount - b.cdCount)
     : itemCategory === 'cd'
-    ? [...items].sort(
-        (a, b) => b.specificFields.cd.cdCount - a.specificFields.cd.cdCount
-      )
-    : [...items].sort(
-        (a, b) =>
-          b.specificFields.album.cdCount - a.specificFields.album.cdCount
-      );
+    ? [...items].sort((a, b) => b.cdCount - a.cdCount)
+    : [...items].sort((a, b) => b.cdCount - a.cdCount);
 }
 
 // Sort the items on highest or lowest rating
@@ -74,39 +64,41 @@ export function sortItemsByRating(
 // Sort the items on longest or shortest length
 export function sortItemsByLength(items: Track[], isSorted: boolean) {
   return isSorted
-    ? [...items].sort((a, b) =>
-        a.specificFields.track.length.localeCompare(
-          b.specificFields.track.length
-        )
-      )
-    : [...items].sort((a, b) =>
-        b.specificFields.track.length.localeCompare(
-          a.specificFields.track.length
-        )
-      );
+    ? [...items].sort((a, b) => a.length.localeCompare(b.length))
+    : [...items].sort((a, b) => b.length.localeCompare(a.length));
 }
 
 // Template for new item
-export function createNewItemObject(): Item {
-  return {
-    id: Date.now().toString(),
-    type: 'unknown',
-    artist: '',
-    featuringArtists: [],
-    title: '',
-    year: 0,
-    rating: 0,
-    tags: [],
-    extraInfo: '',
-    specificFields: {
-      album: {
+export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
+  switch (type) {
+    case 'album':
+      return {
+        id: Date.now().toString(),
+        type: 'album',
+        artist: '',
+        featuringArtists: [],
+        title: '',
+        year: 0,
+        rating: 0,
+        tags: [],
+        extraInfo: '',
         cdCount: 0,
         cover: {
           thumbnail: '',
           fullSize: '',
         },
-      },
-      cd: {
+      };
+    case 'cd':
+      return {
+        id: Date.now().toString(),
+        type: 'cd',
+        artist: '',
+        featuringArtists: [],
+        title: '',
+        year: 0,
+        rating: 0,
+        tags: [],
+        extraInfo: '',
         cdCount: 0,
         trackCount: 0,
         partOfAlbum: '',
@@ -114,12 +106,74 @@ export function createNewItemObject(): Item {
           thumbnail: '',
           fullSize: '',
         },
-      },
-      track: {
+      };
+    case 'track':
+      return {
+        id: Date.now().toString(),
+        type: 'track',
+        artist: '',
+        featuringArtists: [],
+        title: '',
+        year: 0,
+        rating: 0,
+        tags: [],
+        extraInfo: '',
         cdTitle: '',
         trackNumber: 0,
         length: '',
-      },
-    },
-  };
+      };
+    default:
+      throw new Error(`Unsupported item type: ${type}`);
+  }
 }
+
+export const defaultAlbum: Album = {
+  id: Date.now().toString(),
+  type: 'album',
+  artist: '',
+  featuringArtists: [],
+  title: '',
+  tags: [],
+  year: 0,
+  rating: 0,
+  extraInfo: '',
+  cdCount: 0,
+  cover: {
+    thumbnail: '',
+    fullSize: '',
+  },
+};
+
+export const defaultCd: Cd = {
+  id: Date.now().toString(),
+  type: 'cd',
+  artist: '',
+  featuringArtists: [],
+  title: '',
+  tags: [],
+  year: 0,
+  rating: 0,
+  extraInfo: '',
+  cdCount: 0,
+  trackCount: 0,
+  partOfAlbum: '',
+  cover: {
+    thumbnail: '',
+    fullSize: '',
+  },
+};
+
+export const defaultTrack: Track = {
+  id: Date.now().toString(),
+  type: 'track',
+  artist: '',
+  featuringArtists: [],
+  title: '',
+  tags: [],
+  year: 0,
+  rating: 0,
+  extraInfo: '',
+  cdTitle: '',
+  trackNumber: 0,
+  length: '',
+};

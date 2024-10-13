@@ -4,8 +4,10 @@ import SearchResultContent from '../content/SearchResultContent';
 import getAllItemsFromType from '../../api/getAllItemsFromType';
 import { Album, Cd, Track, ItemType, Item } from '../../lib/types/types';
 import { useRef, useState } from 'react';
+import { useData } from '../../context/DataContext';
 
 function SearchItemPage() {
+  const { setError } = useData();
   // Use a state to keep track of active radiobutton
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
 
@@ -49,18 +51,19 @@ function SearchItemPage() {
     setSearchForCategory(selectedCategory);
 
     // Fetch data from selected category only
-    const data = await getAllItemsFromType(selectedCategory);
+    const data = await getAllItemsFromType(selectedCategory, setError);
 
     // Find items with keyword(s) in title, artistname or its tags
-    setFilteredData(
-      data.filter((item) => {
-        if (
-          compareCaseInsensitive(item, searchInput) ||
-          isKeywordInTags(item, searchInput)
-        )
-          return item; // When keyword is found, store the item in search results
-      })
-    );
+    if (data)
+      setFilteredData(
+        data.filter((item) => {
+          if (
+            compareCaseInsensitive(item, searchInput) ||
+            isKeywordInTags(item, searchInput)
+          )
+            return item; // When keyword is found, store the item in search results
+        })
+      );
   }
 
   // Control the search input element

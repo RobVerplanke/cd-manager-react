@@ -111,7 +111,7 @@ export default function SortWithItems({
     setSortedItems(
       (prevVal: (Album | Cd | Track)[]) =>
         sortItemsByAmount(
-          prevVal as (Album | Cd)[],
+          prevVal as Album[] | Cd[],
           isAmountSortedDescendingly,
           itemType as ItemType
         ) as (Album | Cd)[]
@@ -127,7 +127,7 @@ export default function SortWithItems({
     setSortedItems(
       (prevVal: (Album | Cd | Track)[]) =>
         sortItemsByRating(
-          prevVal as (Album | Cd)[],
+          prevVal as Album[] | Cd[],
           isRatingSortedDescendingly
         ) as (Album | Cd)[]
     );

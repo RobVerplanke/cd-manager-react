@@ -21,16 +21,16 @@ type Context = {
 type ItemCardProps = Track;
 type ItemWithCoverCardProps = Album | Cd;
 
-// Every item can only be one of these types
-type ItemType = 'album' | 'cd' | 'track' | 'unknown';
-
 // Tags must be a string
 type Tag = string;
 
-// A base type with common properties
-type Item = {
+// Every item can only be one of these types
+type ItemType = 'album' | 'cd' | 'track';
+
+// Properties specific for an item of type Album
+type Album = {
   id: string;
-  type: ItemType;
+  type: 'album';
   artist: string;
   featuringArtists?: string[];
   title: string;
@@ -38,33 +38,6 @@ type Item = {
   year: number;
   rating: number;
   extraInfo: string;
-  specificFields: {
-    album: {
-      cdCount: number;
-      cover: {
-        thumbnail: string;
-        fullSize: string;
-      };
-    };
-    cd: {
-      cdCount: number;
-      trackCount: number;
-      partOfAlbum?: string;
-      cover: {
-        thumbnail: string;
-        fullSize: string;
-      };
-    };
-    track: {
-      cdTitle: string;
-      trackNumber: number;
-      length: string;
-    };
-  };
-};
-
-// Properties specific for an item of type Album
-type Album = Item & {
   cdCount: number;
   cover: {
     thumbnail: string;
@@ -73,7 +46,16 @@ type Album = Item & {
 };
 
 // Properties specific for an item of type Cd
-type Cd = Item & {
+type Cd = {
+  id: string;
+  type: 'cd';
+  artist: string;
+  featuringArtists?: string[];
+  title: string;
+  tags: string[];
+  year: number;
+  rating: number;
+  extraInfo: string;
   cdCount: number;
   trackCount: number;
   partOfAlbum?: string;
@@ -84,10 +66,23 @@ type Cd = Item & {
 };
 
 // Properties specific for an item of type Track
-type Track = Item & {
+type Track = {
+  id: string;
+  type: 'track';
+  artist: string;
+  featuringArtists?: string[];
+  title: string;
+  tags: string[];
+  year: number;
+  rating: number;
+  extraInfo: string;
   cdTitle: string;
+  trackNumber: number;
   length: string;
 };
+
+// An Item can only be an album, cd or a track
+type Item = Album | Cd | Track;
 
 export {
   Item,

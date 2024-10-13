@@ -21,8 +21,7 @@ function ItemCard({ item }: { item: ItemCardProps }) {
       </div>
 
       <div className="text-sm text-gray-600">
-        {'length' in item.specificFields.track &&
-          item.specificFields.track.length}
+        {'length' in item && item.length}
       </div>
       {getRatingStars(item.rating)}
       <div className="flex flex-wrap gap-2">

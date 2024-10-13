@@ -5,22 +5,15 @@ import { Link } from 'react-router-dom';
 import getRatingStars from '../RatingStars';
 
 function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
-  const coverThumbnail =
-    item.type === 'album'
-      ? item.specificFields.album.cover.thumbnail
-      : item.specificFields.cd.cover.thumbnail;
-
-  const cdCount =
-    item.type === 'album'
-      ? item.specificFields.album.cdCount
-      : item.specificFields.cd.cdCount;
+  const coverThumbnail = item.cover.thumbnail;
+  const cdCount = item.type === 'album' ? item.cdCount : item.cdCount;
 
   return (
     <div className="grid grid-cols-[50px_1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">
       {/* Cover Thumbnail */}
       <div className="w-full h-full">
         <img
-          src={coverThumbnail || 'default-thumbnail.jpg'}
+          src={coverThumbnail || 'https://placehold.co/30x30'}
           alt={item.title}
           className="object-cover w-full h-full rounded"
         />

@@ -1,7 +1,12 @@
-import { Item, ItemType } from '../lib/types/types';
-import { createNewItemObject } from '../utils/helperFunctions';
+import { Album, Cd, Item, ItemType, Track } from '../lib/types/types';
+import {
+  createNewItemObject,
+  defaultAlbum,
+  defaultCd,
+  defaultTrack,
+} from '../utils/helperFunctions';
 
-const newItem: Item = createNewItemObject();
+const newItem: Item = createNewItemObject('album');
 
 // Reducer function for adding items to the library
 export default function formDataReducer(
@@ -11,9 +16,25 @@ export default function formDataReducer(
     payload: { inputValue: string | number; item?: Item };
   }
 ): Item {
-  // Type guard for narrowing the item type
+  // Type guards for narrowing the item type
   function isNumber(item: number | string): item is number {
     return typeof (item as number) === 'number';
+  }
+
+  function isItemType(input: string | number): input is ItemType {
+    return ['album', 'cd', 'track'].includes(input as string);
+  }
+
+  function isAlbum(item: Item): item is Album {
+    return item.type === 'album';
+  }
+
+  function isCd(item: Item): item is Cd {
+    return item.type === 'cd';
+  }
+
+  function isTrack(item: Item): item is Track {
+    return item.type === 'track';
   }
 
   switch (action.type) {
@@ -21,8 +42,23 @@ export default function formDataReducer(
       return { ...state, ...action.payload.item };
     case 'cleared_form': // Clear: Replace all values with empty values
       return { ...state, ...newItem };
-    case 'selected_form':
-      return { ...state, type: action.payload.inputValue as ItemType };
+    case 'selected_form': // Return the correct default object based on the selected type
+      if (isItemType(action.payload.inputValue)) {
+        switch (action.payload.inputValue) {
+          case 'album':
+            return defaultAlbum;
+          case 'cd':
+            return defaultCd;
+          case 'track':
+            return defaultTrack;
+          default:
+            return state;
+        }
+      } else {
+        // Handle invalid inputValue (optional: throw error or return state unchanged)
+        console.error('Invalid item type selected.');
+        return state;
+      }
     case 'added_title':
       return { ...state, title: action.payload.inputValue as string };
     case 'added_artist':
@@ -54,127 +90,108 @@ export default function formDataReducer(
     case 'added_extraInfo':
       return { ...state, extraInfo: action.payload.inputValue as string };
     case 'added_album-thumbnail':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          album: {
-            ...state.specificFields.album,
-            cover: {
-              ...state.specificFields.album.cover,
-              thumbnail: action.payload.inputValue as string,
-            },
+      // Check if the current state is an Album or Cd, as only these types have the 'cover' property
+      if (isAlbum(state)) {
+        return {
+          ...state,
+          cover: {
+            ...state.cover,
+            thumbnail: action.payload.inputValue as string,
           },
-        },
-      };
+        };
+      } else {
+        return state;
+      }
     case 'added_album-fullSize':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          album: {
-            ...state.specificFields.album,
-            cover: {
-              ...state.specificFields.album.cover,
-              fullSize: action.payload.inputValue as string,
-            },
+      if (isAlbum(state)) {
+        return {
+          ...state,
+          cover: {
+            ...state.cover,
+            fullSize: action.payload.inputValue as string,
           },
-        },
-      };
+        };
+      } else {
+        return state;
+      }
     case 'added_album-cdCount':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          album: {
-            ...state.specificFields.album,
-            cdCount: action.payload.inputValue as number,
-          },
-        },
-      };
+      if (isAlbum(state)) {
+        return {
+          ...state,
+          cdCount: action.payload.inputValue as number,
+        };
+      } else {
+        return state;
+      }
     case 'added_cd-cdCount':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          cd: {
-            ...state.specificFields.cd,
-            cdCount: action.payload.inputValue as number,
-          },
-        },
-      };
+      if (isCd(state)) {
+        return {
+          ...state,
+          cdCount: action.payload.inputValue as number,
+        };
+      } else {
+        return state;
+      }
     case 'added_cd-thumbnail':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          cd: {
-            ...state.specificFields.cd,
-            cover: {
-              ...state.specificFields.cd.cover,
-              thumbnail: action.payload.inputValue as string,
-            },
+      if (isCd(state)) {
+        return {
+          ...state,
+          cover: {
+            ...state.cover,
+            thumbnail: action.payload.inputValue as string,
           },
-        },
-      };
+        };
+      } else {
+        return state;
+      }
     case 'added_cd-fullSize':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          cd: {
-            ...state.specificFields.cd,
-            cover: {
-              ...state.specificFields.cd.cover,
-              fullSize: action.payload.inputValue as string,
-            },
+      if (isCd(state)) {
+        return {
+          ...state,
+          cover: {
+            ...state.cover,
+            fullSize: action.payload.inputValue as string,
           },
-        },
-      };
+        };
+      } else {
+        return state;
+      }
     case 'added_tracksCount':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          cd: {
-            ...state.specificFields.cd,
-            trackCount: action.payload.inputValue as number,
-          },
-        },
-      };
+      if (isCd(state)) {
+        return {
+          ...state,
+          trackCount: action.payload.inputValue as number,
+        };
+      } else {
+        return state;
+      }
     case 'added_partOfAlbum':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          cd: {
-            ...state.specificFields.cd,
-            partOfAlbum: action.payload.inputValue as string,
-          },
-        },
-      };
+      if (isCd(state)) {
+        return {
+          ...state,
+          partOfAlbum: action.payload.inputValue as string,
+        };
+      } else {
+        return state;
+      }
     case 'added_cdTitle':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          track: {
-            ...state.specificFields.track,
-            cdTitle: action.payload.inputValue as string,
-          },
-        },
-      };
+      if (isTrack(state)) {
+        return {
+          ...state,
+          cdTitle: action.payload.inputValue as string,
+        };
+      } else {
+        return state;
+      }
     case 'added_length':
-      return {
-        ...state,
-        specificFields: {
-          ...state.specificFields,
-          track: {
-            ...state.specificFields.track,
-            length: action.payload.inputValue as string,
-          },
-        },
-      };
+      if (isTrack(state)) {
+        return {
+          ...state,
+          length: action.payload.inputValue as string,
+        };
+      } else {
+        return state;
+      }
 
     default:
       return state;

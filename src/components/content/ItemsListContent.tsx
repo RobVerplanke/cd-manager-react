@@ -30,16 +30,18 @@ export function ItemsListContent({
   }, [page, data]);
 
   // Type guards for narrowing the item types
-  function isTrack(item: Album | Cd | Track): item is Track {
-    return (item as Track).specificFields.track.length !== '';
+  function isAlbum(item: Album | Cd | Track): item is Album {
+    return (item as Album).type === 'album';
   }
 
-  function isAlbumOrCd(item: Album | Cd | Track): item is Album | Cd {
-    return (
-      (item as Album).specificFields.album.cdCount !== 0 ||
-      (item as Cd).specificFields.cd.cdCount !== 0
-    );
+  function isCd(item: Album | Cd | Track): item is Cd {
+    return (item as Cd).type == 'cd';
   }
+
+  function isTrack(item: Album | Cd | Track): item is Track {
+    return (item as Track).type === 'track';
+  }
+
   return (
     <>
       <ul>
@@ -47,7 +49,9 @@ export function ItemsListContent({
           filterData.map((item) => (
             <li key={item.id}>
               {isTrack(item) && <ItemCard item={item} />}
-              {isAlbumOrCd(item) && <ItemWithCoverCard item={item} />}
+              {(isAlbum(item) || isCd(item)) && (
+                <ItemWithCoverCard item={item} />
+              )}
             </li>
           ))}
       </ul>

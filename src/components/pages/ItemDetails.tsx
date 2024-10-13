@@ -88,15 +88,12 @@ function ViewItemPAge() {
           <>
             <div>
               <dt className="font-semibold">CD Count:</dt>
-              <dd>{item.specificFields.album.cdCount}</dd>
+              <dd>{item.cdCount}</dd>
             </div>
             <div>
               <dt className="font-semibold">Cover:</dt>
               <dd>
-                <img
-                  src={item.specificFields.album.cover.fullSize}
-                  alt="Album cover"
-                />
+                <img src={item.cover.fullSize} alt="Album cover" />
               </dd>
             </div>
           </>
@@ -105,25 +102,22 @@ function ViewItemPAge() {
           <>
             <div>
               <dt className="font-semibold">CD Count:</dt>
-              <dd>{item.specificFields.cd.cdCount}</dd>
+              <dd>{item.cdCount}</dd>
             </div>
             <div>
               <dt className="font-semibold">Track Count:</dt>
-              <dd>{item.specificFields.cd.trackCount}</dd>
+              <dd>{item.trackCount}</dd>
             </div>
-            {item.specificFields.cd.partOfAlbum && (
+            {item.partOfAlbum && (
               <div>
                 <dt className="font-semibold">Part of Album:</dt>
-                <dd>{item.specificFields.cd.partOfAlbum}</dd>
+                <dd>{item.partOfAlbum}</dd>
               </div>
             )}
             <div>
               <dt className="font-semibold">Cover:</dt>
               <dd>
-                <img
-                  src={item.specificFields.cd.cover.fullSize}
-                  alt="CD cover"
-                />
+                <img src={item.cover.fullSize} alt="CD cover" />
               </dd>
             </div>
           </>
@@ -132,15 +126,15 @@ function ViewItemPAge() {
           <>
             <div>
               <dt className="font-semibold">CD Title:</dt>
-              <dd>{item.specificFields.track.cdTitle}</dd>
+              <dd>{item.cdTitle}</dd>
             </div>
             <div>
               <dt className="font-semibold">Track number:</dt>
-              <dd>{item.specificFields.track.trackNumber}</dd>
+              <dd>{item.trackNumber}</dd>
             </div>
             <div>
               <dt className="font-semibold">Length:</dt>
-              <dd>{item.specificFields.track.length}</dd>
+              <dd>{item.length}</dd>
             </div>
           </>
         )}
