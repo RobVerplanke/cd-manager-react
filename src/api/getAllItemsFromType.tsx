@@ -1,18 +1,27 @@
+import { useData } from '../context/DataContext';
 import { ItemType, Album, Cd, Track } from '../lib/types/types';
 
 // Receive and return a list which contains objects of the corresponding item type
-export default async function getAllItemsFromType(type: ItemType) {
-  // The items array can only contain objects from these types
+export default async function getAllItemsFromType(
+  type: ItemType,
+  setError: (message: string) => void
+) {
+  const url = `http://localhost:3000/${type}s`;
   let items: (Album | Cd | Track)[] = [];
 
-  // Get all objects with the corresponding type
-  const url = `http://localhost:3000/${type}s`;
-  const response = await fetch(url);
-  const data = await response.json();
+  try {
+    const response = await fetch(url);
 
-  // Iterate through received data and store the objects
-  data.forEach((item: Album | Cd | Track) => {
-    items.push(item);
-  });
-  return items;
+    if (!response.ok) {
+      const errorMessage = response.text();
+      throw new Error(`Server response: ${errorMessage}`);
+    }
+    const data = await response.json();
+    data.forEach((item: Album | Cd | Track) => {
+      items.push(item);
+    });
+    return items;
+  } catch (error) {
+    setError(`Get items: ${error}`);
+  }
 }

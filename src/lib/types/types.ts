@@ -7,6 +7,10 @@ type DataProviderProps = {
 
 // Make sure the context data is set with the correct types
 type Context = {
+  setError: Dispatch<SetStateAction<string | null>>;
+  setConfirmationMessage: Dispatch<SetStateAction<string | null>>;
+  error: string | null;
+  confirmationMessage: string | null;
   allAlbums: Album[];
   allCds: Cd[];
   allTracks: Track[];

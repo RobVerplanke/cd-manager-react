@@ -12,7 +12,7 @@ import CategorySelector from '../CategorySelector';
 
 // Depending on the argument value, form elements are rendered dynamicly
 function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
-  const { allAlbums, allCds, setIsItemMutated } = useData();
+  const { allAlbums, allCds, setIsItemMutated, setError } = useData();
   const { id } = useParams<{ id: string }>();
 
   // Create an empty template object for a new item
@@ -31,7 +31,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   useEffect(() => {
     if (isEditMode && id) {
       const fetchData = async () => {
-        const data = await getItemById(id);
+        const data = await getItemById(id, setError);
         if (data) {
           setItem(data);
         } else {
@@ -87,14 +87,11 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
 
   // Handle form submission for both add and edit
   function handleSubmit() {
-    console.log('handle submit called');
-
-    // event.preventDefault();
     if (isEditMode) {
-      EditItem(item.type, state);
+      EditItem(item.type, state, setError);
       setIsItemMutated(true);
     } else {
-      addNewItem(selectedCategory, state);
+      addNewItem(selectedCategory, state, setError);
       setIsItemMutated(true);
     }
     alert(`${state.type} is ${isEditMode ? `edited` : `added!`}`);

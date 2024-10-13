@@ -9,7 +9,7 @@ import { useData } from '../../context/DataContext';
 
 function ViewItemPAge() {
   const { id } = useParams<{ id: string }>();
-  const { setIsItemMutated } = useData();
+  const { setError, setIsItemMutated } = useData();
   const [item, setItem] = useState<Album | Cd | Track | null>(null);
 
   // Fetch item data when ID is available
@@ -30,7 +30,7 @@ function ViewItemPAge() {
 
   function handleDelete() {
     if (item && confirm(`Are you sure you want to delete ${item.title}?`)) {
-      DeleteItem(item.type, item);
+      DeleteItem(item.type, item, setError);
       setIsItemMutated(true);
       alert(`${item.type} is deleted!`);
     }
