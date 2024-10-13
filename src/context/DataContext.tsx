@@ -69,6 +69,16 @@ export function DataProvider({ children }: DataProviderProps) {
     }
   }, [error]);
 
+  // Reset confirm message after x amount of seconds (declared in src/lib/constants.ts)
+  useEffect(() => {
+    if (confirmationMessage) {
+      const timer = setTimeout(() => {
+        setConfirmationMessage(null);
+      }, MESSAGE_TIMEOUT_SECONDS);
+      return () => clearTimeout(timer); // cleanup timer
+    }
+  }, [confirmationMessage]);
+
   return (
     <DataContext.Provider
       value={{

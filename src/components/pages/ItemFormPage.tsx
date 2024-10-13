@@ -12,7 +12,13 @@ import CategorySelector from '../CategorySelector';
 
 // Depending on the argument value, form elements are rendered dynamicly
 function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
-  const { allAlbums, allCds, setIsItemMutated, setError } = useData();
+  const {
+    allAlbums,
+    allCds,
+    setIsItemMutated,
+    setError,
+    setConfirmationMessage,
+  } = useData();
   const { id } = useParams<{ id: string }>();
 
   // Create an empty template object for a new item
@@ -90,11 +96,12 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     if (isEditMode) {
       EditItem(item.type, state, setError);
       setIsItemMutated(true);
+      setConfirmationMessage('edited');
     } else {
       addNewItem(selectedCategory, state, setError);
       setIsItemMutated(true);
+      setConfirmationMessage('added');
     }
-    alert(`${state.type} is ${isEditMode ? `edited` : `added!`}`);
   }
 
   // Render category-specific fields

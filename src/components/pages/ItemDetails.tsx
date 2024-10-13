@@ -9,18 +9,17 @@ import { useData } from '../../context/DataContext';
 
 function ViewItemPAge() {
   const { id } = useParams<{ id: string }>();
-  const { setError, setIsItemMutated } = useData();
+  const { setError, setConfirmationMessage, setIsItemMutated } = useData();
   const [item, setItem] = useState<Album | Cd | Track | null>(null);
 
   // Fetch item data when ID is available
   useEffect(() => {
     if (id) {
       const fetchData = async () => {
-        const data = await getItemById(id);
+        const data = await getItemById(id, setError);
         if (data) {
           setItem(data); // Set item only if data exists
         } else {
-          console.error('Item not found');
           setItem(null); // Explicitly set null if no item is found
         }
       };
@@ -32,7 +31,7 @@ function ViewItemPAge() {
     if (item && confirm(`Are you sure you want to delete ${item.title}?`)) {
       DeleteItem(item.type, item, setError);
       setIsItemMutated(true);
-      alert(`${item.type} is deleted!`);
+      setConfirmationMessage('deleted');
     }
   }
 

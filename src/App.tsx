@@ -4,11 +4,11 @@ import { useData } from './context/DataContext';
 import { Outlet } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import MainHeader from './components/MainHeader';
-import { ErrorPage } from './components/pages';
+import { ErrorPage, ConfirmedPage } from './components/pages';
 import './index.css';
 
 function App() {
-  const { error } = useData();
+  const { error, confirmationMessage } = useData();
 
   return (
     // Set global styling for the app
@@ -20,7 +20,13 @@ function App() {
         <MainHeader />
         <Profiler id="Outlet" onRender={onRender}>
           <div className="bg-gray-300 h-full ">
-            {error ? <ErrorPage error={error} /> : <Outlet />}
+            {error ? (
+              <ErrorPage error={error} />
+            ) : confirmationMessage ? (
+              <ConfirmedPage action={confirmationMessage} />
+            ) : (
+              <Outlet />
+            )}
           </div>
         </Profiler>
       </div>
