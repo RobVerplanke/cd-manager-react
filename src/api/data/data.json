@@ -4,23 +4,16 @@
       "id": "1728329777008",
       "type": "album",
       "artist": "The Imaginary Band",
-      "featuringArtists": [
-        "Artist A",
-        "Artist B"
-      ],
+      "featuringArtists": ["Artist A", "Artist B"],
       "title": "Dreamscapes",
       "albumYear": 2021,
       "rating": "1",
-      "tags": [
-        "alternative",
-        "dream pop",
-        "trance"
-      ],
+      "tags": ["alternative", "dream pop", "trance"],
       "extraInfo": "A collection of ethereal sounds.",
       "cdsInAlbum": "2",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "albumThumbnail": "https://placehold.co/30x30",
+        "albumFullSize": "https://placehold.co/400x400"
       }
     },
     {
@@ -31,15 +24,12 @@
       "title": "Timeless Melodies",
       "albumYear": 2023,
       "rating": "5",
-      "tags": [
-        "rock",
-        "nostalgia"
-      ],
+      "tags": ["rock", "nostalgia"],
       "extraInfo": "Rock anthems that stand the test of time.",
       "cdsInAlbum": "4",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "albumThumbnail": "https://placehold.co/30x30",
+        "albumFullSize": "https://placehold.co/400x400"
       }
     }
   ],
@@ -52,17 +42,14 @@
       "title": "Orchestral Adventures",
       "cdYear": 2019,
       "rating": 5,
-      "tags": [
-        "classical",
-        "orchestra"
-      ],
+      "tags": ["classical", "orchestra"],
       "extraInfo": "An epic journey through classical music.",
       "cdCount": 1,
       "trackCount": 10,
       "partOfAlbum": "Symphonic Collections",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "cdThumbnail": "https://placehold.co/30x30",
+        "cdFullSize": "https://placehold.co/400x400"
       }
     },
     {
@@ -73,17 +60,14 @@
       "title": "Symphony of Dreams",
       "cdYear": 2020,
       "rating": 3,
-      "tags": [
-        "classical",
-        "symphony"
-      ],
+      "tags": ["classical", "symphony"],
       "extraInfo": "A mesmerizing symphonic journey.",
       "cdCount": 1,
       "trackCount": 12,
       "partOfAlbum": "Dreams in Symphony",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "cdThumbnail": "https://placehold.co/30x30",
+        "cdFullSize": "https://placehold.co/400x400"
       }
     },
     {
@@ -94,18 +78,14 @@
       "title": "Epic Crescendo",
       "cdYear": 2021,
       "rating": 4,
-      "tags": [
-        "orchestra",
-        "epic",
-        "alternative"
-      ],
+      "tags": ["orchestra", "epic", "alternative"],
       "extraInfo": "An epic crescendo that soars through the musical scales.",
       "cdCount": 1,
       "trackCount": 9,
       "partOfAlbum": "Epic Series",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "cdThumbnail": "https://placehold.co/30x30",
+        "cdFullSize": "https://placehold.co/400x400"
       }
     },
     {
@@ -116,18 +96,14 @@
       "title": "Mystical Melodies",
       "cdYear": 2022,
       "rating": 2,
-      "tags": [
-        "classical",
-        "chamber music",
-        "trance"
-      ],
+      "tags": ["classical", "chamber music", "trance"],
       "extraInfo": "A collection of enchanting chamber pieces.",
       "cdCount": 1,
       "trackCount": 8,
       "partOfAlbum": "Mystical Sounds",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "cdThumbnail": "https://placehold.co/30x30",
+        "cdFullSize": "https://placehold.co/400x400"
       }
     },
     {
@@ -138,17 +114,14 @@
       "title": "Philharmonic Rhapsody",
       "cdYear": 2023,
       "rating": 5,
-      "tags": [
-        "philharmonic",
-        "rhapsody"
-      ],
+      "tags": ["philharmonic", "rhapsody"],
       "extraInfo": "A grand rhapsody performed by the Philharmonic.",
       "cdCount": 1,
       "trackCount": 11,
       "partOfAlbum": "Rhapsody in Music",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "cdThumbnail": "https://placehold.co/30x30",
+        "cdFullSize": "https://placehold.co/400x400"
       }
     },
     {
@@ -159,40 +132,32 @@
       "title": "Cinematic Soundscapes",
       "cdYear": 2024,
       "rating": 3,
-      "tags": [
-        "cinematic",
-        "orchestral"
-      ],
+      "tags": ["cinematic", "orchestral"],
       "extraInfo": "An evocative collection of cinematic orchestral music.",
       "cdCount": 1,
       "trackCount": 10,
       "partOfAlbum": "Soundscapes Series",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "cdThumbnail": "https://placehold.co/30x30",
+        "cdFullSize": "https://placehold.co/400x400"
       }
     },
     {
       "id": "1738329777012",
       "type": "cd",
       "artist": "Jazz Quintet",
-      "featuringArtists": [
-        "Special Guest"
-      ],
+      "featuringArtists": ["Special Guest"],
       "title": "Jazz Nights",
       "cdYear": 2020,
       "rating": 4,
-      "tags": [
-        "jazz",
-        "live"
-      ],
+      "tags": ["jazz", "live"],
       "extraInfo": "A live recording of an unforgettable night.",
       "cdCount": 4,
       "trackCount": 8,
       "partOfAlbum": "Live Recordings",
       "cover": {
-        "thumbnail": "https://placehold.co/30x30",
-        "fullSize": "https://placehold.co/400x400"
+        "cdThumbnail": "https://placehold.co/30x30",
+        "cdFullSize": "https://placehold.co/400x400"
       }
     }
   ],
@@ -201,15 +166,10 @@
       "id": "1718329777010",
       "type": "track",
       "artist": "Solo Artist",
-      "featuringArtists": [
-        "Guest Singer"
-      ],
+      "featuringArtists": ["Guest Singer"],
       "title": "Echoes in Time",
       "rating": 3,
-      "tags": [
-        "pop",
-        "single"
-      ],
+      "tags": ["pop", "single"],
       "extraInfo": "A catchy pop single that resonates.",
       "cdTitle": "Echoes",
       "trackNumber": 1,
@@ -219,15 +179,10 @@
       "id": "1738329777013",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves",
       "rating": "2",
-      "tags": [
-        "indie",
-        "alternative"
-      ],
+      "tags": ["indie", "alternative"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 2,
@@ -237,15 +192,10 @@
       "id": "1708329777011",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 1",
       "rating": "2",
-      "tags": [
-        "indie",
-        "alternative"
-      ],
+      "tags": ["indie", "alternative"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Epic Crescendo",
       "trackNumber": 1,
@@ -255,16 +205,10 @@
       "id": "1748329777012",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 2",
       "rating": 3,
-      "tags": [
-        "indie",
-        "alternative",
-        "trance"
-      ],
+      "tags": ["indie", "alternative", "trance"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 2,
@@ -274,15 +218,10 @@
       "id": "1738329777014",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 4",
       "rating": 5,
-      "tags": [
-        "rock",
-        "alternative"
-      ],
+      "tags": ["rock", "alternative"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 4,
@@ -292,15 +231,10 @@
       "id": "1728329777015",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 5",
       "rating": 4,
-      "tags": [
-        "rock",
-        "metal"
-      ],
+      "tags": ["rock", "metal"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 5,
@@ -310,15 +244,10 @@
       "id": "1728329777016",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 6",
       "rating": 5,
-      "tags": [
-        "indie",
-        "alternative"
-      ],
+      "tags": ["indie", "alternative"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 6,
@@ -328,15 +257,10 @@
       "id": "1728329777017",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 7",
       "rating": "5",
-      "tags": [
-        "classical",
-        "alternative"
-      ],
+      "tags": ["classical", "alternative"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 7,
@@ -346,15 +270,10 @@
       "id": "1728329777018",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 8",
       "rating": 3,
-      "tags": [
-        "pop",
-        "dance"
-      ],
+      "tags": ["pop", "dance"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 8,
@@ -364,15 +283,10 @@
       "id": "1728329777019",
       "type": "track",
       "artist": "Indie Band",
-      "featuringArtists": [
-        "Collaborator"
-      ],
+      "featuringArtists": ["Collaborator"],
       "title": "Waves 9",
       "rating": 3,
-      "tags": [
-        "indie",
-        "dance"
-      ],
+      "tags": ["indie", "dance"],
       "extraInfo": "An indie anthem for the summer.",
       "cdTitle": "Summer Vibes",
       "trackNumber": 9,
