@@ -35,13 +35,13 @@ type Album = {
   featuringArtists?: string[];
   title: string;
   tags: string[];
-  year: number;
+  albumYear: number;
   rating: number;
   extraInfo: string;
-  cdCount: number;
+  cdsInAlbum: number;
   cover: {
-    thumbnail: string;
-    fullSize: string;
+    albumThumbnail: string;
+    albumFullSize: string;
   };
 };
 
@@ -53,15 +53,15 @@ type Cd = {
   featuringArtists?: string[];
   title: string;
   tags: string[];
-  year: number;
+  cdYear: number;
   rating: number;
   extraInfo: string;
   cdCount: number;
   trackCount: number;
   partOfAlbum?: string;
   cover: {
-    thumbnail: string;
-    fullSize: string;
+    cdThumbnail: string;
+    cdFullSize: string;
   };
 };
 
@@ -73,7 +73,6 @@ type Track = {
   featuringArtists?: string[];
   title: string;
   tags: string[];
-  year: number;
   rating: number;
   extraInfo: string;
   cdTitle: string;
@@ -83,6 +82,10 @@ type Track = {
 
 // An Item can only be an album, cd or a track
 type Item = Album | Cd | Track;
+
+type FormErrors = {
+  [key: string]: string;
+};
 
 export {
   Item,
@@ -95,4 +98,5 @@ export {
   Track,
   DataProviderProps,
   Context,
+  FormErrors,
 };

@@ -26,6 +26,18 @@ export function onRender(
   );
 }
 
+// Generate select options for release year
+export function getReleaseYearRange() {
+  const options = [];
+  const currentYear = new Date().getFullYear() + 1;
+
+  for (let i = 1900; i < currentYear; i++) {
+    options.push(i);
+  }
+
+  return options.reverse();
+}
+
 // Sort the items alphabetically, or inverted
 export function sortItemsByTitle(
   items: (Album | Cd | Track)[],
@@ -36,19 +48,43 @@ export function sortItemsByTitle(
     : [...items].sort((a, b) => b.title.localeCompare(a.title));
 }
 
+export function isAlbum(item: Item): item is Album {
+  return item.type === 'album';
+}
+
+export function isCd(item: Item): item is Cd {
+  return item.type === 'cd';
+}
+
 // Sort the items on amount of cds
 export function sortItemsByAmount(
   items: Album[] | Cd[],
   isSorted: boolean,
   itemCategory: string
 ) {
-  return isSorted
-    ? itemCategory === 'cd'
-      ? [...items].sort((a, b) => a.cdCount - b.cdCount)
-      : [...items].sort((a, b) => a.cdCount - b.cdCount)
-    : itemCategory === 'cd'
-    ? [...items].sort((a, b) => b.cdCount - a.cdCount)
-    : [...items].sort((a, b) => b.cdCount - a.cdCount);
+  // Check if the items are CDs or Albums
+  if (itemCategory === 'cd') {
+    // Sort CDs by cdCount
+    return isSorted
+      ? [...items].sort((a, b) =>
+          isCd(a) && isCd(b) ? a.cdCount - b.cdCount : 0
+        )
+      : [...items].sort((a, b) =>
+          isCd(a) && isCd(b) ? b.cdCount - a.cdCount : 0
+        );
+  } else if (itemCategory === 'album') {
+    // Sort Albums by cdsInAlbum
+    return isSorted
+      ? [...items].sort((a, b) =>
+          isAlbum(a) && isAlbum(b) ? a.cdsInAlbum - b.cdsInAlbum : 0
+        )
+      : [...items].sort((a, b) =>
+          isAlbum(a) && isAlbum(b) ? b.cdsInAlbum - a.cdsInAlbum : 0
+        );
+  } else {
+    // Default return for unknown categories
+    return items;
+  }
 }
 
 // Sort the items on highest or lowest rating
@@ -78,14 +114,14 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
         artist: '',
         featuringArtists: [],
         title: '',
-        year: 0,
+        albumYear: 0,
         rating: 0,
         tags: [],
         extraInfo: '',
-        cdCount: 0,
+        cdsInAlbum: 0,
         cover: {
-          thumbnail: '',
-          fullSize: '',
+          albumThumbnail: '',
+          albumFullSize: '',
         },
       };
     case 'cd':
@@ -95,7 +131,7 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
         artist: '',
         featuringArtists: [],
         title: '',
-        year: 0,
+        cdYear: 0,
         rating: 0,
         tags: [],
         extraInfo: '',
@@ -103,8 +139,8 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
         trackCount: 0,
         partOfAlbum: '',
         cover: {
-          thumbnail: '',
-          fullSize: '',
+          cdThumbnail: '',
+          cdFullSize: '',
         },
       };
     case 'track':
@@ -114,7 +150,6 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
         artist: '',
         featuringArtists: [],
         title: '',
-        year: 0,
         rating: 0,
         tags: [],
         extraInfo: '',
@@ -134,13 +169,13 @@ export const defaultAlbum: Album = {
   featuringArtists: [],
   title: '',
   tags: [],
-  year: 0,
+  albumYear: 0,
   rating: 0,
   extraInfo: '',
-  cdCount: 0,
+  cdsInAlbum: 0,
   cover: {
-    thumbnail: '',
-    fullSize: '',
+    albumThumbnail: '',
+    albumFullSize: '',
   },
 };
 
@@ -151,15 +186,15 @@ export const defaultCd: Cd = {
   featuringArtists: [],
   title: '',
   tags: [],
-  year: 0,
+  cdYear: 0,
   rating: 0,
   extraInfo: '',
   cdCount: 0,
   trackCount: 0,
   partOfAlbum: '',
   cover: {
-    thumbnail: '',
-    fullSize: '',
+    cdThumbnail: '',
+    cdFullSize: '',
   },
 };
 
@@ -170,7 +205,6 @@ export const defaultTrack: Track = {
   featuringArtists: [],
   title: '',
   tags: [],
-  year: 0,
   rating: 0,
   extraInfo: '',
   cdTitle: '',

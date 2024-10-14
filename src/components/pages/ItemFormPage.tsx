@@ -1,21 +1,40 @@
-import { useEffect, useReducer, useState } from 'react';
-import { type Item, type ItemType } from '../../lib/types/types';
+import { FormEvent, useEffect, useReducer, useState } from 'react';
+import { FormErrors, type Item, type ItemType } from '../../lib/types/types';
 import formDataReducer from '../../reducers/formDataReducer';
 import getItemById from '../../api/getItemById';
 import EditItem from '../../api/editItemAPI';
 import addNewItem from '../../api/addNewItemAPI';
-import { createNewItemObject } from '../../utils/helperFunctions';
+import {
+  createNewItemObject,
+  getReleaseYearRange,
+} from '../../utils/helperFunctions';
 import { RATING_VALUES } from '../../lib/constants';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 import CategorySelector from '../CategorySelector';
+import { ValidationError } from 'yup';
+import {
+  validationSchemaAlbum,
+  validationSchemaCd,
+  validationSchemaTrack,
+} from '../../lib/yup/schemas';
 
 // Depending on the argument value, form elements are rendered dynamicly
 function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   // Initially set item type to 'album'
   const [item, setItem] = useState<Item>(createNewItemObject('album'));
+
+  // Use reducer to manage form data
+  const [state, dispatch] = useReducer(formDataReducer, item);
+
   // Choosen category (only for add mode)
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
+
+  // Fallback empty template in case the data is not loaded
+  const newItem: Item = createNewItemObject(selectedCategory);
+
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
+
   const {
     allAlbums,
     allCds,
@@ -24,12 +43,6 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     setConfirmationMessage,
   } = useData();
   const { id } = useParams<{ id: string }>();
-
-  // Fallback empty template in case the data is not loaded
-  const newItem: Item = createNewItemObject(selectedCategory);
-
-  // Use reducer to manage form data
-  const [state, dispatch] = useReducer(formDataReducer, item);
 
   // If in edit mode, fetch the item data by ID
   useEffect(() => {
@@ -50,6 +63,11 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   useEffect(() => {
     setSelectedCategory(item.type);
   }, [item.type]);
+
+  // Remove validation messages when user changes the category
+  useEffect(() => {
+    setFormErrors({});
+  }, [selectedCategory]);
 
   // Prefill the form with item data in edit mode
   useEffect(() => {
@@ -89,24 +107,55 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   }
 
   // Handle form submission for both add and edit
-  function handleSubmit() {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    // Reset formErrors to an empty object before validating
+    const newError: { [key: string]: string } = {};
+
+    try {
+      selectedCategory === 'album' &&
+        (await validationSchemaAlbum.validate(state, { abortEarly: false }));
+      selectedCategory === 'cd' &&
+        (await validationSchemaCd.validate(state, { abortEarly: false }));
+      selectedCategory === 'track' &&
+        (await validationSchemaTrack.validate(state, { abortEarly: false }));
+
+      // Validate form data
+    } catch (err) {
+      // Check if err is a Yup ValidationError
+      if (err instanceof ValidationError) {
+        err.inner.forEach((error) => {
+          if (error.path) {
+            newError[error.path] = error.message;
+          }
+        });
+      }
+      // Set the form errors in state and log them
+      setFormErrors(newError);
+
+      return;
+    }
     if (isEditMode) {
       EditItem(item.type, state, setError);
       setIsItemMutated(true);
       setConfirmationMessage('edited');
+      setFormErrors({});
     } else {
       addNewItem(selectedCategory, state, setError);
       setIsItemMutated(true);
       setConfirmationMessage('added');
+      setFormErrors({});
     }
   }
 
   // Render category-specific fields
   function renderCategorySpecificFields() {
     const currentType = isEditMode ? item.type : selectedCategory;
+    const releaseYearRange = getReleaseYearRange();
 
     // Render the corresponding form elements
-    if (currentType === 'album' && 'cover' in state) {
+    if (currentType === 'album' && 'cdsInAlbum' in state) {
       return (
         <>
           <label htmlFor="cdCount">Amount of CDs:</label>
@@ -115,25 +164,45 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             id="cdCount"
             name="cdCount"
             className="w-20"
-            value={state.cdCount}
+            value={state.cdsInAlbum}
             onChange={(e) => handleChange('added_album-cdCount', e)}
           />
+          {formErrors.cdsInAlbum && <div>{formErrors.cdsInAlbum}</div>}
+          <label htmlFor="albumYear" className="text-gray-700">
+            Release year:
+          </label>
+          <select
+            id="albumYear"
+            name="albumYear"
+            className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.albumYear}
+            onChange={(e) => handleChange('added_album-year', e)}
+          >
+            <option>Year</option>
+            {releaseYearRange.map((year) => (
+              <option key={year}>{year}</option>
+            ))}
+          </select>
+          {formErrors.albumYear && <div>{formErrors.albumYear}</div>}
           <label htmlFor="thumbnail">Thumbnail cover:</label>
           <input
             type="text"
             id="thumbnail"
             name="thumbnail"
-            value={state.cover.thumbnail || 'https://placehold.co/30x30'}
+            value={state.cover.albumThumbnail}
             onChange={(e) => handleChange('added_album-thumbnail', e)}
           />
+          {formErrors.albumThumbnail && <div>{formErrors.albumThumbnail}</div>}
+
           <label htmlFor="fullSize">Full Size cover:</label>
           <input
             type="text"
             id="fullSize"
             name="fullSize"
-            value={state.cover.fullSize || 'https://placehold.co/400x400'}
+            value={state.cover.albumFullSize}
             onChange={(e) => handleChange('added_album-fullSize', e)}
           />
+          {formErrors.albumFullSize && <div>{formErrors.albumFullSize}</div>}
         </>
       );
     } else if (selectedCategory === 'cd' && 'trackCount' in state) {
@@ -148,6 +217,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cdCount}
             onChange={(e) => handleChange('added_cd-cdCount', e)}
           />
+          {formErrors.cdCount && <div>{formErrors.cdCount}</div>}
           <label htmlFor="trackCount">Amount of tracks:</label>
           <input
             type="number"
@@ -155,8 +225,25 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             name="trackCount"
             className="w-20"
             value={state.trackCount}
-            onChange={(e) => handleChange('added_tracksCount', e)}
+            onChange={(e) => handleChange('added_cd-trackCount', e)}
           />
+          {formErrors.trackCount && <div>{formErrors.trackCount}</div>}
+          <label htmlFor="cdYear" className="text-gray-700">
+            Release year:
+          </label>
+          <select
+            id="cdYear"
+            name="cdYear"
+            className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={state.cdYear}
+            onChange={(e) => handleChange('added_cd-year', e)}
+          >
+            <option>-- Year --</option>
+            {releaseYearRange.map((year) => (
+              <option key={year}>{year}</option>
+            ))}
+          </select>
+          {formErrors.cdYear && <div>{formErrors.cdYear}</div>}
           <label htmlFor="partOfAlbum">Part of Album:</label>
           {/* Generate an title selection in case the current CD is part of an ablum */}
           <select
@@ -170,22 +257,26 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
               <option key={album.id}>{album.title}</option>
             ))}
           </select>
-          <label htmlFor="thumbnail">Thumbnail cover:</label>
+          {formErrors.partOfAlbum && <div>{formErrors.partOfAlbum}</div>}
+          <label htmlFor="cdThumbnail">Thumbnail cover:</label>
           <input
             type="text"
-            id="thumbnail"
-            name="thumbnail"
-            value={state.cover.thumbnail || 'https://placehold.co/30x30'}
+            id="cdThumbnail"
+            name="cdThumbnail"
+            value={state.cover.cdThumbnail}
             onChange={(e) => handleChange('added_cd-thumbnail', e)}
           />
-          <label htmlFor="fullSize">Full Size cover:</label>
+          {formErrors.cdThumbnail && <div>{formErrors.cdThumbnail}</div>}
+
+          <label htmlFor="cdFullSize">Full Size cover:</label>
           <input
             type="text"
-            id="fullSize"
-            name="fullSize"
-            value={state.cover.fullSize || 'https://placehold.co/400x400'}
-            onChange={(e) => handleChange('added_album-fullSize', e)}
+            id="cdFullSize"
+            name="cdFullSize"
+            value={state.cover.cdFullSize}
+            onChange={(e) => handleChange('added_cd-fullSize', e)}
           />
+          {formErrors.cdFullSize && <div>{formErrors.cdFullSize}</div>}
         </>
       );
     } else if (selectedCategory === 'track' && 'trackNumber' in state) {
@@ -203,6 +294,17 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
               <option key={cd.id}>{cd.title}</option>
             ))}
           </select>
+          {formErrors.cdTitle && <div>{formErrors.cdTitle}</div>}
+
+          <label htmlFor="trackNumber">Track number:</label>
+          <input
+            type="text"
+            id="trackNumber"
+            name="trackNumber"
+            value={state.trackNumber}
+            onChange={(e) => handleChange('added_trackNumber', e)}
+          />
+          {formErrors.trackNumber && <div>{formErrors.trackNumber}</div>}
           <label htmlFor="length">Track Length:</label>
           <input
             type="text"
@@ -211,6 +313,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.length}
             onChange={(e) => handleChange('added_length', e)}
           />
+          {formErrors.length && <div>{formErrors.length}</div>}
         </>
       );
     }
@@ -233,7 +336,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
 
       <form
         className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
-        // onSubmit={(e) => handleSubmit(e)}
+        onSubmit={(e) => handleSubmit(e)}
       >
         <label htmlFor="artist" className="text-gray-700">
           Artist name:
@@ -246,6 +349,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.artist}
           onChange={(e) => handleChange('added_artist', e)}
         />
+        {formErrors.artist && <div>{formErrors.artist}</div>}
         <label htmlFor="feat-artists" className="text-gray-700">
           Featuring artists:
         </label>
@@ -257,7 +361,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.featuringArtists}
           onChange={(e) => handleChange('added_feat-artists', e)}
         />
-
+        {formErrors.featuringArtists && (
+          <div>{formErrors.featuringArtists}</div>
+        )}
         <label htmlFor="title" className="text-gray-700">
           Title:
         </label>
@@ -269,18 +375,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.title}
           onChange={(e) => handleChange('added_title', e)}
         />
-
-        <label htmlFor="year" className="text-gray-700">
-          Release year:
-        </label>
-        <input
-          type="number"
-          id="year"
-          name="year"
-          className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={state.year}
-          onChange={(e) => handleChange('added_year', e)}
-        />
+        {formErrors.title && <div>{formErrors.title}</div>}
 
         <label htmlFor="rating" className="text-gray-700">
           Rating:
@@ -298,7 +393,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             </option>
           ))}
         </select>
-
+        {formErrors.rating && <div>{formErrors.rating}</div>}
         <label htmlFor="tags" className="text-gray-700">
           Tags:
         </label>
@@ -310,6 +405,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.tags}
           onChange={(e) => handleChange('added_tags', e)}
         />
+        {formErrors.tags && <div>{formErrors.tags}</div>}
 
         {/* Category-specific fields */}
         {renderCategorySpecificFields()}
@@ -325,16 +421,15 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.extraInfo}
           onChange={(e) => handleChange('added_extraInfo', e)}
         ></textarea>
+        {formErrors.extraInfo && <div>{formErrors.extraInfo}</div>}
 
         {/* Submit button */}
-        <Link
-          to="/"
+        <button
           type="submit"
-          onClick={handleSubmit}
           className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           Submit
-        </Link>
+        </button>
       </form>
     </main>
   );

@@ -71,10 +71,6 @@ function ViewItemPAge() {
           <dd>{item.tags.join(', ')}</dd>
         </div>
         <div>
-          <dt className="font-semibold">Release year:</dt>
-          <dd>{item.year}</dd>
-        </div>
-        <div>
           <dt className="font-semibold">Rating:</dt>
           <dd>{item.rating}</dd>
         </div>
@@ -87,19 +83,27 @@ function ViewItemPAge() {
         {item.type === 'album' && (
           <>
             <div>
+              <dt className="font-semibold">Release year:</dt>
+              <dd>{item.albumYear}</dd>
+            </div>
+            <div>
               <dt className="font-semibold">CD Count:</dt>
-              <dd>{item.cdCount}</dd>
+              <dd>{item.cdsInAlbum}</dd>
             </div>
             <div>
               <dt className="font-semibold">Cover:</dt>
               <dd>
-                <img src={item.cover.fullSize} alt="Album cover" />
+                <img src={item.cover.albumFullSize} alt="Album cover" />
               </dd>
             </div>
           </>
         )}
         {item.type === 'cd' && (
           <>
+            <div>
+              <dt className="font-semibold">Release year:</dt>
+              <dd>{item.cdYear}</dd>
+            </div>
             <div>
               <dt className="font-semibold">CD Count:</dt>
               <dd>{item.cdCount}</dd>
@@ -117,7 +121,7 @@ function ViewItemPAge() {
             <div>
               <dt className="font-semibold">Cover:</dt>
               <dd>
-                <img src={item.cover.fullSize} alt="CD cover" />
+                <img src={item.cover.cdFullSize} alt="CD cover" />
               </dd>
             </div>
           </>

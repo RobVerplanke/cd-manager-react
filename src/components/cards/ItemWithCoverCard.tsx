@@ -3,10 +3,13 @@ import { ItemWithCoverCardProps } from '../../lib/types/types';
 import InfoIcon from '@mui/icons-material/Info';
 import { Link } from 'react-router-dom';
 import getRatingStars from '../RatingStars';
+import { isAlbum, isCd } from '../../utils/helperFunctions';
 
 function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
-  const coverThumbnail = item.cover.thumbnail;
-  const cdCount = item.type === 'album' ? item.cdCount : item.cdCount;
+  const coverThumbnail = isCd(item)
+    ? item.cover.cdThumbnail
+    : item.cover.albumThumbnail;
+  const cdCount = isAlbum(item) ? item.cdsInAlbum : item.cdCount;
 
   return (
     <div className="grid grid-cols-[50px_1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">

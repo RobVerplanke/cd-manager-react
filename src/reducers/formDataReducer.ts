@@ -73,8 +73,12 @@ export default function formDataReducer(
         ...state,
         featuringArtists: featArtistsArray,
       };
-    case 'added_year':
-      return { ...state, year: action.payload.inputValue as number };
+    case 'added_album-year':
+      if (isAlbum(state))
+        return { ...state, albumYear: action.payload.inputValue as number };
+    case 'added_cd-year':
+      if (isCd(state))
+        return { ...state, cdYear: action.payload.inputValue as number };
     case 'added_rating':
       return { ...state, rating: action.payload.inputValue as number };
     case 'added_tags':
@@ -96,7 +100,7 @@ export default function formDataReducer(
           ...state,
           cover: {
             ...state.cover,
-            thumbnail: action.payload.inputValue as string,
+            albumThumbnail: action.payload.inputValue as string,
           },
         };
       } else {
@@ -108,7 +112,7 @@ export default function formDataReducer(
           ...state,
           cover: {
             ...state.cover,
-            fullSize: action.payload.inputValue as string,
+            albumFullSize: action.payload.inputValue as string,
           },
         };
       } else {
@@ -118,7 +122,7 @@ export default function formDataReducer(
       if (isAlbum(state)) {
         return {
           ...state,
-          cdCount: action.payload.inputValue as number,
+          cdsInAlbum: action.payload.inputValue as number,
         };
       } else {
         return state;
@@ -138,7 +142,7 @@ export default function formDataReducer(
           ...state,
           cover: {
             ...state.cover,
-            thumbnail: action.payload.inputValue as string,
+            cdThumbnail: action.payload.inputValue as string,
           },
         };
       } else {
@@ -150,13 +154,13 @@ export default function formDataReducer(
           ...state,
           cover: {
             ...state.cover,
-            fullSize: action.payload.inputValue as string,
+            cdFullSize: action.payload.inputValue as string,
           },
         };
       } else {
         return state;
       }
-    case 'added_tracksCount':
+    case 'added_cd-trackCount':
       if (isCd(state)) {
         return {
           ...state,
@@ -179,6 +183,15 @@ export default function formDataReducer(
         return {
           ...state,
           cdTitle: action.payload.inputValue as string,
+        };
+      } else {
+        return state;
+      }
+    case 'added_trackNumber':
+      if (isTrack(state)) {
+        return {
+          ...state,
+          trackNumber: action.payload.inputValue as number,
         };
       } else {
         return state;
