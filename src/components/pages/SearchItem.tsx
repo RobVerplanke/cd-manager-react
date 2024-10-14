@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import SearchResultContent from '../content/SearchResultContent';
 import getAllItemsFromType from '../../api/getAllItemsFromType';
 import { Album, Cd, Track, ItemType, Item } from '../../lib/types/types';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useData } from '../../context/DataContext';
 
 function SearchItemPage() {
@@ -26,6 +26,10 @@ function SearchItemPage() {
 
   // To control the search input element
   const searchKeyword = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    searchKeyword.current?.focus();
+  }, []);
 
   // Check whether the tags list contains the keyword
   function isKeywordInTags(item: Item, keyword: string) {

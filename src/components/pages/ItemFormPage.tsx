@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useReducer, useState } from 'react';
+import { FormEvent, useEffect, useReducer, useRef, useState } from 'react';
 import { FormErrors, type Item, type ItemType } from '../../lib/types/types';
 import formDataReducer from '../../reducers/formDataReducer';
 import getItemById from '../../api/getItemById';
@@ -43,6 +43,13 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     setConfirmationMessage,
   } = useData();
   const { id } = useParams<{ id: string }>();
+
+  const artistNameRef = useRef<null | HTMLInputElement>(null);
+
+  // Every firts time component renders, set focus on first input field
+  useEffect(() => {
+    artistNameRef.current?.focus();
+  }, []);
 
   // If in edit mode, fetch the item data by ID
   useEffect(() => {
@@ -342,6 +349,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           Artist name:
         </label>
         <input
+          ref={artistNameRef}
           type="text"
           id="artist"
           name="artist"
