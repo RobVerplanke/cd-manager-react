@@ -3,8 +3,6 @@ import getItemById from '../../api/getItemById';
 import { Album, Cd, Track } from '../../lib/types/types';
 import { useEffect, useState } from 'react';
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import DeleteItem from '../../api/deleteItemAPI';
 import { useData } from '../../context/DataContext';
 
 function ViewItemPAge() {
@@ -26,14 +24,6 @@ function ViewItemPAge() {
       fetchData();
     }
   }, [id]);
-
-  function handleDelete() {
-    if (item && confirm(`Are you sure you want to delete ${item.title}?`)) {
-      DeleteItem(item.type, item, setError);
-      setIsItemMutated(true);
-      setConfirmationMessage('deleted');
-    }
-  }
 
   // Display loading message when data is not available (yet)
   if (!item) return <div>Loading data...</div>;
@@ -146,13 +136,7 @@ function ViewItemPAge() {
       <Link to={`/edit/${item.id}`} className="pt-0.5 pl-2 text-gray-600">
         <EditNoteOutlinedIcon fontSize="small" />
       </Link>
-      <Link
-        to={`/`}
-        className="pt-0.5 pl-2 text-gray-600"
-        onClick={handleDelete}
-      >
-        <DeleteForeverIcon fontSize="small" />
-      </Link>
+     
     </main>
   );
 }

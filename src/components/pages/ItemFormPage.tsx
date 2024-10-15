@@ -9,7 +9,7 @@ import {
   getReleaseYearRange,
 } from '../../utils/helperFunctions';
 import { RATING_VALUES } from '../../lib/constants';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 import CategorySelector from '../CategorySelector';
 import { ValidationError } from 'yup';
@@ -18,6 +18,8 @@ import {
   validationSchemaCd,
   validationSchemaTrack,
 } from '../../lib/yup/schemas';
+import DeleteItem from '../../api/deleteItemAPI';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 // Depending on the argument value, form elements are rendered dynamicly
 function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
@@ -153,6 +155,14 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
       setIsItemMutated(true);
       setConfirmationMessage('added');
       setFormErrors({});
+    }
+  }
+
+  function handleDelete() {
+    if (item && confirm(`Are you sure you want to delete ${item.title}?`)) {
+      DeleteItem(item.type, item, setError);
+      setIsItemMutated(true);
+      setConfirmationMessage('deleted');
     }
   }
 
@@ -438,6 +448,15 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         >
           Submit
         </button>
+        {isEditMode && (
+          <Link
+            to={`/`}
+            className="pt-0.5 pl-2 text-gray-600"
+            onClick={handleDelete}
+          >
+            <DeleteForeverIcon fontSize="small" />
+          </Link>
+        )}
       </form>
     </main>
   );
