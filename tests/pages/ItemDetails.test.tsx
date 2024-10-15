@@ -1,14 +1,19 @@
 import '@testing-library/jest-dom';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
 import { ItemDetails } from '../../src/components/pages';
-import * as DataContext from '../../src/context/DataContext';
-import { MemoryRouter } from 'react-router-dom'; // Voeg dit toe
-import React from 'react';
-import { Album } from '../../src/lib/types/types';
+import { render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
-// Mock de getItemById module
-vi.mock('../../api/getItemById', () => ({
+const mockUseParams = vi.fn();
+vi.mock('react-router-dom', () => ({
+  MemoryRouter: ({ children }: { children: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
+  useParams: () => mockUseParams(),
+  Link: (props: { to: string; children: React.ReactNode }) => <a {...props} />,
+}));
+
+vi.mock('../../src/api/getItemById', () => ({
   __esModule: true,
   default: vi.fn().mockResolvedValue({
     id: '1',
@@ -28,65 +33,67 @@ vi.mock('../../api/getItemById', () => ({
   }),
 }));
 
-// Mock data context
-vi.mock('../../src/context/DataContext');
-
-beforeEach(() => {
-  const mockedItem: Album = {
-    id: '1',
-    type: 'album',
-    artist: 'Album Artist',
-    featuringArtists: ['Other Artist', 'Another Artist'],
-    title: 'Album title',
-    albumYear: 2000,
-    rating: 5,
-    tags: ['rock', 'classic', 'pop'],
-    extraInfo: 'My first album',
-    cdsInAlbum: 4,
-    cover: {
-      albumThumbnail: 'https://placehold.co/30x30',
-      albumFullSize: 'https://placehold.co/400x400',
-    },
-  };
-
-  // Mocking the useData hook to return the mocked item
-  vi.spyOn(DataContext, 'useData').mockReturnValue({
-    allAlbums: [mockedItem], // Mock here to ensure it returns the item
-    allCds: [],
-    allTracks: [],
-    setError: () => null,
-    setConfirmationMessage: () => null,
-    error: '',
-    confirmationMessage: '',
-    setIsItemMutated: () => null,
-  });
-});
-
 describe('Item details page', () => {
-  it('Renders detailed information of an item', async () => {
-    // Gebruik MemoryRouter om de route te mocken
+  mockUseParams.mockReturnValue({ id: 'string' });
+
+  it('Renders item details', async () => {
     render(
-      <MemoryRouter initialEntries={['/item/1']}>
+      <MemoryRouter>
         <ItemDetails />
       </MemoryRouter>
     );
 
-    // Gebruik waitFor om te wachten tot het item geladen is
+    // Wacht tot "Loading data..." niet meer in de document is
     await waitFor(() => {
-      expect(screen.getByText('ID:')).toBeInTheDocument();
-      expect(screen.getByText('1')).toBeInTheDocument();
-      expect(screen.getByText('Artist name: Album Artist')).toBeInTheDocument();
-      expect(
-        screen.getByText('Featuring Artists: Other Artist, Another Artist')
-      ).toBeInTheDocument();
-      expect(screen.getByText('Title: Album title')).toBeInTheDocument();
-      expect(screen.getByText('Release year: 2000')).toBeInTheDocument();
-      expect(screen.getByText('Rating:')).toBeInTheDocument(); // Zorg dat je de volledige tekst matcht
-      expect(screen.getByText('Tags: rock, classic, pop')).toBeInTheDocument();
-      expect(
-        screen.getByText('Extra Info: My first album')
-      ).toBeInTheDocument();
-      expect(screen.getByText('Cover:')).toBeInTheDocument(); // Of een andere match, afhankelijk van de tekst
+      expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
     });
+
+    // Controleer of de details correct worden weergegeven
+
+    // ID
+    expect(screen.getByText('ID:')).toBeInTheDocument();
+    expect(screen.getByText('1')).toBeInTheDocument();
+
+    // Type
+    expect(screen.getByText('Type:')).toBeInTheDocument();
+    expect(screen.getByText('album')).toBeInTheDocument();
+
+    // Artist name
+    expect(screen.getByText('Artist name:')).toBeInTheDocument();
+    expect(screen.getByText('Album Artist')).toBeInTheDocument();
+
+    // Featuring Artists
+    expect(screen.getByText('Featuring Artists:')).toBeInTheDocument();
+    expect(
+      screen.getByText('Other Artist, Another Artist')
+    ).toBeInTheDocument();
+
+    // Title
+    expect(screen.getByText('Title:')).toBeInTheDocument();
+    expect(screen.getByText('Album title')).toBeInTheDocument();
+
+    // Tags
+    expect(screen.getByText('Tags:')).toBeInTheDocument();
+    expect(screen.getByText('rock, classic, pop')).toBeInTheDocument();
+
+    // Rating
+    expect(screen.getByText('Rating:')).toBeInTheDocument();
+    expect(screen.getByText('5')).toBeInTheDocument();
+
+    // Extra Info
+    expect(screen.getByText('Extra Info:')).toBeInTheDocument();
+    expect(screen.getByText('My first album')).toBeInTheDocument();
+
+    // Year
+    expect(screen.getByText('Release year:')).toBeInTheDocument();
+    expect(screen.getByText('2000')).toBeInTheDocument();
+
+    //CD count
+    expect(screen.getByText('CD Count:')).toBeInTheDocument();
+    expect(screen.getByText('4')).toBeInTheDocument();
+
+    // Cover full size
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('src', 'https://placehold.co/400x400');
   });
 });
