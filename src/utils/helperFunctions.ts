@@ -26,6 +26,9 @@ export function onRender(
   );
 }
 
+// Generate unique ID as string
+export const generateId = () => Date.now().toString();
+
 // Generate select options for release year
 export function getReleaseYearRange() {
   const options = [];
@@ -109,12 +112,12 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
   switch (type) {
     case 'album':
       return {
-        id: Date.now().toString(),
+        id: generateId(),
         type: 'album',
         artist: '',
         featuringArtists: [],
         title: '',
-        albumYear: 0,
+        albumYear: 2000,
         rating: 0,
         tags: [],
         extraInfo: '',
@@ -126,12 +129,12 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
       };
     case 'cd':
       return {
-        id: Date.now().toString(),
+        id: generateId(),
         type: 'cd',
         artist: '',
         featuringArtists: [],
         title: '',
-        cdYear: 0,
+        cdYear: 2000,
         rating: 0,
         tags: [],
         extraInfo: '',
@@ -145,7 +148,7 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
       };
     case 'track':
       return {
-        id: Date.now().toString(),
+        id: generateId(),
         type: 'track',
         artist: '',
         featuringArtists: [],
@@ -163,13 +166,13 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
 }
 
 export const defaultAlbum: Album = {
-  id: Date.now().toString(),
+  id: generateId(),
   type: 'album',
   artist: '',
   featuringArtists: [],
   title: '',
   tags: [],
-  albumYear: 0,
+  albumYear: 2000,
   rating: 0,
   extraInfo: '',
   cdsInAlbum: 0,
@@ -180,13 +183,13 @@ export const defaultAlbum: Album = {
 };
 
 export const defaultCd: Cd = {
-  id: Date.now().toString(),
+  id: generateId(),
   type: 'cd',
   artist: '',
   featuringArtists: [],
   title: '',
   tags: [],
-  cdYear: 0,
+  cdYear: 2000,
   rating: 0,
   extraInfo: '',
   cdCount: 0,
@@ -199,7 +202,7 @@ export const defaultCd: Cd = {
 };
 
 export const defaultTrack: Track = {
-  id: Date.now().toString(),
+  id: generateId(),
   type: 'track',
   artist: '',
   featuringArtists: [],

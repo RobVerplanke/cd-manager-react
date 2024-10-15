@@ -109,10 +109,27 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) {
+    // Store CD's in album value as number
+    const { value } = event.target;
+    const payloadValue =
+      inputType === 'added_album-cdCount' ||
+      inputType === 'added_cd-cdCount' ||
+      inputType === 'added_rating'
+        ? Number(value)
+        : value;
     dispatch({
       type: inputType,
-      payload: { inputValue: event.target.value },
+      payload: { inputValue: payloadValue },
     });
+  }
+
+  // Remove item from state, update the state and display confirm message
+  function handleDelete() {
+    if (item && confirm(`Are you sure you want to delete ${item.title}?`)) {
+      DeleteItem(item.type, item, setError);
+      setIsItemMutated(true);
+      setConfirmationMessage('deleted');
+    }
   }
 
   // Handle form submission for both add and edit
@@ -145,6 +162,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
 
       return;
     }
+
     if (isEditMode) {
       EditItem(item.type, state, setError);
       setIsItemMutated(true);
@@ -155,14 +173,6 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
       setIsItemMutated(true);
       setConfirmationMessage('added');
       setFormErrors({});
-    }
-  }
-
-  function handleDelete() {
-    if (item && confirm(`Are you sure you want to delete ${item.title}?`)) {
-      DeleteItem(item.type, item, setError);
-      setIsItemMutated(true);
-      setConfirmationMessage('deleted');
     }
   }
 
@@ -198,7 +208,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.albumYear}
             onChange={(e) => handleChange('added_album-year', e)}
           >
-            <option>Year</option>
+            <option>2000</option>
             {releaseYearRange.map((year) => (
               <option key={year}>{year}</option>
             ))}
@@ -258,7 +268,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cdYear}
             onChange={(e) => handleChange('added_cd-year', e)}
           >
-            <option>-- Year --</option>
+            <option>-2000</option>
             {releaseYearRange.map((year) => (
               <option key={year}>{year}</option>
             ))}
@@ -448,6 +458,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         <button
           type="submit"
           className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          data-testid="submit-button"
         >
           Submit
         </button>
