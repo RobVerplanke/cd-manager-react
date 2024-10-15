@@ -43,12 +43,12 @@ describe('Item details page', () => {
       </MemoryRouter>
     );
 
-    // Wacht tot "Loading data..." niet meer in de document is
+    // Wait until "Loading data..." isn't displayed anymore
     await waitFor(() => {
       expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
     });
 
-    // Controleer of de details correct worden weergegeven
+    // Check if mock details are displayed correctly
 
     // ID
     expect(screen.getByText('ID:')).toBeInTheDocument();

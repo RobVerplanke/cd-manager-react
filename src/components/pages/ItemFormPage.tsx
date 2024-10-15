@@ -166,6 +166,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     }
   }
 
+  // Display loading message when data is not available (yet)
+  if (!item) return <div>Loading data...</div>;
+
   // Render category-specific fields
   function renderCategorySpecificFields() {
     const currentType = isEditMode ? item.type : selectedCategory;
@@ -453,6 +456,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             to={`/`}
             className="pt-0.5 pl-2 text-gray-600"
             onClick={handleDelete}
+            data-testid="delete-link"
           >
             <DeleteForeverIcon fontSize="small" />
           </Link>
