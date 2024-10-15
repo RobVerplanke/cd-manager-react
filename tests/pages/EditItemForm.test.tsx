@@ -1,8 +1,23 @@
 import '@testing-library/jest-dom';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { ItemFormPage } from '../../src/components/pages';
 import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import DeleteItem from '../../src/api/deleteItemAPI';
+import userEvent from '@testing-library/user-event';
+import EditItem from '../../src/api/editItemAPI';
+
+// Mock edit submit function
+vi.mock('../../src/api/editItemAPI', () => ({
+  __esModule: true,
+  default: vi.fn(), // Zorg ervoor dat het een mock functie is
+}));
+
+// Mock delete item function
+vi.mock('../../src/api/deleteItemAPI', () => ({
+  __esModule: true,
+  default: vi.fn(), // Zorg ervoor dat het een mock functie is
+}));
 
 const mockUseParams = vi.fn();
 vi.mock('react-router-dom', () => ({
@@ -32,6 +47,24 @@ vi.mock('../../src/api/getItemById', () => ({
     },
   }),
 }));
+
+// Mock item
+const item = {
+  id: '1',
+  type: 'album',
+  artist: 'Album Artist',
+  featuringArtists: ['Other Artist', 'Another Artist'],
+  title: 'Album title',
+  albumYear: 2000,
+  rating: 5,
+  tags: ['rock', 'classic', 'pop'],
+  extraInfo: 'My first album',
+  cdsInAlbum: 4,
+  cover: {
+    albumThumbnail: 'https://placehold.co/30x30',
+    albumFullSize: 'https://placehold.co/400x400',
+  },
+};
 
 describe('Edit details page', () => {
   mockUseParams.mockReturnValue({ id: '1' });
@@ -115,5 +148,64 @@ describe('Edit details page', () => {
     // Delete button
     const linkElement = screen.getByTestId('delete-link');
     expect(linkElement).toBeInTheDocument();
+  });
+
+  it('Sends item after user clicked on submit button', async () => {
+    // Mock a click on a button
+    const user = userEvent.setup();
+
+    render(
+      <MemoryRouter>
+        <ItemFormPage isEditMode={true} />
+      </MemoryRouter>
+    );
+
+    // Wait until "Loading data..." isn't displayed anymore
+    await waitFor(() => {
+      expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
+    });
+
+    // 'Click' on submit button
+    await user.click(screen.getByTestId('submit-button'));
+
+    // Submit button is clicked with correct parameters
+    await waitFor(() => {
+      expect(EditItem).toHaveBeenCalledWith(
+        item.type,
+        item,
+        expect.any(Function)
+      );
+    });
+  });
+
+  it('Removes item after user clicked on delete button', async () => {
+    // mock confirm dialog
+    global.confirm = vi.fn(() => true);
+
+    // Mock a click on a button
+    const user = userEvent.setup();
+
+    render(
+      <MemoryRouter>
+        <ItemFormPage isEditMode={true} />
+      </MemoryRouter>
+    );
+
+    // Wait until "Loading data..." isn't displayed anymore
+    await waitFor(() => {
+      expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
+    });
+
+    // 'Click' on delete button
+    await user.click(screen.getByTestId('delete-link'));
+
+    // Delete item fucntion is called with correct parameters
+    await waitFor(() => {
+      expect(DeleteItem).toHaveBeenCalledWith(
+        item.type,
+        item,
+        expect.any(Function)
+      );
+    });
   });
 });
