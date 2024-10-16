@@ -51,7 +51,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   // Every firts time component renders, set focus on first input field
   useEffect(() => {
     artistNameRef.current?.focus();
-  }, []);
+  }, [selectedCategory]);
 
   // If in edit mode, fetch the item data by ID
   useEffect(() => {
@@ -189,23 +189,25 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     if (currentType === 'album' && 'cdsInAlbum' in state) {
       return (
         <>
-          <label htmlFor="cdCount">Amount of CDs:</label>
+          <label htmlFor="cdCount" className="text-gray-700 pt-2">
+            <sup style={{ color: 'red' }}>*</sup>Amount of CDs:
+          </label>
           <input
             type="number"
             id="cdCount"
             name="cdCount"
-            className="w-20"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cdsInAlbum}
             onChange={(e) => handleChange('added_album-cdCount', e)}
           />
           {formErrors.cdsInAlbum && <div>{formErrors.cdsInAlbum}</div>}
-          <label htmlFor="albumYear" className="text-gray-700">
+          <label htmlFor="albumYear" className="text-gray-700 pt-2">
             Release year:
           </label>
           <select
             id="albumYear"
             name="albumYear"
-            className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.albumYear}
             onChange={(e) => handleChange('added_album-year', e)}
           >
@@ -215,21 +217,27 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             ))}
           </select>
           {formErrors.albumYear && <div>{formErrors.albumYear}</div>}
-          <label htmlFor="thumbnail">Thumbnail cover:</label>
+          <label htmlFor="thumbnail" className="text-gray-700 pt-2">
+            Thumbnail cover:
+          </label>
           <input
             type="text"
             id="thumbnail"
             name="thumbnail"
+            className="text-xs bg-white border rounded-md h-7 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cover.albumThumbnail}
             onChange={(e) => handleChange('added_album-thumbnail', e)}
           />
           {formErrors.albumThumbnail && <div>{formErrors.albumThumbnail}</div>}
 
-          <label htmlFor="fullSize">Full Size cover:</label>
+          <label htmlFor="fullSize" className="text-gray-700 pt-2">
+            Full Size cover:
+          </label>
           <input
             type="text"
             id="fullSize"
             name="fullSize"
+            className="text-xs bg-white border rounded-md h-7 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cover.albumFullSize}
             onChange={(e) => handleChange('added_album-fullSize', e)}
           />
@@ -239,33 +247,37 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     } else if (selectedCategory === 'cd' && 'trackCount' in state) {
       return (
         <>
-          <label htmlFor="cdCount">Amount of CDs:</label>
+          <label htmlFor="cdCount" className="text-gray-700 pt-2">
+            <sup style={{ color: 'red' }}>*</sup>Amount of CDs:
+          </label>
           <input
             type="number"
             id="cdCount"
             name="cdCount"
-            className="w-20"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cdCount}
             onChange={(e) => handleChange('added_cd-cdCount', e)}
           />
           {formErrors.cdCount && <div>{formErrors.cdCount}</div>}
-          <label htmlFor="trackCount">Amount of tracks:</label>
+          <label htmlFor="trackCount" className="text-gray-700 pt-2">
+            <sup style={{ color: 'red' }}>*</sup>Amount of tracks:
+          </label>
           <input
             type="number"
             id="trackCount"
             name="trackCount"
-            className="w-20"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.trackCount}
             onChange={(e) => handleChange('added_cd-trackCount', e)}
           />
           {formErrors.trackCount && <div>{formErrors.trackCount}</div>}
-          <label htmlFor="cdYear" className="text-gray-700">
+          <label htmlFor="cdYear" className="text-gray-700 pt-2">
             Release year:
           </label>
           <select
             id="cdYear"
             name="cdYear"
-            className="border rounded-md h-7 w-20 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cdYear}
             onChange={(e) => handleChange('added_cd-year', e)}
           >
@@ -275,35 +287,44 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             ))}
           </select>
           {formErrors.cdYear && <div>{formErrors.cdYear}</div>}
-          <label htmlFor="partOfAlbum">Part of Album:</label>
+          <label htmlFor="partOfAlbum" className="text-gray-700 pt-2">
+            Part of Album:
+          </label>
           {/* Generate an title selection in case the current CD is part of an ablum */}
           <select
             id="partOfAlbum"
             name="partOfAlbum"
             value={state.partOfAlbum}
+            className="text-xs bg-white border rounded-md h-6 w-60 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => handleChange('added_partOfAlbum', e)}
           >
-            <option>--- None ---</option>
+            <option>None</option>
             {allAlbums.map((album) => (
               <option key={album.id}>{album.title}</option>
             ))}
           </select>
           {formErrors.partOfAlbum && <div>{formErrors.partOfAlbum}</div>}
-          <label htmlFor="cdThumbnail">Thumbnail cover:</label>
+          <label htmlFor="cdThumbnail" className="text-gray-700 pt-2">
+            Thumbnail cover:
+          </label>
           <input
             type="text"
             id="cdThumbnail"
             name="cdThumbnail"
+            className="text-xs bg-white border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cover.cdThumbnail}
             onChange={(e) => handleChange('added_cd-thumbnail', e)}
           />
           {formErrors.cdThumbnail && <div>{formErrors.cdThumbnail}</div>}
 
-          <label htmlFor="cdFullSize">Full Size cover:</label>
+          <label htmlFor="cdFullSize" className="text-gray-700 pt-2">
+            Full Size cover:
+          </label>
           <input
             type="text"
             id="cdFullSize"
             name="cdFullSize"
+            className="text-xs bg-white border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cover.cdFullSize}
             onChange={(e) => handleChange('added_cd-fullSize', e)}
           />
@@ -313,34 +334,43 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     } else if (selectedCategory === 'track' && 'trackNumber' in state) {
       return (
         <>
-          <label htmlFor="cdTitle">CD Title:</label>
+          <label htmlFor="cdTitle" className="text-gray-700 pt-2">
+            <sup style={{ color: 'red' }}>*</sup>CD Title:
+          </label>
           <select
             id="cdTitle"
             name="cdTitle"
+            className="text-xs bg-white border rounded-md h-6 w-60 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.cdTitle}
             onChange={(e) => handleChange('added_cdTitle', e)}
           >
-            <option>--- None ---</option>
+            <option>None</option>
             {allCds.map((cd) => (
               <option key={cd.id}>{cd.title}</option>
             ))}
           </select>
           {formErrors.cdTitle && <div>{formErrors.cdTitle}</div>}
 
-          <label htmlFor="trackNumber">Track number:</label>
+          <label htmlFor="trackNumber" className="text-gray-700 pt-2">
+            <sup style={{ color: 'red' }}>*</sup>Track number:
+          </label>
           <input
-            type="text"
+            type="number"
             id="trackNumber"
             name="trackNumber"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.trackNumber}
             onChange={(e) => handleChange('added_trackNumber', e)}
           />
           {formErrors.trackNumber && <div>{formErrors.trackNumber}</div>}
-          <label htmlFor="length">Track Length:</label>
+          <label htmlFor="length" className="text-gray-700 pt-2">
+            <sup style={{ color: 'red' }}>*</sup>Length:
+          </label>
           <input
             type="text"
             id="length"
             name="length"
+            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={state.length}
             onChange={(e) => handleChange('added_length', e)}
           />
@@ -353,8 +383,12 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   // Render the common form elements
   return (
     <main className="my-6 pl-6">
-      <div className="text-3xl">
-        {isEditMode ? <h1>Edit item</h1> : <h1>Add new item</h1>}
+      <div className="text-xl border-b-2 border-slate-400 pb-4 mb-4">
+        {isEditMode ? (
+          <p>Edit {selectedCategory}</p>
+        ) : (
+          <p>Add new {selectedCategory}</p>
+        )}
       </div>
       {/* Radio buttons to select category */}
       {!isEditMode && (
@@ -369,54 +403,54 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
         onSubmit={(e) => handleSubmit(e)}
       >
-        <label htmlFor="artist" className="text-gray-700">
-          Artist name:
+        <label htmlFor="artist" className="text-gray-700 text-sm">
+          <sup style={{ color: 'red' }}>*</sup>Artist name:
         </label>
         <input
           ref={artistNameRef}
           type="text"
           id="artist"
           name="artist"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.artist}
           onChange={(e) => handleChange('added_artist', e)}
         />
         {formErrors.artist && <div>{formErrors.artist}</div>}
-        <label htmlFor="feat-artists" className="text-gray-700">
+        <label htmlFor="feat-artists" className="text-gray-700 pt-2">
           Featuring artists:
         </label>
         <input
           type="text"
           id="feat-artists"
           name="feat-artists"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.featuringArtists}
           onChange={(e) => handleChange('added_feat-artists', e)}
         />
         {formErrors.featuringArtists && (
           <div>{formErrors.featuringArtists}</div>
         )}
-        <label htmlFor="title" className="text-gray-700">
-          Title:
+        <label htmlFor="title" className="text-gray-700 pt-2">
+          <sup style={{ color: 'red' }}>*</sup>Title:
         </label>
         <input
           type="text"
           id="title"
           name="title"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.title}
           onChange={(e) => handleChange('added_title', e)}
         />
         {formErrors.title && <div>{formErrors.title}</div>}
 
-        <label htmlFor="rating" className="text-gray-700">
+        <label htmlFor="rating" className="text-gray-700 pt-2">
           Rating:
         </label>
         <select
           id="rating"
           name="rating"
           value={state.rating}
-          className="border rounded-md h-7 w-20 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="bg-white text-xs border rounded-md h-5 pl-1 w-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
           onChange={(e) => handleChange('added_rating', e)}
         >
           {RATING_VALUES.map((rating) => (
@@ -426,14 +460,14 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           ))}
         </select>
         {formErrors.rating && <div>{formErrors.rating}</div>}
-        <label htmlFor="tags" className="text-gray-700">
+        <label htmlFor="tags" className="text-gray-700 pt-2">
           Tags:
         </label>
         <input
           type="text"
           id="tags"
           name="tags"
-          className="border rounded-md h-7 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.tags}
           onChange={(e) => handleChange('added_tags', e)}
         />
@@ -443,18 +477,20 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         {renderCategorySpecificFields()}
 
         {/* Extra information field will always be renderd at last */}
-        <label htmlFor="extraInfo" className="text-gray-700">
+        <label htmlFor="extraInfo" className="text-gray-700 pt-2">
           Extra Info:
         </label>
         <textarea
           id="extraInfo"
           name="extraInfo"
-          className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md mb-10 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={state.extraInfo}
           onChange={(e) => handleChange('added_extraInfo', e)}
         ></textarea>
         {formErrors.extraInfo && <div>{formErrors.extraInfo}</div>}
-
+        <div className="text-sm py-4">
+          <sup style={{ color: 'red' }}>*</sup> = Required
+        </div>
         {/* Submit button */}
         <button
           type="submit"
@@ -465,12 +501,12 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         </button>
         {isEditMode && (
           <Link
-            to={`/`}
-            className="pt-0.5 pl-2 text-gray-600"
+            to={'/'}
+            className="bg-red-600 w-20 text-white font-semibold py-2 px-4 rounded hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onClick={handleDelete}
             data-testid="delete-link"
           >
-            <DeleteForeverIcon fontSize="small" />
+            Delete
           </Link>
         )}
       </form>

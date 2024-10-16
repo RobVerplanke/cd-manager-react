@@ -12,14 +12,14 @@ function App() {
 
   return (
     // Set global styling for the app
-    <div className="font-sans text-[#333333] flex h-screen bg-gray-400">
-      <div className="bg-gray-700 h-full w-40 pt-28">
+    <div className="h-screen font-sans text-[#333333] flex bg-gray-400">
+      <div className="bg-gray-700 w-40 pt-28">
         <NavigationBar />
       </div>
       <div className="flex flex-col flex-grow">
         <MainHeader />
         <Profiler id="Outlet" onRender={onRender}>
-          <div className="bg-gray-300 h-full ">
+          <div className="bg-gray-300 h-full overflow-scroll">
             {error ? (
               <ErrorPage error={error} />
             ) : confirmationMessage ? (

@@ -15,7 +15,7 @@ function SearchResultContent({
 
   // Display results with sorting options
   return (
-    <main className="my-16 pl-6">
+    <main className="my-4">
       {filteredData.length ? (
         <SortWithItems
           filteredData={filteredData as (Album | Cd | Track)[]}

@@ -75,6 +75,12 @@ export default function SortWithItems({
     setSortedItems(filteredData);
   }, [filteredData]);
 
+  // Conditionally add or remove axtra left padding, to compensate missing cover thumbnail
+  function getClassName() {
+    return `grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b ${
+      itemCategory === 'track' ? '' : 'pl-14'
+    }`;
+  }
   // Sort the tracks alphabetically
   function handleClickTitleSort(e: React.MouseEvent<HTMLButtonElement>) {
     if (!setSortedItems) return;
@@ -139,11 +145,11 @@ export default function SortWithItems({
   return (
     <div className="py-2 pl-6">
       <ul>
-        <div className="grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">
+        <div className={getClassName()}>
           <div>
             <button
               aria-label="Sort tracks alphabetically"
-              className="text-sm font-semibold"
+              className="text-xs font-semibold"
               onClick={handleClickTitleSort}
               data-sort-type="title"
             >
@@ -160,7 +166,7 @@ export default function SortWithItems({
             {itemCategory === 'track' ? (
               <button
                 aria-label="Sort tracks by length"
-                className="text-sm font-semibold"
+                className="text-xs font-semibold"
                 onClick={handleClickLengthSort}
                 data-sort-type="length"
               >
@@ -174,7 +180,7 @@ export default function SortWithItems({
             ) : (
               <button
                 aria-label="Sort tracks by length"
-                className="text-sm font-semibold"
+                className="text-xs font-semibold"
                 onClick={(e) =>
                   handleClickAmountSort(e, itemCategory as string)
                 }
@@ -192,7 +198,7 @@ export default function SortWithItems({
           <div>
             <button
               aria-label="Sort tracks by rating"
-              className="text-sm font-semibold"
+              className="text-xs font-semibold"
               onClick={handleClickRatingSort}
               data-sort-type="rating"
             >
@@ -205,7 +211,7 @@ export default function SortWithItems({
             </button>
           </div>
           <div>
-            <span className="text-sm font-semibold">Tags</span>
+            <span className="text-xs font-semibold">Tags</span>
           </div>
         </div>
         {sortedItems && (

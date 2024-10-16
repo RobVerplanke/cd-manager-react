@@ -9,7 +9,7 @@ function CategorySelector({
   setSelectedCategory: React.Dispatch<React.SetStateAction<ItemType>>;
 }) {
   return (
-    <div className="py-8 pl-6">
+    <div className="pb-6 pl-6">
       <span className="text-sm font-semibold">Select category:</span>
       <div role="menu" className="flex flex-col gap-1 mt-2 text-[13px]">
         <div>

@@ -38,6 +38,9 @@ function LibraryPage() {
 
   return (
     <main className="my-6 pl-6">
+      <div className="text-xl border-b-2 border-slate-400 pb-4">
+        <p>Library - Overview of your {itemCategory}s</p>
+      </div>
       <SortWithItems
         filteredData={sortedItems as (Album | Cd | Track)[]}
         itemCategory={itemCategory ? itemCategory : 'unknown'}

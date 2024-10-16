@@ -91,8 +91,8 @@ function SearchItemPage() {
 
   return (
     <main className="my-6 pl-6">
-      <div className="text-3xl">
-        <span>Search</span>
+      <div className="text-xl border-b-2 border-slate-400 pb-4 mb-4">
+        <p>Search {selectedCategory}</p>
       </div>
       {/* Render section where category can be selected */}
       <CategorySelector
@@ -106,7 +106,7 @@ function SearchItemPage() {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           value={searchInput}
-          className="rounded-md h-7 p-2 mr-0.5 w-1/3"
+          className="text-xs bg-white border rounded-md h-6 pl-1 w-80 focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Search for keywords..."
           type="text"
           name="search"

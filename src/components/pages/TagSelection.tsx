@@ -57,7 +57,7 @@ function TagSelectionPage() {
 
   return (
     <main className="my-6 pl-6">
-      <div className="text-3xl">
+      <div className="text-xl border-b-2 border-slate-400 pb-4 mb-4">
         <span>Items with tag: {tag}</span>
 
         {/* User can select the category of the items that should be displayed */}

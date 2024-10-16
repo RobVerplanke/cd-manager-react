@@ -9,7 +9,7 @@ function ItemCard({ item }: { item: ItemCardProps }) {
     <div className="grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">
       <div className="flex flex-col">
         <div className="flex items-center">
-          <h3 className="mr-2 text-lg font-bold">{item.title}</h3>
+          <h3 className="mr-2 text-sm font-bold">{item.title}</h3>
           <Link to={`/details/${item.id}`} className="pt-0.5 text-gray-500">
             <InfoIcon sx={{ fontSize: 18 }} />
           </Link>
@@ -17,10 +17,10 @@ function ItemCard({ item }: { item: ItemCardProps }) {
             <EditNoteOutlinedIcon fontSize="small" />
           </Link>
         </div>
-        <p className="text-sm text-gray-600">{item.artist}</p>
+        <p className="text-xs text-gray-600">{item.artist}</p>
       </div>
 
-      <div className="text-sm text-gray-600">
+      <div className="text-xs text-gray-600">
         {'length' in item && item.length}
       </div>
       {getRatingStars(item.rating)}
