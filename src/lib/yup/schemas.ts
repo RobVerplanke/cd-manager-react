@@ -12,7 +12,7 @@ export const validationSchemaAlbum = Yup.object({
   rating: Yup.number().min(0).max(5),
   tags: Yup.array(),
   extraInfo: Yup.string(),
-  cdsInAlbum: Yup.number().min(1),
+  cdsInAlbum: Yup.number().min(1).required('Title is required'),
   albumThumbnail: Yup.string(),
   albumFullSize: Yup.string(),
 });
@@ -46,5 +46,5 @@ export const validationSchemaTrack = Yup.object({
   trackNumber: Yup.number().required('Track number is required'),
   length: Yup.string()
     .matches(/^\d+:\d{1,2}$/, 'Length must be in the format number:number')
-    .required('Track length is required'),
+    .required('Length is required'),
 });
