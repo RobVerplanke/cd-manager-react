@@ -111,8 +111,9 @@ function SearchItemPage() {
           type="text"
           name="search"
           id="search"
+          data-testid="search-bar"
         />
-        <button onClick={handleClick}>
+        <button onClick={handleClick} data-testid="search-button">
           <SearchIcon />
         </button>
       </div>

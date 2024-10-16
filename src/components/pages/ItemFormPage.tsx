@@ -114,7 +114,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     const payloadValue =
       inputType === 'added_album-cdCount' ||
       inputType === 'added_cd-cdCount' ||
-      inputType === 'added_rating'
+      inputType === 'added_rating' ||
+      inputType === 'added_cd-trackCount'
         ? Number(value)
         : value;
     dispatch({
