@@ -151,7 +151,7 @@ describe('Edit details page', () => {
   });
 
   it('Sends item after user clicked on submit button', async () => {
-    // Mock a click on a button
+    // To mock a user action
     const user = userEvent.setup();
 
     render(
