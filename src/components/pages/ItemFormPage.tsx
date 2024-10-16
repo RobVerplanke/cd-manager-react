@@ -211,7 +211,6 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.albumYear}
             onChange={(e) => handleChange('added_album-year', e)}
           >
-            <option>2000</option>
             {releaseYearRange.map((year) => (
               <option key={year}>{year}</option>
             ))}
@@ -281,7 +280,6 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cdYear}
             onChange={(e) => handleChange('added_cd-year', e)}
           >
-            <option>-2000</option>
             {releaseYearRange.map((year) => (
               <option key={year}>{year}</option>
             ))}
