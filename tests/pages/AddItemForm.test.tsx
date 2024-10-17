@@ -51,7 +51,7 @@ describe('ItemFormPage', () => {
     expect(screen.getByLabelText('Full Size cover:')).toBeInTheDocument();
 
     // Submit button
-    const submitButton = screen.getByRole('button', { name: 'Submit' });
+    const submitButton = screen.getByRole('button', { name: 'Submit form' });
     expect(submitButton).toBeInTheDocument();
   });
 
@@ -81,7 +81,7 @@ describe('ItemFormPage', () => {
     expect(screen.getByLabelText('Full Size cover:')).toBeInTheDocument();
 
     // Submit button
-    const submitButton = screen.getByRole('button', { name: 'Submit' });
+    const submitButton = screen.getByRole('button', { name: 'Submit form' });
     expect(submitButton).toBeInTheDocument();
   });
 
@@ -105,10 +105,10 @@ describe('ItemFormPage', () => {
     expect(screen.getByLabelText('Extra Info:')).toBeInTheDocument();
     expect(screen.getByLabelText('CD Title:')).toBeInTheDocument();
     expect(screen.getByLabelText('Track number:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Track Length:')).toBeInTheDocument();
+    expect(screen.getByLabelText('Length:')).toBeInTheDocument();
 
     // Submit button
-    const submitButton = screen.getByRole('button', { name: 'Submit' });
+    const submitButton = screen.getByRole('button', { name: 'Submit form' });
     expect(submitButton).toBeInTheDocument();
   });
 
@@ -143,7 +143,7 @@ describe('ItemFormPage', () => {
     );
 
     // Click submit button
-    const submitButton = screen.getByRole('button', { name: 'Submit' });
+    const submitButton = screen.getByRole('button', { name: 'Submit form' });
     await user.click(submitButton);
 
     // Check whether addNewItem function is called with the correct values

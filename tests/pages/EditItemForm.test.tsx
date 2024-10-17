@@ -142,7 +142,7 @@ describe('Edit details page', () => {
     });
 
     // Submit button
-    const submitButton = screen.getByRole('button', { name: 'Submit' });
+    const submitButton = screen.getByRole('button', { name: 'Submit form' });
     expect(submitButton).toBeInTheDocument();
 
     // Delete button
