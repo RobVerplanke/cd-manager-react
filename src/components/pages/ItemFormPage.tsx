@@ -194,8 +194,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     if (currentType === 'album' && 'cdsInAlbum' in state) {
       return (
         <>
+          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="cdCount" className="text-gray-700 pt-2">
-            <sup style={{ color: 'red' }}>*</sup>Amount of CDs:
+            Amount of CDs:
           </label>
           <input
             type="number"
@@ -251,8 +252,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     } else if (selectedCategory === 'cd' && 'trackCount' in state) {
       return (
         <>
+          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="cdCount" className="text-gray-700 pt-2">
-            <sup style={{ color: 'red' }}>*</sup>Amount of CDs:
+            Amount of CDs:
           </label>
           <input
             type="number"
@@ -263,8 +265,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             onChange={(e) => handleChange('added_cd-cdCount', e)}
           />
           {formErrors.cdCount && <div>{formErrors.cdCount}</div>}
+          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="trackCount" className="text-gray-700 pt-2">
-            <sup style={{ color: 'red' }}>*</sup>Amount of tracks:
+            Amount of tracks:
           </label>
           <input
             type="number"
@@ -337,8 +340,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     } else if (selectedCategory === 'track' && 'trackNumber' in state) {
       return (
         <>
+          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="cdTitle" className="text-gray-700 pt-2">
-            <sup style={{ color: 'red' }}>*</sup>CD Title:
+            CD Title:
           </label>
           <select
             id="cdTitle"
@@ -354,8 +358,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           </select>
           {formErrors.cdTitle && <div>{formErrors.cdTitle}</div>}
 
+          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="trackNumber" className="text-gray-700 pt-2">
-            <sup style={{ color: 'red' }}>*</sup>Track number:
+            Track number:
           </label>
           <input
             type="number"
@@ -366,8 +371,10 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             onChange={(e) => handleChange('added_trackNumber', e)}
           />
           {formErrors.trackNumber && <div>{formErrors.trackNumber}</div>}
+
+          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="length" className="text-gray-700 pt-2">
-            <sup style={{ color: 'red' }}>*</sup>Length:
+            Length:
           </label>
           <input
             type="text"
@@ -406,8 +413,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
         onSubmit={(e) => handleSubmit(e)}
       >
+        <sup style={{ color: 'red' }}>*</sup>
         <label htmlFor="artist" className="text-gray-700 text-sm">
-          <sup style={{ color: 'red' }}>*</sup>Artist name:
+          Artist name:
         </label>
         <input
           ref={artistNameRef}
@@ -433,8 +441,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         {formErrors.featuringArtists && (
           <div>{formErrors.featuringArtists}</div>
         )}
+        <sup style={{ color: 'red' }}>*</sup>
         <label htmlFor="title" className="text-gray-700 pt-2">
-          <sup style={{ color: 'red' }}>*</sup>Title:
+          Title:
         </label>
         <input
           type="text"
