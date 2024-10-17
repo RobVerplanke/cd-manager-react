@@ -39,16 +39,16 @@ describe('ItemFormPage', () => {
     );
 
     // Common and type specific input fields are rendered
-    expect(screen.getByLabelText('Artist name:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Featuring artists:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Title:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Rating:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Tags:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Extra Info:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Amount of CDs:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Release year:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Thumbnail cover:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Full Size cover:')).toBeInTheDocument();
+    expect(screen.getByLabelText(/Artist name:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Featuring artists:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/album Title:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Rating:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Tags:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Extra Info:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Amount of CDs:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Release year:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Thumbnail cover:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Full Size cover:/i)).toBeInTheDocument();
 
     // Submit button
     const submitButton = screen.getByRole('button', { name: 'Submit form' });
@@ -67,18 +67,18 @@ describe('ItemFormPage', () => {
     await userEvent.click(cdRadioButton);
 
     // Common and type specific input fields for CD are rendered
-    expect(screen.getByLabelText('Artist name:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Featuring artists:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Title:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Rating:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Tags:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Extra Info:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Amount of CDs:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Amount of tracks:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Release year:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Part of Album:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Thumbnail cover:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Full Size cover:')).toBeInTheDocument();
+    expect(screen.getByLabelText(/Artist name:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Featuring artists:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Cd title:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Rating:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Tags:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Extra Info:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Amount of CDs:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Amount of tracks:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Release year:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Part of Album:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Thumbnail cover:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Full Size cover:/i)).toBeInTheDocument();
 
     // Submit button
     const submitButton = screen.getByRole('button', { name: 'Submit form' });
@@ -97,15 +97,15 @@ describe('ItemFormPage', () => {
     await userEvent.click(cdRadioButton);
 
     // Common and type specific input fields for CD are rendered
-    expect(screen.getByLabelText('Artist name:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Featuring artists:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Title:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Rating:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Tags:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Extra Info:')).toBeInTheDocument();
-    expect(screen.getByLabelText('CD Title:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Track number:')).toBeInTheDocument();
-    expect(screen.getByLabelText('Length:')).toBeInTheDocument();
+    expect(screen.getByLabelText(/Artist name:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Featuring artists:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Track title:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Rating:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Tags:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Extra Info:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/CD title:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Track number:/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Length:/i)).toBeInTheDocument();
 
     // Submit button
     const submitButton = screen.getByRole('button', { name: 'Submit form' });
@@ -122,23 +122,23 @@ describe('ItemFormPage', () => {
     );
 
     // Fill the form with mock data
-    await user.type(screen.getByLabelText('Artist name:'), 'Album Artist');
+    await user.type(screen.getByLabelText(/Artist name:/i), 'Album Artist');
     await user.type(
-      screen.getByLabelText('Featuring artists:'),
+      screen.getByLabelText(/Featuring artists:/i),
       'Other Artist,Another Artist'
     );
-    await user.type(screen.getByLabelText('Title:'), 'Album title');
-    await user.selectOptions(screen.getByLabelText('Rating:'), '5');
-    await user.type(screen.getByLabelText('Tags:'), 'rock,classic,pop');
-    await user.type(screen.getByLabelText('Extra Info:'), 'My first album');
-    await user.type(screen.getByLabelText('Amount of CDs:'), '4');
-    await user.type(screen.getByLabelText('Release year:'), '2000');
+    await user.type(screen.getByLabelText(/Album title:/i), 'Album title');
+    await user.selectOptions(screen.getByLabelText(/Rating:/i), '5');
+    await user.type(screen.getByLabelText(/Tags:/i), 'rock,classic,pop');
+    await user.type(screen.getByLabelText(/Extra Info:/i), 'My first album');
+    await user.type(screen.getByLabelText(/Amount of CDs:/i), '4');
+    await user.type(screen.getByLabelText(/Release year:/i), '2000');
     await user.type(
-      screen.getByLabelText('Thumbnail cover:'),
+      screen.getByLabelText(/Thumbnail cover:/i),
       'https://placehold.co/30x30'
     );
     await user.type(
-      screen.getByLabelText('Full Size cover:'),
+      screen.getByLabelText(/Full Size cover:/i),
       'https://placehold.co/400x400'
     );
 

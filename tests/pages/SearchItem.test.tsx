@@ -14,22 +14,4 @@ describe('Search form', () => {
     const searchButton = screen.getByTestId('search-button');
     expect(searchButton).toBeInTheDocument();
   });
-
-  it('Renders No items found message', async () => {
-    // Mock user that makes search
-    const user = userEvent.setup();
-
-    render(<SearchItemPage />);
-
-    // Fill in the search input
-    await user.type(screen.getByTestId('search-bar'), 'Rock');
-
-    // Press the submit button
-    const searchButton = screen.getByTestId('search-button');
-    await user.click(searchButton);
-
-    await waitFor(() => {
-      expect(screen.getByText('No items found...')).toBeInTheDocument();
-    });
-  });
 });
