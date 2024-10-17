@@ -57,6 +57,10 @@ export function sortItemsByTitle(
     : [...items].sort((a, b) => b.title.localeCompare(a.title));
 }
 
+export function getBestAlbums(items: (Album | Cd | Track)[], limit: number) {
+  return items.sort((a, b) => b.rating - a.rating).slice(0, limit);
+}
+
 // Used for type narrowing
 export function isAlbum(item: Item): item is Album {
   return item.type === 'album';
