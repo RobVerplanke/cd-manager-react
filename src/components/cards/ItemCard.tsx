@@ -12,14 +12,14 @@ function ItemCard({ item }: { item: ItemCardProps }) {
           <h3 className="mr-2 text-sm font-bold">{item.title}</h3>
           <Link
             to={`/details/${item.id}`}
-            className="pt-0.5 text-gray-500"
+            className="text-gray-500"
             aria-label="Item details"
           >
             <InfoIcon sx={{ fontSize: 18 }} />
           </Link>
           <Link
             to={`/edit/${item.id}`}
-            className="pt-0.5 pl-2 text-gray-600"
+            className="pl-2 text-gray-600"
             aria-label="Edit item"
           >
             <EditNoteOutlinedIcon fontSize="small" />
