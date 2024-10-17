@@ -18,7 +18,7 @@ function SearchItemPage() {
   const [selectedCategory, setSelectedCategory] = useState<ItemType>('album');
 
   // This state of the selected category is used when search button is clicked and the result headings/sort
-  //buttons need to be updated
+  // buttons need to be updated
   const [searchForCategory, setSearchForCategory] = useState<ItemType>('album');
 
   // Control the search input element
@@ -33,6 +33,7 @@ function SearchItemPage() {
   // To control the search input element
   const searchKeyword = useRef<HTMLInputElement | null>(null);
 
+  // Focus on first input element of newly rendered form
   useEffect(() => {
     searchKeyword.current?.focus();
   }, [selectedCategory]);

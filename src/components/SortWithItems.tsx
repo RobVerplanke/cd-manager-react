@@ -24,7 +24,7 @@ export default function SortWithItems({
   filteredData: (Album | Cd | Track)[];
   itemCategory: string;
 }) {
-  // First collect all items
+  // Collect all items
   let { allAlbums, allCds, allTracks } = useData();
 
   // A list for the eventual sorted items
@@ -75,12 +75,13 @@ export default function SortWithItems({
     setSortedItems(filteredData);
   }, [filteredData]);
 
-  // Conditionally add or remove axtra left padding, to compensate missing cover thumbnail
+  // Conditionally add or remove axtra left padding to compensate the missing cover thumbnail
   function getClassName() {
     return `grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b ${
       itemCategory === 'track' ? '' : 'pl-14'
     }`;
   }
+
   // Sort the tracks alphabetically
   function handleClickTitleSort(e: React.MouseEvent<HTMLButtonElement>) {
     if (!setSortedItems) return;
@@ -108,7 +109,7 @@ export default function SortWithItems({
     setArrowsDirection(e);
   }
 
-  // Sort the tracks on amoutn of CDs
+  // Sort the tracks on amount of CDs
   function handleClickAmountSort(
     e: React.MouseEvent<HTMLButtonElement>,
     itemType: string
@@ -127,7 +128,7 @@ export default function SortWithItems({
     setArrowsDirection(e);
   }
 
-  // Sort the tracks on highest rating
+  // Sort tracks on highest rating
   function handleClickRatingSort(e: React.MouseEvent<HTMLButtonElement>) {
     if (!setSortedItems) return;
     setSortedItems(

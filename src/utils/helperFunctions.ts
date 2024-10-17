@@ -52,12 +52,21 @@ export function sortItemsByTitle(
     : [...items].sort((a, b) => b.title.localeCompare(a.title));
 }
 
+// Used for type narrowing
 export function isAlbum(item: Item): item is Album {
   return item.type === 'album';
 }
 
 export function isCd(item: Item): item is Cd {
   return item.type === 'cd';
+}
+
+export function isTrack(item: Item): item is Track {
+  return item.type === 'track';
+}
+
+export function isNumber(item: number | string): item is number {
+  return typeof (item as number) === 'number';
 }
 
 // Sort the items on amount of cds

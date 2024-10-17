@@ -5,17 +5,22 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 function NavigationBar() {
   const location = useLocation();
+
+  // Store the state of the accordion nagigation (open/closed)
   const [isAccordionOpen, setAccordionOpen] = useState(false);
 
+  // Visually highlight active button
   function getClassName(page: string) {
     return `flex justify-center items-center h-9 ${
       location.pathname === page ? 'bg-[#359996]' : 'bg-[#176061]'
     } hover:bg-[#48CFCB]`;
   }
 
+  // Toggle accordion menu status
   const handleOpen = () => {
     setAccordionOpen(!isAccordionOpen);
   };
+
   return (
     <nav className="text-gray-100">
       <Link

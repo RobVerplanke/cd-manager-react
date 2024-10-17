@@ -26,6 +26,8 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
       <div className="flex flex-col">
         <div className="flex items-center">
           <h3 className="mr-2 text-sm font-bold">{item.title}</h3>
+
+          {/* Render 'More details' icon */}
           <Link
             to={`/details/${item.id}`}
             className="text-gray-500"
@@ -33,6 +35,8 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
           >
             <InfoIcon sx={{ fontSize: 18 }} />
           </Link>
+
+          {/* Render Edit icon */}
           <Link
             to={`/edit/${item.id}`}
             className="pl-2 text-gray-600"
@@ -49,10 +53,10 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
         {cdCount !== undefined ? cdCount : 'N/A'}
       </div>
 
-      {/* Rating */}
+      {/* Render rating stars */}
       {getRatingStars(item.rating)}
 
-      {/* Tags */}
+      {/* Render tags */}
       <div className="flex flex-wrap gap-2">
         {item.tags.map((tag) => (
           <Link

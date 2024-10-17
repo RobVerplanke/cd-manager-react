@@ -7,6 +7,8 @@ import { useData } from '../../context/DataContext';
 function LibraryPage() {
   // itemCategory can be 'album', 'cd', or 'track'
   const { itemCategory } = useParams<{ itemCategory: string }>();
+
+  // Items to be sorted
   const [sortedItems, setSortedItems] = useState<(Album | Cd | Track)[]>();
 
   // Collect all data

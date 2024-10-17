@@ -32,6 +32,8 @@ function ViewItemPAge() {
     <main className="my-5 pl-6">
       <div className="text-xl mb-4 border-b-2 border-slate-400 pb-4">
         <span>Item Details</span>
+
+        {/* Render 'Edit item' icon */}
         <Link
           to={`/edit/${item.id}`}
           className="pt-0.5 pl-2 text-gray-600"

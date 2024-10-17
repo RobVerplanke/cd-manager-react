@@ -34,6 +34,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   // Fallback empty template in case the data is not loaded
   const newItem: Item = createNewItemObject(selectedCategory);
 
+  // Collect validation errors
   const [formErrors, setFormErrors] = useState<FormErrors>({});
 
   const {
@@ -43,8 +44,11 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     setError,
     setConfirmationMessage,
   } = useData();
+
+  // Retreive item ID from the url
   const { id } = useParams<{ id: string }>();
 
+  // Select fitst input field
   const artistNameRef = useRef<null | HTMLInputElement>(null);
 
   // Every firts time component renders, set focus on first input field
@@ -148,21 +152,23 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         (await validationSchemaTrack.validate(state, { abortEarly: false }));
 
       // Validate form data
-    } catch (err) {
-      // Check if err is a Yup ValidationError
-      if (err instanceof ValidationError) {
-        err.inner.forEach((error) => {
+    } catch (errors) {
+      // Check if errors are Yup ValidationErrors
+      if (errors instanceof ValidationError) {
+        errors.inner.forEach((error) => {
           if (error.path) {
             newError[error.path] = error.message;
           }
         });
       }
-      // Set the form errors in state and log them
+
+      // Set the validation errors in the state and log them
       setFormErrors(newError);
 
       return;
     }
 
+    // Decide to edit or add an item
     if (isEditMode) {
       EditItem(item.type, state, setError);
       setIsItemMutated(true);

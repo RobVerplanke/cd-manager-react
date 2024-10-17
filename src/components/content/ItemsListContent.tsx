@@ -4,6 +4,7 @@ import { type Album, type Cd, type Track } from '../../lib/types/types';
 import ItemCard from '../cards/ItemCard';
 import ItemWithCoverCard from '../cards/ItemWithCoverCard';
 import { MAX_AMOUNT_TRACKS_PER_PAGE } from '../../lib/constants';
+import { isAlbum, isCd, isTrack } from '../../utils/helperFunctions';
 
 export function ItemsListContent({
   items,
@@ -11,10 +12,13 @@ export function ItemsListContent({
   items: Album[] | Cd[] | Track[];
 }) {
   const data = items;
-
-  const [page, setPage] = useState(0);
-  const [filterData, setFilterData] = useState<(Album | Cd | Track)[]>();
   const n = MAX_AMOUNT_TRACKS_PER_PAGE;
+
+  // Keep track of active page
+  const [page, setPage] = useState(0);
+
+  // Data storage
+  const [filterData, setFilterData] = useState<(Album | Cd | Track)[]>();
 
   // When user sorts the data, update the displayed data
   useEffect(() => {
@@ -28,19 +32,6 @@ export function ItemsListContent({
     });
     setFilterData(filtered);
   }, [page, data]);
-
-  // Type guards for narrowing the item types
-  function isAlbum(item: Album | Cd | Track): item is Album {
-    return (item as Album).type === 'album';
-  }
-
-  function isCd(item: Album | Cd | Track): item is Cd {
-    return (item as Cd).type == 'cd';
-  }
-
-  function isTrack(item: Album | Cd | Track): item is Track {
-    return (item as Track).type === 'track';
-  }
 
   return (
     <>

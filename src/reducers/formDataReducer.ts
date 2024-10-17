@@ -10,6 +10,10 @@ import {
   defaultAlbum,
   defaultCd,
   defaultTrack,
+  isAlbum,
+  isCd,
+  isNumber,
+  isTrack,
 } from '../utils/helperFunctions';
 
 const newItem: Item = createNewItemObject('album');
@@ -22,25 +26,9 @@ export default function formDataReducer(
     payload: { inputValue: string | number; item?: Item };
   }
 ): Item {
-  // Type guards for narrowing the item type
-  function isNumber(item: number | string): item is number {
-    return typeof (item as number) === 'number';
-  }
-
+  // Type guard for narrowing the item type
   function isItemType(input: string | number): input is ItemType {
     return ['album', 'cd', 'track'].includes(input as string);
-  }
-
-  function isAlbum(item: Item): item is Album {
-    return item.type === 'album';
-  }
-
-  function isCd(item: Item): item is Cd {
-    return item.type === 'cd';
-  }
-
-  function isTrack(item: Item): item is Track {
-    return item.type === 'track';
   }
 
   switch (action.type) {
