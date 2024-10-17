@@ -37,7 +37,7 @@ function LibraryPage() {
   }, []);
 
   return (
-    <main className="my-6 pl-6">
+    <main className="my-5 pl-6">
       <div className="text-xl border-b-2 border-slate-400 pb-4">
         <p>Library - Overview of your {itemCategory}s</p>
       </div>

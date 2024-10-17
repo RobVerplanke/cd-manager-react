@@ -1,27 +1,36 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 function NavigationBar() {
-  const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const [isAccordionOpen, setAccordionOpen] = useState(false);
+
+  function getClassName(page: string) {
+    return `flex justify-center items-center h-9 ${
+      location.pathname === page ? 'bg-[#359996]' : 'bg-[#176061]'
+    } hover:bg-[#48CFCB]`;
+  }
 
   const handleOpen = () => {
-    setOpen(!open); // Toggle the accordion navigation (Library option)
+    setAccordionOpen(!isAccordionOpen);
   };
   return (
-    <nav className="text-gray-300">
+    <nav className="text-gray-100">
       <Link
         to="/"
         aria-label="Go to Browse page"
-        className="flex justify-center items-center h-9 bg-slate-600 hover:bg-slate-500"
+        className={getClassName('/')}
+        onClick={() => {}}
       >
         Browse
       </Link>
       <Link
         to="/search"
         aria-label="Go to Search page"
-        className="flex justify-center items-center h-9 bg-slate-600 hover:bg-slate-500"
+        className={getClassName('/search')}
+        onClick={() => {}}
       >
         Search
       </Link>
@@ -30,22 +39,23 @@ function NavigationBar() {
       <div>
         <button
           onClick={handleOpen}
-          className="flex justify-center items-center h-9 bg-slate-600 hover:bg-slate-500 w-full"
+          className="flex justify-center items-center h-9 bg-[#176061] hover:bg-[#48CFCB] w-full"
         >
           Library
-          {open ? (
+          {isAccordionOpen ? (
             <ArrowDropUpIcon className="mt-1" />
           ) : (
             <ArrowDropDownIcon className="mt-1" />
           )}
         </button>
-        {open && (
-          <ul className="h-fit bg-slate-600">
+        {isAccordionOpen && (
+          <ul className="h-fit bg-[#229799]">
             <li>
               <Link
                 to="/library/album"
                 aria-label="Go to album library"
-                className="flex justify-center items-center h-9 hover:bg-slate-500"
+                className={getClassName('/library/album')}
+                onClick={() => {}}
               >
                 Albums
               </Link>
@@ -54,7 +64,8 @@ function NavigationBar() {
               <Link
                 to="/library/cd"
                 aria-label="Go to cd library"
-                className="flex justify-center items-center h-9 hover:bg-slate-500"
+                className={getClassName('/library/cd')}
+                onClick={() => {}}
               >
                 CDs
               </Link>
@@ -63,7 +74,8 @@ function NavigationBar() {
               <Link
                 to="/library/track"
                 aria-label="Go to track library"
-                className="flex justify-center items-center h-9 hover:bg-slate-500"
+                className={getClassName('/library/track')}
+                onClick={() => {}}
               >
                 Tracks
               </Link>
@@ -76,7 +88,8 @@ function NavigationBar() {
       <Link
         to="/add"
         aria-label="Go to Add page"
-        className="flex justify-center items-center h-9 bg-slate-600 hover:bg-slate-500"
+        className={getClassName('/add')}
+        onClick={() => {}}
       >
         Add item
       </Link>

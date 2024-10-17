@@ -90,7 +90,7 @@ function SearchItemPage() {
   }
 
   return (
-    <main className="my-6 pl-6">
+    <main className="my-5 pl-6">
       <div className="text-xl border-b-2 border-slate-400 pb-4 mb-4">
         <p>Search {selectedCategory}</p>
       </div>
