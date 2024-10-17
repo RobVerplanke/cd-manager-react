@@ -27,6 +27,11 @@ export function onRender(
   );
 }
 
+// Capitalize string
+export function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // Generate unique ID as string
 export const generateId = () => Date.now().toString();
 

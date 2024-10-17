@@ -5,6 +5,7 @@ import getItemById from '../../api/getItemById';
 import EditItem from '../../api/editItemAPI';
 import addNewItem from '../../api/addNewItemAPI';
 import {
+  capitalizeFirstLetter,
   createNewItemObject,
   getReleaseYearRange,
 } from '../../utils/helperFunctions';
@@ -194,9 +195,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     if (currentType === 'album' && 'cdsInAlbum' in state) {
       return (
         <>
-          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="cdCount" className="text-gray-700 pt-2">
-            Amount of CDs:
+            <sup style={{ color: 'red' }}>*</sup>Amount of CDs:
           </label>
           <input
             type="number"
@@ -252,9 +252,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     } else if (selectedCategory === 'cd' && 'trackCount' in state) {
       return (
         <>
-          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="cdCount" className="text-gray-700 pt-2">
-            Amount of CDs:
+            <sup style={{ color: 'red' }}>*</sup>Amount of CDs:
           </label>
           <input
             type="number"
@@ -265,9 +264,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             onChange={(e) => handleChange('added_cd-cdCount', e)}
           />
           {formErrors.cdCount && <div>{formErrors.cdCount}</div>}
-          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="trackCount" className="text-gray-700 pt-2">
-            Amount of tracks:
+            <sup style={{ color: 'red' }}>*</sup>Amount of tracks:
           </label>
           <input
             type="number"
@@ -340,9 +338,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
     } else if (selectedCategory === 'track' && 'trackNumber' in state) {
       return (
         <>
-          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="cdTitle" className="text-gray-700 pt-2">
-            CD Title:
+            <sup style={{ color: 'red' }}>*</sup>CD title:
           </label>
           <select
             id="cdTitle"
@@ -358,9 +355,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           </select>
           {formErrors.cdTitle && <div>{formErrors.cdTitle}</div>}
 
-          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="trackNumber" className="text-gray-700 pt-2">
-            Track number:
+            <sup style={{ color: 'red' }}>*</sup>Track number:
           </label>
           <input
             type="number"
@@ -371,10 +367,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             onChange={(e) => handleChange('added_trackNumber', e)}
           />
           {formErrors.trackNumber && <div>{formErrors.trackNumber}</div>}
-
-          <sup style={{ color: 'red' }}>*</sup>
           <label htmlFor="length" className="text-gray-700 pt-2">
-            Length:
+            <sup style={{ color: 'red' }}>*</sup>Length:
           </label>
           <input
             type="text"
@@ -413,9 +407,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
         onSubmit={(e) => handleSubmit(e)}
       >
-        <sup style={{ color: 'red' }}>*</sup>
         <label htmlFor="artist" className="text-gray-700 text-sm">
-          Artist name:
+          <sup style={{ color: 'red' }}>*</sup>Artist name:
         </label>
         <input
           ref={artistNameRef}
@@ -441,9 +434,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         {formErrors.featuringArtists && (
           <div>{formErrors.featuringArtists}</div>
         )}
-        <sup style={{ color: 'red' }}>*</sup>
         <label htmlFor="title" className="text-gray-700 pt-2">
-          Title:
+          <sup style={{ color: 'red' }}>*</sup>
+          {capitalizeFirstLetter(selectedCategory)} title:
         </label>
         <input
           type="text"
