@@ -33,21 +33,21 @@ function TagSelectionPage() {
     const tracks = await getAllTracks(setError);
 
     // Find items with the selected keyword in its tags list
-    if (albums)
+    albums &&
       setFilteredAlbums(
         albums.filter((album) => {
           if (album.tags.includes(tag as string)) return album;
         })
       );
 
-    if (cds)
+    cds &&
       setFilteredCDs(
         cds.filter((cd) => {
           if (cd.tags.includes(tag as string)) return cd;
         })
       );
 
-    if (tracks)
+    tracks &&
       setFilteredTracks(
         tracks.filter((track) => {
           if (track.tags.includes(tag as string)) return track;

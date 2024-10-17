@@ -53,26 +53,21 @@ export default function SortWithItems({
     setIsRatingSortedDescendingly(false);
 
     // Then change the the direction of the active category
-    if (targetButton === 'title') {
+    targetButton === 'title' &&
       setIsTitleSortedDescendingly(!isTitleSortedDescendingly);
-    } else if (targetButton === 'length') {
+    targetButton === 'length' &&
       setIsLengthSortedDescendingly(!isLengthSortedDescendingly);
-    } else if (targetButton === 'amount') {
+    targetButton === 'amount' &&
       setIsAmountSortedDescendingly(!isAmountSortedDescendingly);
-    } else {
+    targetButton === 'rating' &&
       setIsRatingSortedDescendingly(!isRatingSortedDescendingly);
-    }
   }
 
   // If the user changes the category, update the data directly
   useEffect(() => {
-    if (itemCategory === 'album') {
-      setSortedItems(allAlbums);
-    } else if (itemCategory === 'cd') {
-      setSortedItems(allCds);
-    } else if (itemCategory === 'track') {
-      setSortedItems(allTracks);
-    }
+    itemCategory === 'album' && setSortedItems(allAlbums);
+    itemCategory === 'cd' && setSortedItems(allCds);
+    itemCategory === 'track' && setSortedItems(allTracks);
   }, [itemCategory]);
 
   // If the data changes in the tag component (after the user clicked on an other tag) update the displayed data

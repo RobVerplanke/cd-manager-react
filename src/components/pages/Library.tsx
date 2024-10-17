@@ -17,22 +17,25 @@ function LibraryPage() {
 
   // If the user changes the category, update the data directly
   useEffect(() => {
-    if (itemCategory === 'album') {
-      allItems = allAlbums;
-    } else if (itemCategory === 'cd') {
-      allItems = allCds;
-    } else if (itemCategory === 'track') {
-      allItems = allTracks;
+    switch (itemCategory) {
+      case 'album':
+        allItems = allAlbums;
+        break;
+      case 'cd':
+        allItems = allCds;
+        break;
+      case 'track':
+        allItems = allTracks;
+        break;
     }
 
-    if (allItems) {
-      setSortedItems(allItems);
-    }
+    // Update state
+    allItems && setSortedItems(allItems);
   }, [itemCategory]);
 
   // Initialize new array on mount
   useEffect(() => {
-    if (allItems) setSortedItems(allItems);
+    allItems && setSortedItems(allItems);
   }, []);
 
   return (

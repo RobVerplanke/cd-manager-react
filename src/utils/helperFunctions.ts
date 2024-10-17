@@ -1,3 +1,4 @@
+import { MIN_RELEASE_YEAR } from '../lib/constants';
 import { type Album, type Cd, type Item, type Track } from '../lib/types/types';
 
 // Measure rendering performance
@@ -31,13 +32,13 @@ export const generateId = () => Date.now().toString();
 
 // Generate select options for release year
 export function getReleaseYearRange() {
-  const options = [];
   const currentYear = new Date().getFullYear() + 1;
 
-  for (let i = 1900; i < currentYear; i++) {
-    options.push(i);
-  }
-
+  // Create array with numbers in a range between minimum year and maximum year
+  const options = Array.from(
+    { length: currentYear - MIN_RELEASE_YEAR },
+    (_, i) => i + MIN_RELEASE_YEAR
+  );
   return options.reverse();
 }
 
@@ -65,28 +66,25 @@ export function sortItemsByAmount(
   isSorted: boolean,
   itemCategory: string
 ) {
-  // Check if the items are CDs or Albums
-  if (itemCategory === 'cd') {
-    // Sort CDs by cdCount
-    return isSorted
-      ? [...items].sort((a, b) =>
-          isCd(a) && isCd(b) ? a.cdCount - b.cdCount : 0
-        )
-      : [...items].sort((a, b) =>
-          isCd(a) && isCd(b) ? b.cdCount - a.cdCount : 0
-        );
-  } else if (itemCategory === 'album') {
-    // Sort Albums by cdsInAlbum
-    return isSorted
-      ? [...items].sort((a, b) =>
-          isAlbum(a) && isAlbum(b) ? a.cdsInAlbum - b.cdsInAlbum : 0
-        )
-      : [...items].sort((a, b) =>
-          isAlbum(a) && isAlbum(b) ? b.cdsInAlbum - a.cdsInAlbum : 0
-        );
-  } else {
-    // Default return for unknown categories
-    return items;
+  switch (itemCategory) {
+    case 'cd':
+      return isSorted
+        ? [...items].sort((a, b) =>
+            isCd(a) && isCd(b) ? a.cdCount - b.cdCount : 0
+          )
+        : [...items].sort((a, b) =>
+            isCd(a) && isCd(b) ? b.cdCount - a.cdCount : 0
+          );
+    case 'album':
+      return isSorted
+        ? [...items].sort((a, b) =>
+            isAlbum(a) && isAlbum(b) ? a.cdsInAlbum - b.cdsInAlbum : 0
+          )
+        : [...items].sort((a, b) =>
+            isAlbum(a) && isAlbum(b) ? b.cdsInAlbum - a.cdsInAlbum : 0
+          );
+    default:
+      return items;
   }
 }
 
