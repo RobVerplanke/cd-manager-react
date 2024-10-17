@@ -98,7 +98,7 @@ function SearchItemPage() {
 
   return (
     <main className="my-5 pl-6">
-      <div className="text-xl border-b-2 border-slate-400 pb-4 mb-4">
+      <div className="text-2xl border-b-2 border-[#176061] pb-4 mb-4">
         <p>Search {selectedCategory}</p>
       </div>
       {/* Render section where category can be selected */}

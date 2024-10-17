@@ -1,7 +1,7 @@
 function MainHeader() {
   return (
-    <header className="flex h-20 items-center pl-20 text-gray-100">
-      <p className="text-[#359996] text-4xl">CD MANAGER</p>
+    <header className="flex h-14 items-center justify-center text-gray-100">
+      <p className="text-[#359996] text-3xl tracking-wide">CD MANAGER</p>
     </header>
   );
 }

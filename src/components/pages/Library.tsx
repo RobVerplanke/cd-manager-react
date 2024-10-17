@@ -42,7 +42,7 @@ function LibraryPage() {
 
   return (
     <main className="my-5 pl-6">
-      <div className="text-xl border-b-2 border-slate-400 pb-4">
+      <div className="text-2xl border-b-2 border-[#176061] pb-4">
         <p>Library - Overview of your {itemCategory}s</p>
       </div>
       <SortWithItems
