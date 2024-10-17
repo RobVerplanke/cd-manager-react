@@ -6,7 +6,7 @@ import getRatingStars from '../RatingStars';
 
 function ItemCard({ item }: { item: ItemCardProps }) {
   return (
-    <div className="grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b">
+    <div className="grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-1 border-b">
       <div className="flex flex-col">
         <div className="flex items-center">
           {/* Render title */}

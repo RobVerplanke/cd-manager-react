@@ -47,7 +47,7 @@ export function ItemsListContent({
           ))}
       </ul>
       <ReactPaginate
-        className="flex justify-center gap-2 mt-4"
+        className="flex justify-center gap-2 mt-4 mr-16"
         containerClassName="flex items-center space-x-2"
         pageClassName="px-3 py-1 border border-gray-300 rounded hover:bg-gray-200"
         pageLinkClassName="block px-0.5 py-0.5 w-full h-full"
