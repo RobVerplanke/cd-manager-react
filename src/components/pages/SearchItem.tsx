@@ -29,7 +29,7 @@ function SearchItemPage() {
 
   useEffect(() => {
     searchKeyword.current?.focus();
-  }, []);
+  }, [selectedCategory]);
 
   // Check whether the tags list contains the keyword
   function isKeywordInTags(item: Item, keyword: string) {
@@ -106,14 +106,18 @@ function SearchItemPage() {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           value={searchInput}
-          className="text-xs bg-white border rounded-md h-6 pl-1 w-80 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs bg-white border rounded-md h-6 pl-1 w-80 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           placeholder="Search for keywords..."
           type="text"
           name="search"
           id="search"
           data-testid="search-bar"
         />
-        <button onClick={handleClick} data-testid="search-button">
+        <button
+          onClick={handleClick}
+          data-testid="search-button"
+          aria-label="Search for keywords"
+        >
           <SearchIcon />
         </button>
       </div>

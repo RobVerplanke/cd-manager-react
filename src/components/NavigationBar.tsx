@@ -40,6 +40,7 @@ function NavigationBar() {
         <button
           onClick={handleOpen}
           className="flex justify-center items-center h-9 bg-[#176061] hover:bg-[#48CFCB] w-full"
+          aria-label="Toggle library submenu"
         >
           Library
           {isAccordionOpen ? (

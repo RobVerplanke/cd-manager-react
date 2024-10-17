@@ -196,7 +196,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="number"
             id="cdCount"
             name="cdCount"
-            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cdsInAlbum}
             onChange={(e) => handleChange('added_album-cdCount', e)}
           />
@@ -207,7 +207,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           <select
             id="albumYear"
             name="albumYear"
-            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.albumYear}
             onChange={(e) => handleChange('added_album-year', e)}
           >
@@ -223,7 +223,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="thumbnail"
             name="thumbnail"
-            className="text-xs bg-white border rounded-md h-7 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-7 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cover.albumThumbnail}
             onChange={(e) => handleChange('added_album-thumbnail', e)}
           />
@@ -236,7 +236,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="fullSize"
             name="fullSize"
-            className="text-xs bg-white border rounded-md h-7 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-7 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cover.albumFullSize}
             onChange={(e) => handleChange('added_album-fullSize', e)}
           />
@@ -253,7 +253,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="number"
             id="cdCount"
             name="cdCount"
-            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cdCount}
             onChange={(e) => handleChange('added_cd-cdCount', e)}
           />
@@ -265,7 +265,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="number"
             id="trackCount"
             name="trackCount"
-            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.trackCount}
             onChange={(e) => handleChange('added_cd-trackCount', e)}
           />
@@ -276,7 +276,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           <select
             id="cdYear"
             name="cdYear"
-            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cdYear}
             onChange={(e) => handleChange('added_cd-year', e)}
           >
@@ -293,7 +293,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             id="partOfAlbum"
             name="partOfAlbum"
             value={state.partOfAlbum}
-            className="text-xs bg-white border rounded-md h-6 w-60 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-60 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             onChange={(e) => handleChange('added_partOfAlbum', e)}
           >
             <option>None</option>
@@ -309,7 +309,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="cdThumbnail"
             name="cdThumbnail"
-            className="text-xs bg-white border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cover.cdThumbnail}
             onChange={(e) => handleChange('added_cd-thumbnail', e)}
           />
@@ -322,7 +322,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="cdFullSize"
             name="cdFullSize"
-            className="text-xs bg-white border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cover.cdFullSize}
             onChange={(e) => handleChange('added_cd-fullSize', e)}
           />
@@ -338,7 +338,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           <select
             id="cdTitle"
             name="cdTitle"
-            className="text-xs bg-white border rounded-md h-6 w-60 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-60 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.cdTitle}
             onChange={(e) => handleChange('added_cdTitle', e)}
           >
@@ -356,7 +356,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="number"
             id="trackNumber"
             name="trackNumber"
-            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-10 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.trackNumber}
             onChange={(e) => handleChange('added_trackNumber', e)}
           />
@@ -368,7 +368,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             type="text"
             id="length"
             name="length"
-            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs bg-white border rounded-md h-6 w-20 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             value={state.length}
             onChange={(e) => handleChange('added_length', e)}
           />
@@ -409,7 +409,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           type="text"
           id="artist"
           name="artist"
-          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           value={state.artist}
           onChange={(e) => handleChange('added_artist', e)}
         />
@@ -421,7 +421,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           type="text"
           id="feat-artists"
           name="feat-artists"
-          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           value={state.featuringArtists}
           onChange={(e) => handleChange('added_feat-artists', e)}
         />
@@ -435,7 +435,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           type="text"
           id="title"
           name="title"
-          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           value={state.title}
           onChange={(e) => handleChange('added_title', e)}
         />
@@ -448,7 +448,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           id="rating"
           name="rating"
           value={state.rating}
-          className="bg-white text-xs border rounded-md h-5 pl-1 w-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="bg-white text-xs border rounded-md h-5 pl-1 w-10 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           onChange={(e) => handleChange('added_rating', e)}
         >
           {RATING_VALUES.map((rating) => (
@@ -465,7 +465,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           type="text"
           id="tags"
           name="tags"
-          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md h-6 pl-1 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           value={state.tags}
           onChange={(e) => handleChange('added_tags', e)}
         />
@@ -481,7 +481,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         <textarea
           id="extraInfo"
           name="extraInfo"
-          className="text-xs border rounded-md mb-10 pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border rounded-md mb-10 pl-2 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           value={state.extraInfo}
           onChange={(e) => handleChange('added_extraInfo', e)}
         ></textarea>
@@ -492,7 +492,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         {/* Submit button */}
         <button
           type="submit"
-          className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-label="Submit form"
+          className="bg-[#176061] text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           data-testid="submit-button"
         >
           Submit
@@ -500,7 +501,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         {isEditMode && (
           <Link
             to={'/'}
-            className="bg-red-600 w-20 text-white font-semibold py-2 px-4 rounded hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Delete current item"
+            className="bg-red-600 w-20 text-white font-semibold py-2 px-4 rounded hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
             onClick={handleDelete}
             data-testid="delete-link"
           >

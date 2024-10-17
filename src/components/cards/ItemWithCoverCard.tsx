@@ -26,10 +26,18 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
       <div className="flex flex-col">
         <div className="flex items-center">
           <h3 className="mr-2 text-sm font-bold">{item.title}</h3>
-          <Link to={`/details/${item.id}`} className="text-gray-500">
+          <Link
+            to={`/details/${item.id}`}
+            className="text-gray-500"
+            aria-label="Item details"
+          >
             <InfoIcon sx={{ fontSize: 18 }} />
           </Link>
-          <Link to={`/edit/${item.id}`} className="pl-2 text-gray-600">
+          <Link
+            to={`/edit/${item.id}`}
+            className="pl-2 text-gray-600"
+            aria-label="Edit item"
+          >
             <EditNoteOutlinedIcon fontSize="small" />
           </Link>
         </div>
@@ -51,6 +59,7 @@ function ItemWithCoverCard({ item }: { item: ItemWithCoverCardProps }) {
             to={`/tag-selection/${tag}`}
             key={tag}
             className="bg-gray-200 rounded-full px-2 py-1 text-xs"
+            aria-label="Tag"
           >
             {tag}
           </Link>
