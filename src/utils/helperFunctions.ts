@@ -1,4 +1,4 @@
-import { Album, Cd, Item, ItemType, Track } from '../lib/types/types';
+import { type Album, type Cd, type Item, type Track } from '../lib/types/types';
 
 // Measure rendering performance
 export function onRender(

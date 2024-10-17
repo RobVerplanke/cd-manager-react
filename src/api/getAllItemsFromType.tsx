@@ -1,5 +1,9 @@
-import { useData } from '../context/DataContext';
-import { ItemType, Album, Cd, Track } from '../lib/types/types';
+import {
+  type ItemType,
+  type Album,
+  type Cd,
+  type Track,
+} from '../lib/types/types';
 
 // Receive and return a list which contains objects of the corresponding item type
 export default async function getAllItemsFromType(

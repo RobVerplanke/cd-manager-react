@@ -1,5 +1,4 @@
-import { useData } from '../context/DataContext';
-import { Cd } from '../lib/types/types';
+import { type Cd } from '../lib/types/types';
 
 // Receive and return all cds
 export default async function getAllCDs(setError: (message: string) => void) {

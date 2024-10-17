@@ -1,4 +1,10 @@
-import { Album, Cd, Item, ItemType, Track } from '../lib/types/types';
+import {
+  type Album,
+  type Cd,
+  type Item,
+  type ItemType,
+  type Track,
+} from '../lib/types/types';
 import {
   createNewItemObject,
   defaultAlbum,

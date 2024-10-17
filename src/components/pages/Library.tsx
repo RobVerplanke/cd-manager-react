@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Album, Cd, Track } from '../../lib/types/types';
-
+import { type Album, type Cd, type Track } from '../../lib/types/types';
 import SortWithItems from '../SortWithItems';
 import { useData } from '../../context/DataContext';
 

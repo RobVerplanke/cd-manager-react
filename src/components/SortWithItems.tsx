@@ -1,7 +1,12 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useEffect, useState } from 'react';
-import { Album, Cd, Track, ItemType } from '../lib/types/types';
+import {
+  type Album,
+  type Cd,
+  type Track,
+  type ItemType,
+} from '../lib/types/types';
 import {
   sortItemsByTitle,
   sortItemsByLength,

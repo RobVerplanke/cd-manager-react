@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Album, Cd, Track } from '../../lib/types/types';
+import { type Album, type Cd, type Track } from '../../lib/types/types';
 
 import SortWithItems from '../SortWithItems';
 

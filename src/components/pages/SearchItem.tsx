@@ -2,7 +2,13 @@ import CategorySelector from '../CategorySelector';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultContent from '../content/SearchResultContent';
 import getAllItemsFromType from '../../api/getAllItemsFromType';
-import { Album, Cd, Track, ItemType, Item } from '../../lib/types/types';
+import {
+  type Album,
+  type Cd,
+  type Track,
+  type ItemType,
+  type Item,
+} from '../../lib/types/types';
 import { useEffect, useRef, useState } from 'react';
 import { useData } from '../../context/DataContext';
 

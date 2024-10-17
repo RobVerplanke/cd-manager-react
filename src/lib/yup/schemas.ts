@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import { ValidationError } from 'yup';
 
 export const validationSchemaAlbum = Yup.object({
   artist: Yup.string().required('Artist name is required'),

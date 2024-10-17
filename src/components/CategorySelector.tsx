@@ -1,4 +1,4 @@
-import { ItemType } from '../lib/types/types';
+import { type ItemType } from '../lib/types/types';
 
 // Generate a selection section where the user can select the preferred category
 function CategorySelector({

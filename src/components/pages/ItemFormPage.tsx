@@ -19,7 +19,6 @@ import {
   validationSchemaTrack,
 } from '../../lib/yup/schemas';
 import DeleteItem from '../../api/deleteItemAPI';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 // Depending on the argument value, form elements are rendered dynamicly
 function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {

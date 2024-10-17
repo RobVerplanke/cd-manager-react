@@ -1,4 +1,4 @@
-import { Item, ItemType } from '../lib/types/types';
+import { type Item, type ItemType } from '../lib/types/types';
 
 // Receive and return a list which contains objects of the corresponding item type
 export default async function addNewItem(

@@ -1,5 +1,5 @@
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
-import { ItemCardProps } from '../../lib/types/types';
+import { type ItemCardProps } from '../../lib/types/types';
 import InfoIcon from '@mui/icons-material/Info';
 import { Link } from 'react-router-dom';
 import getRatingStars from '../RatingStars';

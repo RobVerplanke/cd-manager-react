@@ -1,11 +1,16 @@
 import CategorySelector from '../CategorySelector';
 import SearchResultContent from '../content/SearchResultContent';
-import { Album, Cd, Track, ItemType } from '../../lib/types/types';
+import {
+  type Album,
+  type Cd,
+  type Track,
+  type ItemType,
+} from '../../lib/types/types';
 import { useEffect, useState } from 'react';
 import getAllAlbums from '../../api/getAllAlbums';
-import { useParams } from 'react-router-dom';
 import getAllCDs from '../../api/getAllCDs';
 import getAllTracks from '../../api/getAllTracks';
+import { useParams } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 
 function TagSelectionPage() {

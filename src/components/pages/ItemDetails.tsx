@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import getItemById from '../../api/getItemById';
-import { Album, Cd, Track } from '../../lib/types/types';
+import { type Album, type Cd, type Track } from '../../lib/types/types';
 import { useEffect, useState } from 'react';
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import { useData } from '../../context/DataContext';

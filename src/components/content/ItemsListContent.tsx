@@ -1,6 +1,6 @@
 import ReactPaginate from 'react-paginate'; // for pagination
 import { useEffect, useState } from 'react'; // useState for storing data and useEffect for changing data on click
-import { Album, Cd, Track } from '../../lib/types/types';
+import { type Album, type Cd, type Track } from '../../lib/types/types';
 import ItemCard from '../cards/ItemCard';
 import ItemWithCoverCard from '../cards/ItemWithCoverCard';
 import { MAX_AMOUNT_TRACKS_PER_PAGE } from '../../lib/constants';

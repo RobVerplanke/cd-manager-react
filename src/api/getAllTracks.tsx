@@ -1,4 +1,4 @@
-import { Track } from '../lib/types/types';
+import { type Track } from '../lib/types/types';
 
 // Receive and return all tracks
 export default async function getAllTracks(

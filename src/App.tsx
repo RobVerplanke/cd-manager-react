@@ -1,4 +1,4 @@
-import { Profiler, useEffect } from 'react';
+import { Profiler } from 'react';
 import { onRender } from './utils/helperFunctions';
 import { useData } from './context/DataContext';
 import { Outlet } from 'react-router-dom';

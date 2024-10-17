@@ -1,5 +1,4 @@
-import { useData } from '../context/DataContext';
-import { Album } from '../lib/types/types';
+import { type Album } from '../lib/types/types';
 
 // Receive and return all albums
 export default async function getAllAlbums(

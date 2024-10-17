@@ -1,4 +1,4 @@
-import { ItemType, Album, Cd, Track } from '../lib/types/types';
+import { type Album, type Cd, type Track } from '../lib/types/types';
 
 // Receive and return an item with the corresponding ID
 export default async function getItemById(
