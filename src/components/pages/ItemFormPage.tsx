@@ -52,7 +52,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   // Select fitst input field
   const artistNameRef = useRef<null | HTMLInputElement>(null);
 
-  // Every firts time component renders, set focus on first input field
+  // Initially set focus on first input field and when the user changes category
   useEffect(() => {
     artistNameRef.current?.focus();
   }, [selectedCategory]);
@@ -138,9 +138,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   }
 
   // Handle form submission for both add and edit
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
+  async function handleSubmit() {
     // Reset formErrors to an empty object before validating
     const newError: { [key: string]: string } = {};
 
@@ -206,7 +204,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cdsInAlbum}
             onChange={(e) => handleChange('added_album-cdCount', e)}
           />
-          {formErrors.cdsInAlbum && <div>{formErrors.cdsInAlbum}</div>}
+          {formErrors.cdsInAlbum && (
+            <div className="text-red-600">{formErrors.cdsInAlbum}</div>
+          )}
           <label htmlFor="albumYear" className="text-gray-700 pt-2">
             Release year:
           </label>
@@ -221,7 +221,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
               <option key={year}>{year}</option>
             ))}
           </select>
-          {formErrors.albumYear && <div>{formErrors.albumYear}</div>}
+          {formErrors.albumYear && (
+            <div className="text-red-600">{formErrors.albumYear}</div>
+          )}
           <label htmlFor="thumbnail" className="text-gray-700 pt-2">
             Thumbnail cover:
           </label>
@@ -233,7 +235,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cover.albumThumbnail}
             onChange={(e) => handleChange('added_album-thumbnail', e)}
           />
-          {formErrors.albumThumbnail && <div>{formErrors.albumThumbnail}</div>}
+          {formErrors.albumThumbnail && (
+            <div className="text-red-600">{formErrors.albumThumbnail}</div>
+          )}
 
           <label htmlFor="fullSize" className="text-gray-700 pt-2">
             Full Size cover:
@@ -246,7 +250,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cover.albumFullSize}
             onChange={(e) => handleChange('added_album-fullSize', e)}
           />
-          {formErrors.albumFullSize && <div>{formErrors.albumFullSize}</div>}
+          {formErrors.albumFullSize && (
+            <div className="text-red-600">{formErrors.albumFullSize}</div>
+          )}
         </>
       );
     } else if (selectedCategory === 'cd' && 'trackCount' in state) {
@@ -263,7 +269,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cdCount}
             onChange={(e) => handleChange('added_cd-cdCount', e)}
           />
-          {formErrors.cdCount && <div>{formErrors.cdCount}</div>}
+          {formErrors.cdCount && (
+            <div className="text-red-600">{formErrors.cdCount}</div>
+          )}
           <label htmlFor="trackCount" className="text-gray-700 pt-2">
             <sup style={{ color: 'red' }}>*</sup>Amount of tracks:
           </label>
@@ -275,7 +283,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.trackCount}
             onChange={(e) => handleChange('added_cd-trackCount', e)}
           />
-          {formErrors.trackCount && <div>{formErrors.trackCount}</div>}
+          {formErrors.trackCount && (
+            <div className="text-red-600">{formErrors.trackCount}</div>
+          )}
           <label htmlFor="cdYear" className="text-gray-700 pt-2">
             Release year:
           </label>
@@ -290,7 +300,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
               <option key={year}>{year}</option>
             ))}
           </select>
-          {formErrors.cdYear && <div>{formErrors.cdYear}</div>}
+          {formErrors.cdYear && (
+            <div className="text-red-600">{formErrors.cdYear}</div>
+          )}
           <label htmlFor="partOfAlbum" className="text-gray-700 pt-2">
             Part of Album:
           </label>
@@ -307,7 +319,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
               <option key={album.id}>{album.title}</option>
             ))}
           </select>
-          {formErrors.partOfAlbum && <div>{formErrors.partOfAlbum}</div>}
+          {formErrors.partOfAlbum && (
+            <div className="text-red-600">{formErrors.partOfAlbum}</div>
+          )}
           <label htmlFor="cdThumbnail" className="text-gray-700 pt-2">
             Thumbnail cover:
           </label>
@@ -319,7 +333,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cover.cdThumbnail}
             onChange={(e) => handleChange('added_cd-thumbnail', e)}
           />
-          {formErrors.cdThumbnail && <div>{formErrors.cdThumbnail}</div>}
+          {formErrors.cdThumbnail && (
+            <div className="text-red-600">{formErrors.cdThumbnail}</div>
+          )}
 
           <label htmlFor="cdFullSize" className="text-gray-700 pt-2">
             Full Size cover:
@@ -332,7 +348,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.cover.cdFullSize}
             onChange={(e) => handleChange('added_cd-fullSize', e)}
           />
-          {formErrors.cdFullSize && <div>{formErrors.cdFullSize}</div>}
+          {formErrors.cdFullSize && (
+            <div className="text-red-600">{formErrors.cdFullSize}</div>
+          )}
         </>
       );
     } else if (selectedCategory === 'track' && 'trackNumber' in state) {
@@ -353,7 +371,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
               <option key={cd.id}>{cd.title}</option>
             ))}
           </select>
-          {formErrors.cdTitle && <div>{formErrors.cdTitle}</div>}
+          {formErrors.cdTitle && (
+            <div className="text-red-600">{formErrors.cdTitle}</div>
+          )}
 
           <label htmlFor="trackNumber" className="text-gray-700 pt-2">
             <sup style={{ color: 'red' }}>*</sup>Track number:
@@ -366,7 +386,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.trackNumber}
             onChange={(e) => handleChange('added_trackNumber', e)}
           />
-          {formErrors.trackNumber && <div>{formErrors.trackNumber}</div>}
+          {formErrors.trackNumber && (
+            <div className="text-red-600">{formErrors.trackNumber}</div>
+          )}
           <label htmlFor="length" className="text-gray-700 pt-2">
             <sup style={{ color: 'red' }}>*</sup>Length:
           </label>
@@ -378,7 +400,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             value={state.length}
             onChange={(e) => handleChange('added_length', e)}
           />
-          {formErrors.length && <div>{formErrors.length}</div>}
+          {formErrors.length && (
+            <div className="text-red-600">{formErrors.length}</div>
+          )}
         </>
       );
     }
@@ -403,10 +427,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
       )}
       {/* Common fields for all categories */}
 
-      <form
-        className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium"
-        onSubmit={(e) => handleSubmit(e)}
-      >
+      <form className="flex flex-col w-full pl-6 max-w-lg space-y-1 text-sm font-medium">
         <label htmlFor="artist" className="text-gray-700 text-sm">
           <sup style={{ color: 'red' }}>*</sup>Artist name:
         </label>
@@ -419,7 +440,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.artist}
           onChange={(e) => handleChange('added_artist', e)}
         />
-        {formErrors.artist && <div>{formErrors.artist}</div>}
+        {formErrors.artist && (
+          <div className="text-red-600">{formErrors.artist}</div>
+        )}
         <label htmlFor="feat-artists" className="text-gray-700 pt-2">
           Featuring artists:
         </label>
@@ -446,7 +469,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.title}
           onChange={(e) => handleChange('added_title', e)}
         />
-        {formErrors.title && <div>{formErrors.title}</div>}
+        {formErrors.title && (
+          <div className="text-red-600">{formErrors.title}</div>
+        )}
 
         <label htmlFor="rating" className="text-gray-700 pt-2">
           Rating:
@@ -464,7 +489,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             </option>
           ))}
         </select>
-        {formErrors.rating && <div>{formErrors.rating}</div>}
+        {formErrors.rating && (
+          <div className="text-red-600">{formErrors.rating}</div>
+        )}
         <label htmlFor="tags" className="text-gray-700 pt-2">
           Tags:
         </label>
@@ -476,7 +503,9 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.tags}
           onChange={(e) => handleChange('added_tags', e)}
         />
-        {formErrors.tags && <div>{formErrors.tags}</div>}
+        {formErrors.tags && (
+          <div className="text-red-600">{formErrors.tags}</div>
+        )}
 
         {/* Category-specific fields */}
         {renderCategorySpecificFields()}
@@ -492,26 +521,29 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
           value={state.extraInfo}
           onChange={(e) => handleChange('added_extraInfo', e)}
         ></textarea>
-        {formErrors.extraInfo && <div>{formErrors.extraInfo}</div>}
+        {formErrors.extraInfo && (
+          <div className="text-red-600">{formErrors.extraInfo}</div>
+        )}
         <div className="text-sm py-4">
           <sup style={{ color: 'red' }}>*</sup> = Required
         </div>
         {/* Submit button */}
-        <button
-          type="submit"
+        <Link
+          to={`/details/${state.id}`}
           aria-label="Submit form"
-          className="bg-[#176061] text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
+          className="bg-[#176061] text-white font-semibold py-2 px-4 rounded hover:bg-[#359996] focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           data-testid="submit-button"
+          onClick={handleSubmit}
         >
           Submit
-        </button>
+        </Link>
         {isEditMode && (
           <Link
             to={'/'}
             aria-label="Delete current item"
             className="bg-red-600 w-20 text-white font-semibold py-2 px-4 rounded hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
-            onClick={handleDelete}
             data-testid="delete-link"
+            onClick={handleDelete}
           >
             Delete
           </Link>

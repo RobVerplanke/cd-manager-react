@@ -1,5 +1,11 @@
 import { MIN_RELEASE_YEAR } from '../lib/constants';
-import { type Album, type Cd, type Item, type Track } from '../lib/types/types';
+import {
+  type ItemType,
+  type Album,
+  type Cd,
+  type Item,
+  type Track,
+} from '../lib/types/types';
 
 // Measure rendering performance
 export function onRender(
@@ -57,11 +63,16 @@ export function sortItemsByTitle(
     : [...items].sort((a, b) => b.title.localeCompare(a.title));
 }
 
+// Used for type narrowing
+
+export function isItemType(input: string | number): input is ItemType {
+  return ['album', 'cd', 'track'].includes(input as string);
+}
+
 export function getBestAlbums(items: (Album | Cd | Track)[], limit: number) {
   return items.sort((a, b) => b.rating - a.rating).slice(0, limit);
 }
 
-// Used for type narrowing
 export function isAlbum(item: Item): item is Album {
   return item.type === 'album';
 }
@@ -128,7 +139,7 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
   switch (type) {
     case 'album':
       return {
-        id: generateId(),
+        id: Date.now().toString(),
         type: 'album',
         artist: '',
         featuringArtists: [],
@@ -145,7 +156,7 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
       };
     case 'cd':
       return {
-        id: generateId(),
+        id: Date.now().toString(),
         type: 'cd',
         artist: '',
         featuringArtists: [],
@@ -164,7 +175,7 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
       };
     case 'track':
       return {
-        id: generateId(),
+        id: Date.now().toString(),
         type: 'track',
         artist: '',
         featuringArtists: [],
@@ -182,7 +193,7 @@ export function createNewItemObject(type: 'album' | 'cd' | 'track'): Item {
 }
 
 export const defaultAlbum: Album = {
-  id: generateId(),
+  id: Date.now().toString(),
   type: 'album',
   artist: '',
   featuringArtists: [],
@@ -199,7 +210,7 @@ export const defaultAlbum: Album = {
 };
 
 export const defaultCd: Cd = {
-  id: generateId(),
+  id: Date.now().toString(),
   type: 'cd',
   artist: '',
   featuringArtists: [],
@@ -218,7 +229,7 @@ export const defaultCd: Cd = {
 };
 
 export const defaultTrack: Track = {
-  id: generateId(),
+  id: Date.now().toString(),
   type: 'track',
   artist: '',
   featuringArtists: [],

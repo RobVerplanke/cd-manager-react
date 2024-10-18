@@ -1,10 +1,4 @@
-import {
-  type Album,
-  type Cd,
-  type Item,
-  type ItemType,
-  type Track,
-} from '../lib/types/types';
+import { type Item, type ItemType } from '../lib/types/types';
 import {
   createNewItemObject,
   defaultAlbum,
@@ -12,11 +6,10 @@ import {
   defaultTrack,
   isAlbum,
   isCd,
+  isItemType,
   isNumber,
   isTrack,
 } from '../utils/helperFunctions';
-
-const newItem: Item = createNewItemObject('album');
 
 // Reducer function for adding items to the library
 export default function formDataReducer(
@@ -26,10 +19,7 @@ export default function formDataReducer(
     payload: { inputValue: string | number; item?: Item };
   }
 ): Item {
-  // Type guard for narrowing the item type
-  function isItemType(input: string | number): input is ItemType {
-    return ['album', 'cd', 'track'].includes(input as string);
-  }
+  const newItem: Item = createNewItemObject(state.type as ItemType);
 
   switch (action.type) {
     case 'filled_form': // Edit: Replace current item with new item
@@ -37,22 +27,9 @@ export default function formDataReducer(
     case 'cleared_form': // Clear: Replace all values with empty values
       return { ...state, ...newItem };
     case 'selected_form': // Return the correct default object based on the selected type
-      if (isItemType(action.payload.inputValue)) {
-        switch (action.payload.inputValue) {
-          case 'album':
-            return defaultAlbum;
-          case 'cd':
-            return defaultCd;
-          case 'track':
-            return defaultTrack;
-          default:
-            return state;
-        }
-      } else {
-        // Handle invalid inputValue (optional: throw error or return state unchanged)
-        console.error('Invalid item type selected.');
-        return state;
-      }
+      return isItemType(action.payload.inputValue)
+        ? createNewItemObject(action.payload.inputValue)
+        : (console.error('Invalid item type selected.'), state);
     case 'added_title':
       return { ...state, title: action.payload.inputValue as string };
     case 'added_artist':
