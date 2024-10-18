@@ -43,8 +43,8 @@ export default function SortWithItems({
     useState<boolean>(false);
 
   // Change the direction of the sorting arrows in the correct direction, depending on which category is active
-  function setArrowsDirection(e: React.MouseEvent<HTMLButtonElement>) {
-    const targetButton = e.currentTarget.dataset.sortType;
+  function setArrowsDirection(e: React.MouseEvent<HTMLButtonElement> | null) {
+    const targetButton = e?.currentTarget.dataset.sortType;
 
     // Reset all buttons to downward direction
     setIsTitleSortedDescendingly(false);
@@ -63,6 +63,11 @@ export default function SortWithItems({
       setIsRatingSortedDescendingly(!isRatingSortedDescendingly);
   }
 
+  // Reset arrow directions after user switches category
+  useEffect(() => {
+    setArrowsDirection(null);
+  }, [itemCategory]);
+
   // If the user changes the category, update the data directly
   useEffect(() => {
     itemCategory === 'album' && setSortedItems(allAlbums);
@@ -77,7 +82,7 @@ export default function SortWithItems({
 
   // Conditionally add or remove axtra left padding to compensate the missing cover thumbnail
   function getClassName() {
-    return `grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center py-2 border-b ${
+    return `grid grid-cols-[1fr_90px_100px_1fr] gap-2 items-center pt-4 border-b ${
       itemCategory === 'track' ? '' : 'pl-14'
     }`;
   }
