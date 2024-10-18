@@ -42,118 +42,164 @@ function ViewItemPAge() {
           <EditNoteOutlinedIcon fontSize="medium" />
         </Link>
       </div>
-      <dl className="flex flex-col pl-6">
-        <div className="mb-4">
-          {item.type === 'album' && (
-            <dd>
-              <img src={item.cover.albumFullSize} alt="Album cover" />
-            </dd>
-          )}
-          {item.type === 'cd' && (
-            <dd>
-              <img src={item.cover.cdFullSize} alt="Album cover" />
-            </dd>
-          )}
-        </div>
-        <div className="flex text-sm">
-          <div className="flex flex-col gap-2">
-            <div>
-              <dt className="font-semibold">ID:</dt>
-              <dd>{item.id}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold">Type:</dt>
-              <dd>{item.type}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold">Artist name:</dt>
-              <dd>{item.artist}</dd>
-            </div>
-            {item.featuringArtists && (
-              <div>
-                <dt className="font-semibold">Featuring Artists:</dt>
-                <dd>
-                  {item.featuringArtists.length ? (
-                    item.featuringArtists.join(', ')
-                  ) : (
-                    <p>None</p>
-                  )}
-                </dd>
-              </div>
-            )}
-            <div>
-              <dt className="font-semibold">Title:</dt>
-              <dd>{item.title}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold">Tags:</dt>
-              <dd>{item.tags.join(', ')}</dd>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 pl-40">
-            <div>
-              <dt className="font-semibold">Rating:</dt>
-              <dd>{item.rating}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold">Extra Info:</dt>
-              <dd>{item.extraInfo}</dd>
-            </div>
+      <div className="mb-4">
+        {item.type === 'album' && (
+          <dd>
+            <img src={item.cover.albumFullSize} alt="Album cover" />
+          </dd>
+        )}
+        {item.type === 'cd' && (
+          <dd>
+            <img src={item.cover.cdFullSize} alt="Album cover" />
+          </dd>
+        )}
+      </div>
 
-            {/* Specific Fields */}
-            {item.type === 'album' && (
-              <>
-                <div>
-                  <dt className="font-semibold">Release year:</dt>
-                  <dd>{item.albumYear}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold">CD Count:</dt>
-                  <dd>{item.cdsInAlbum}</dd>
-                </div>
-              </>
-            )}
-            {item.type === 'cd' && (
-              <>
-                <div>
-                  <dt className="font-semibold">Release year:</dt>
-                  <dd>{item.cdYear}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold">CD Count:</dt>
-                  <dd>{item.cdCount}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold">Track Count:</dt>
-                  <dd>{item.trackCount}</dd>
-                </div>
-                {item.partOfAlbum && (
-                  <div>
-                    <dt className="font-semibold">Part of Album:</dt>
-                    <dd>{item.partOfAlbum}</dd>
-                  </div>
-                )}
-              </>
-            )}
-            {item.type === 'track' && (
-              <>
-                <div>
-                  <dt className="font-semibold">CD Title:</dt>
-                  <dd>{item.cdTitle}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold">Track number:</dt>
-                  <dd>{item.trackNumber}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold">Length:</dt>
-                  <dd>{item.length}</dd>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      </dl>
+      {/* 
+      
+      Begin table 
+      
+      */}
+
+      <table className="min-w-fit text-sm">
+        <tbody>
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">ID</td>
+            <td className="py-2 pl-12 border-b text-left">{item.id}</td>
+            {''}
+          </tr>
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">Type</td>
+            <td className="py-2 pl-12 border-b text-left">{item.type}</td>
+            {''}
+          </tr>
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">Artist name</td>
+            <td className="py-2 pl-12 border-b text-left">{item.artist}</td>
+            {''}
+          </tr>
+          {item.featuringArtists && (
+            <tr>
+              <td className="py-2 px-4 border-b font-bold">
+                Featuring Artists
+              </td>
+              <td className="py-2 pl-12 border-b text-left">
+                {item.featuringArtists.length ? (
+                  item.featuringArtists.join(', ')
+                ) : (
+                  <p>None</p>
+                )}{' '}
+              </td>
+              {''}
+            </tr>
+          )}
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">Title</td>
+            <td className="py-2 pl-12 border-b text-left">{item.title}</td>
+            {''}
+          </tr>
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">Tags</td>
+            <td className="py-2 pl-12 border-b text-left">
+              {item.tags.join(', ')}
+            </td>
+            {''}
+          </tr>
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">Rating</td>
+            <td className="py-2 pl-12 border-b text-left">{item.rating}</td>
+            {''}
+          </tr>
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">Extra information</td>
+            <td className="py-2 pl-12 border-b text-left">{item.extraInfo}</td>
+            {''}
+          </tr>
+          {item.type === 'album' && (
+            <>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">Release year</td>
+                <td className="py-2 pl-12 border-b text-left">
+                  {item.albumYear}
+                </td>
+                {''}
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">Amount of CDs</td>
+                <td className="py-2 pl-12 border-b text-left">
+                  {item.cdsInAlbum}
+                </td>
+                {''}
+              </tr>
+            </>
+          )}
+
+          {item.type === 'cd' && (
+            <>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">Release year</td>
+                <td className="py-2 pl-12 border-b text-left">{item.cdYear}</td>
+                {''}
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">Amount of CDs</td>
+                <td className="py-2 pl-12 border-b text-left">
+                  {item.cdCount}
+                </td>
+                {''}
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">
+                  Amount of tracks
+                </td>
+                <td className="py-2 pl-12 border-b text-left">
+                  {item.trackCount}
+                </td>
+                {''}
+              </tr>
+              {item.partOfAlbum && (
+                <tr>
+                  <td className="py-2 px-4 border-b font-bold">
+                    Part of album
+                  </td>
+                  <td className="py-2 pl-12 border-b text-left">
+                    {item.partOfAlbum}
+                  </td>
+                  {''}
+                </tr>
+              )}
+            </>
+          )}
+          {item.type === 'track' && (
+            <>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">CD title</td>
+                <td className="py-2 pl-12 border-b text-left">
+                  {item.cdTitle}
+                </td>
+                {''}
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">Track no.</td>
+                <td className="py-2 pl-12 border-b text-left">
+                  {item.trackNumber}
+                </td>
+                {''}
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border-b font-bold">Length</td>
+                <td className="py-2 pl-12 border-b text-left">{item.length}</td>
+                {''}
+              </tr>
+            </>
+          )}
+        </tbody>
+      </table>
+      {/*
+      
+      End table
+      
+      */}
     </main>
   );
 }
