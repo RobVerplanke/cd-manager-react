@@ -32,15 +32,6 @@ function ViewItemPAge() {
     <main className="my-5 pl-6">
       <div className="text-2xl mb-4 border-b-2 border-[#176061] pb-4">
         <span>Item Details</span>
-
-        {/* Render 'Edit item' icon */}
-        <Link
-          to={`/edit/${item.id}`}
-          className="pt-0.5 pl-2 text-gray-600"
-          aria-label="Edit item"
-        >
-          <EditNoteOutlinedIcon fontSize="medium" />
-        </Link>
       </div>
       <div className="mb-4">
         {item.type === 'album' && (
@@ -62,6 +53,21 @@ function ViewItemPAge() {
       */}
 
       <table className="min-w-fit text-sm">
+        <thead>
+          <tr className="border-b-2 border-[#48CFCB]">
+            <th className="pb-4 font-normal text-base text-left">
+              {/* Render 'Edit item' icon */}
+              <Link
+                to={`/edit/${item.id}`}
+                role="button"
+                aria-label="Edit item"
+              >
+                <EditNoteOutlinedIcon fontSize="medium" />
+                Edit
+              </Link>
+            </th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
             <td className="py-2 px-4 border-b font-bold">ID</td>
