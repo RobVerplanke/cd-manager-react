@@ -42,18 +42,23 @@ function NavigationBar() {
 
       {/* Accordion start */}
       <div>
-        <button
+        <div
+          className="flex justify-end items-center h-9 bg-[#176061] hover:bg-[#48CFCB] w-full"
           onClick={handleOpen}
-          className="flex justify-center items-center h-9 bg-[#176061] hover:bg-[#48CFCB] w-full"
-          aria-label="Toggle library submenu"
         >
-          Library
-          {isAccordionOpen ? (
-            <ArrowDropUpIcon className="mt-1" />
-          ) : (
-            <ArrowDropDownIcon className="mt-1" />
-          )}
-        </button>
+          <div className="pr-5">
+            <button className="" aria-label="Toggle library submenu">
+              Library
+            </button>
+          </div>
+          <div className="pr-2">
+            {isAccordionOpen ? (
+              <ArrowDropUpIcon className="mt-1" />
+            ) : (
+              <ArrowDropDownIcon className="mt-1" />
+            )}
+          </div>
+        </div>
         {isAccordionOpen && (
           <ul className="h-fit bg-[#229799]">
             <li>
