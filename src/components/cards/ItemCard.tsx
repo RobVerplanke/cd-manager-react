@@ -15,7 +15,7 @@ function ItemCard({ item }: { item: ItemCardProps }) {
           {/* Render 'More details' icon */}
           <Link
             to={`/details/${item.id}`}
-            className="text-gray-500"
+            className="text-[#176061]"
             aria-label="Item details"
           >
             <InfoIcon sx={{ fontSize: 18 }} />
@@ -24,7 +24,7 @@ function ItemCard({ item }: { item: ItemCardProps }) {
           </Link>
           <Link
             to={`/edit/${item.id}`}
-            className="pl-2 text-gray-600"
+            className="pl-1 text-[#176061]"
             aria-label="Edit item"
           >
             <EditNoteOutlinedIcon fontSize="small" />
