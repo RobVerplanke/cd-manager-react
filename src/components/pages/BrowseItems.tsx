@@ -30,7 +30,7 @@ function BrowseItemsPage() {
       <div className="mt-20">
         <p className="text-xl pb-3">Best rated albums</p>
         {bestAlbums.map((album) => (
-          <ItemWithCoverCard item={album as Album} />
+          <ItemWithCoverCard key={album.id} item={album as Album} />
         ))}
       </div>
 
@@ -38,7 +38,7 @@ function BrowseItemsPage() {
       <div className="mt-20">
         <p className="text-xl pb-3">Best rated cds</p>
         {bestCds.map((cd) => (
-          <ItemWithCoverCard item={cd as Cd} />
+          <ItemWithCoverCard key={cd.id} item={cd as Cd} />
         ))}
       </div>
 
@@ -46,7 +46,7 @@ function BrowseItemsPage() {
       <div className="mt-20">
         <p className="text-xl pb-3">Best rated tracks</p>
         {bestTracks.map((track) => (
-          <ItemCard item={track as Track} />
+          <ItemCard key={track.id} item={track as Track} />
         ))}
       </div>
     </main>
