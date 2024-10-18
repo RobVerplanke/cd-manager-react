@@ -3,7 +3,12 @@ import { useData } from '../../context/DataContext';
 function StatisticsTable() {
   const { allAlbums, allCds, allTracks } = useData();
 
+  // Retreive amount of items per category
   const totalAlbums = allAlbums.length;
+  const totalCds = allCds.length;
+  const totalTracks = allTracks.length;
+
+  // Calculate statistics for albums
   const avgAlbumRating =
     totalAlbums > 0
       ? (
@@ -11,15 +16,13 @@ function StatisticsTable() {
         ).toFixed(0)
       : 'N/A';
 
-  // Bereken statistieken voor cds
-  const totalCds = allCds.length;
+  // Calculate statistics for CDs
   const avgCdRating =
     totalCds > 0
       ? (allCds.reduce((acc, cd) => acc + cd.rating, 0) / totalCds).toFixed(0)
       : 'N/A';
 
-  // Bereken statistieken voor tracks
-  const totalTracks = allTracks.length;
+  // Calculate statistics for tracks
   const avgTrackRating =
     totalTracks > 0
       ? (
@@ -52,7 +55,7 @@ function StatisticsTable() {
             <td className="py-2 px-4 border-b text-center">{avgAlbumRating}</td>
             <td className="py-2 px-4 border-b text-center">N/A</td>
             {''}
-            {/* geen duur voor albums */}
+            {/* No length for albums */}
           </tr>
           <tr>
             <td className="py-2 px-4 border-b font-bold">CD's</td>
@@ -60,7 +63,7 @@ function StatisticsTable() {
             <td className="py-2 px-4 border-b text-center">{avgCdRating}</td>
             <td className="py-2 px-4 border-b text-center">N/A</td>
             {''}
-            {/* geen duur voor cds */}
+            {/* No length for cds */}
           </tr>
           <tr>
             <td className="py-2 px-4 border-b font-bold">Tracks</td>
@@ -70,7 +73,7 @@ function StatisticsTable() {
               {totalTrackDuration}
             </td>
             {''}
-            {/* totale speelduur */}
+            {/* Total length */}
           </tr>
         </tbody>
       </table>
