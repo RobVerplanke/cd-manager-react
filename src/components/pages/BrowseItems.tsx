@@ -16,7 +16,7 @@ function BrowseItemsPage() {
   const bestTracks: Item[] = getBestAlbums(allTracks, MAX_BEST_RATED_ITEMS);
 
   return (
-    <main className="my-5 pl-6 flex flex-col">
+    <main className="my-5 pl-6 ">
       <div className="text-2xl mb-4 border-b-2 border-[#176061] pb-4">
         <span>Library overview</span>
       </div>
@@ -27,24 +27,30 @@ function BrowseItemsPage() {
       </div>
 
       {/* Best rated albums */}
-      <div className="mt-20">
-        <p className="text-xl pb-3">Best rated albums</p>
+      <div className="mt-20 py-6">
+        <p className="text-xl pb-1 mb-2 border-b-2 border-[#48CFCB]">
+          Best rated albums
+        </p>
         {bestAlbums.map((album) => (
           <ItemWithCoverCard key={album.id} item={album as Album} />
         ))}
       </div>
 
       {/* Best rated cds */}
-      <div className="mt-20">
-        <p className="text-xl pb-3">Best rated cds</p>
+      <div className="mt-6 pb-6">
+        <p className="text-xl pb-1 mb-2 border-b-2 border-[#48CFCB]">
+          Best rated cds
+        </p>
         {bestCds.map((cd) => (
           <ItemWithCoverCard key={cd.id} item={cd as Cd} />
         ))}
       </div>
 
       {/* Best rated tracks */}
-      <div className="mt-20">
-        <p className="text-xl pb-3">Best rated tracks</p>
+      <div className="my-6 pb-6">
+        <p className="text-xl pb-1 mb-2 border-b-2 border-[#48CFCB]">
+          Best rated tracks
+        </p>
         {bestTracks.map((track) => (
           <ItemCard key={track.id} item={track as Track} />
         ))}
