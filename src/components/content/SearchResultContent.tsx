@@ -21,7 +21,7 @@ function SearchResultContent({
           itemCategory={itemCategory ? itemCategory : 'unknown'}
         />
       ) : (
-        <p>No items found...</p>
+        <p className="pl-6">No items found...</p>
       )}
     </main>
   );
