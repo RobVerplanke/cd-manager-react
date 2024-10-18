@@ -50,14 +50,16 @@ function StatisticsTable() {
             <td className="py-2 px-4 border-b font-bold">Albums</td>
             <td className="py-2 px-4 border-b text-center">{totalAlbums}</td>
             <td className="py-2 px-4 border-b text-center">{avgAlbumRating}</td>
-            <td className="py-2 px-4 border-b text-center">N/A</td>{' '}
+            <td className="py-2 px-4 border-b text-center">N/A</td>
+            {''}
             {/* geen duur voor albums */}
           </tr>
           <tr>
             <td className="py-2 px-4 border-b font-bold">CD's</td>
             <td className="py-2 px-4 border-b text-center">{totalCds}</td>
             <td className="py-2 px-4 border-b text-center">{avgCdRating}</td>
-            <td className="py-2 px-4 border-b text-center">N/A</td>{' '}
+            <td className="py-2 px-4 border-b text-center">N/A</td>
+            {''}
             {/* geen duur voor cds */}
           </tr>
           <tr>
@@ -66,7 +68,8 @@ function StatisticsTable() {
             <td className="py-2 px-4 border-b text-center">{avgTrackRating}</td>
             <td className="py-2 px-4 border-b text-center">
               {totalTrackDuration}
-            </td>{' '}
+            </td>
+            {''}
             {/* totale speelduur */}
           </tr>
         </tbody>
