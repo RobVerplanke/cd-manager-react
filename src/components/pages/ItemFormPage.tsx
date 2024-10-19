@@ -643,8 +643,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
             {renderCategorySpecificFields()}
 
             {/* Extra information field will always be renderd at last */}
-            <tr>
-              <td className="py-2 px-4 border-b font-normal">
+            <tr className="py-2 px-4 border-b font-normal">
+              <td className="pl-4">
                 <label htmlFor="extraInfo" className="text-gray-700 pt-2">
                   Extra Info:
                 </label>
@@ -653,7 +653,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
                 <textarea
                   id="extraInfo"
                   name="extraInfo"
-                  className="text-xs border rounded-md mb-10 pl-2 focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
+                  className="min-h-16 ml-12 p-1 my-2 text-xs border rounded-md focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
                   value={state.extraInfo}
                   onChange={(e) => handleChange('added_extraInfo', e)}
                 ></textarea>
@@ -675,7 +675,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
         <button
           type="submit"
           aria-label="Submit form"
-          className="bg-[#176061] text-white font-semibold py-2 px-4 rounded hover:bg-[#359996] focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
+          className="min-w-96 bg-[#176061] text-white font-semibold mb-4 py-2 px-4 rounded hover:bg-[#359996] focus:outline-none focus:ring-2 focus:ring-[#48CFCB]"
           data-testid="submit-button"
         >
           Submit
