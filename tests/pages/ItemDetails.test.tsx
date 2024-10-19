@@ -51,45 +51,45 @@ describe('Item details page', () => {
     // Check if mock details are displayed correctly
 
     // ID
-    expect(screen.getByText('ID:')).toBeInTheDocument();
+    expect(screen.getByText('ID')).toBeInTheDocument();
     expect(screen.getByText('1')).toBeInTheDocument();
 
     // Type
-    expect(screen.getByText('Type:')).toBeInTheDocument();
+    expect(screen.getByText('Type')).toBeInTheDocument();
     expect(screen.getByText('album')).toBeInTheDocument();
 
     // Artist name
-    expect(screen.getByText('Artist name:')).toBeInTheDocument();
+    expect(screen.getByText('Artist name')).toBeInTheDocument();
     expect(screen.getByText('Album Artist')).toBeInTheDocument();
 
     // Featuring Artists
-    expect(screen.getByText('Featuring Artists:')).toBeInTheDocument();
+    expect(screen.getByText('Featuring Artists')).toBeInTheDocument();
     expect(
       screen.getByText('Other Artist, Another Artist')
     ).toBeInTheDocument();
 
     // Title
-    expect(screen.getByText('Title:')).toBeInTheDocument();
+    expect(screen.getByText('Title')).toBeInTheDocument();
     expect(screen.getByText('Album title')).toBeInTheDocument();
 
     // Tags
-    expect(screen.getByText('Tags:')).toBeInTheDocument();
+    expect(screen.getByText('Tags')).toBeInTheDocument();
     expect(screen.getByText('rock, classic, pop')).toBeInTheDocument();
 
     // Rating
-    expect(screen.getByText('Rating:')).toBeInTheDocument();
+    expect(screen.getByText('Rating')).toBeInTheDocument();
     expect(screen.getByText('5')).toBeInTheDocument();
 
     // Extra Info
-    expect(screen.getByText('Extra Info:')).toBeInTheDocument();
+    expect(screen.getByText('Extra information')).toBeInTheDocument();
     expect(screen.getByText('My first album')).toBeInTheDocument();
 
     // Year
-    expect(screen.getByText('Release year:')).toBeInTheDocument();
+    expect(screen.getByText('Release year')).toBeInTheDocument();
     expect(screen.getByText('2000')).toBeInTheDocument();
 
     //CD count
-    expect(screen.getByText('CD Count:')).toBeInTheDocument();
+    expect(screen.getByText('Amount of CDs')).toBeInTheDocument();
     expect(screen.getByText('4')).toBeInTheDocument();
 
     // Cover full size

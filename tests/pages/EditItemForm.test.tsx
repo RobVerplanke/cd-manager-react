@@ -20,11 +20,14 @@ vi.mock('../../src/api/deleteItemAPI', () => ({
 }));
 
 const mockUseParams = vi.fn();
+const mockUseNavigate = vi.fn();
+
 vi.mock('react-router-dom', () => ({
   MemoryRouter: ({ children }: { children: React.ReactNode }) => (
     <div>{children}</div>
   ),
   useParams: () => mockUseParams(),
+  useNavigate: () => mockUseNavigate,
   Link: (props: { to: string; children: React.ReactNode }) => <a {...props} />,
 }));
 
@@ -85,7 +88,9 @@ describe('Edit details page', () => {
 
     // Artist name
     await waitFor(() => {
-      expect(screen.getByLabelText('Artist name:')).toHaveValue('Album Artist');
+      expect(screen.getByLabelText(/Artist name:/i)).toHaveValue(
+        'Album Artist'
+      );
     });
 
     // Featuring Artists
@@ -97,7 +102,7 @@ describe('Edit details page', () => {
 
     // Title
     await waitFor(() => {
-      expect(screen.getByLabelText('Title:')).toHaveValue('Album title');
+      expect(screen.getByLabelText(/Title:/i)).toHaveValue('Album title');
     });
 
     // Rating
@@ -119,7 +124,7 @@ describe('Edit details page', () => {
 
     //CD count
     await waitFor(() => {
-      expect(screen.getByLabelText('Amount of CDs:')).toHaveValue(4);
+      expect(screen.getByLabelText(/Amount of CDs:/i)).toHaveValue(4);
     });
 
     // Year
