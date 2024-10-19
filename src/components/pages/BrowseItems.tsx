@@ -31,9 +31,13 @@ function BrowseItemsPage() {
         <p className="text-xl pb-1 mb-2 border-b-2 border-[#48CFCB]">
           Best rated albums
         </p>
-        {bestAlbums.map((album) => (
-          <ItemWithCoverCard key={album.id} item={album as Album} />
-        ))}
+        {bestAlbums ? (
+          bestAlbums.map((album) => (
+            <ItemWithCoverCard key={album.id} item={album as Album} />
+          ))
+        ) : (
+          <div className="m-8">Loading data...</div>
+        )}
       </div>
 
       {/* Best rated cds */}
@@ -41,9 +45,11 @@ function BrowseItemsPage() {
         <p className="text-xl pb-1 mb-2 border-b-2 border-[#48CFCB]">
           Best rated cds
         </p>
-        {bestCds.map((cd) => (
-          <ItemWithCoverCard key={cd.id} item={cd as Cd} />
-        ))}
+        {bestCds ? (
+          bestCds.map((cd) => <ItemWithCoverCard key={cd.id} item={cd as Cd} />)
+        ) : (
+          <div className="m-8">Loading data...</div>
+        )}
       </div>
 
       {/* Best rated tracks */}
@@ -51,9 +57,13 @@ function BrowseItemsPage() {
         <p className="text-xl pb-1 mb-2 border-b-2 border-[#48CFCB]">
           Best rated tracks
         </p>
-        {bestTracks.map((track) => (
-          <ItemCard key={track.id} item={track as Track} />
-        ))}
+        {bestCds ? (
+          bestTracks.map((track) => (
+            <ItemCard key={track.id} item={track as Track} />
+          ))
+        ) : (
+          <div className="m-8">Loading data...</div>
+        )}
       </div>
     </main>
   );
