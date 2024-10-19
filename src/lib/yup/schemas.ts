@@ -11,7 +11,9 @@ export const validationSchemaAlbum = Yup.object({
   rating: Yup.number().min(0).max(5),
   tags: Yup.array(),
   extraInfo: Yup.string(),
-  cdsInAlbum: Yup.number().min(1).required('Title is required'),
+  cdsInAlbum: Yup.number()
+    .min(1, 'Must be greater than or equal to 1')
+    .required('Amout of CDs is required'),
   albumThumbnail: Yup.string(),
   albumFullSize: Yup.string(),
 });
@@ -27,10 +29,14 @@ export const validationSchemaCd = Yup.object({
   rating: Yup.number().min(0).max(5),
   tags: Yup.array(),
   extraInfo: Yup.string(),
-  cdCount: Yup.number().min(1).required('Amount of CDs is required'),
+  cdCount: Yup.number()
+    .min(1, 'Must be greater than or equal to 1')
+    .required('Amount of CDs is required'),
   cdThumbnail: Yup.string(),
   cdFullSize: Yup.string(),
-  trackCount: Yup.number().min(1).required('Amout of tracks is required'),
+  trackCount: Yup.number()
+    .min(1, 'Must be greater than or equal to 1')
+    .required('Amout of tracks is required'),
   partOfAlbum: Yup.string(),
 });
 
