@@ -116,11 +116,7 @@ function ViewItemPAge() {
             <td className="py-2 pl-12 border-b text-left">{item.rating}</td>
             {''}
           </tr>
-          <tr>
-            <td className="py-2 px-4 border-b font-bold">Extra information</td>
-            <td className="py-2 pl-12 border-b text-left">{item.extraInfo}</td>
-            {''}
-          </tr>
+
           {item.type === 'album' && (
             <>
               <tr>
@@ -199,6 +195,11 @@ function ViewItemPAge() {
               </tr>
             </>
           )}
+          <tr>
+            <td className="py-2 px-4 border-b font-bold">Extra information</td>
+            <td className="py-2 pl-12 border-b text-left">{item.extraInfo}</td>
+            {''}
+          </tr>
         </tbody>
       </table>
       {/*
