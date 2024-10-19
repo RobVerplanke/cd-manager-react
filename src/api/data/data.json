@@ -125,8 +125,8 @@
         "orchestra"
       ],
       "extraInfo": "An epic journey through classical music.",
-      "cdCount": 1,
-      "trackCount": 10,
+      "cdCount": 2,
+      "trackCount": 20,
       "partOfAlbum": "Sands of Silence",
       "cover": {
         "cdThumbnail": "https://i.postimg.cc/PpjGKbth/cover-1-thumbnail.jpg",
@@ -150,8 +150,8 @@
         "symphony"
       ],
       "extraInfo": "A mesmerizing symphonic journey.",
-      "cdCount": 1,
-      "trackCount": 12,
+      "cdCount": 2,
+      "trackCount": 24,
       "partOfAlbum": "City Lights",
       "cover": {
         "cdThumbnail": "https://i.postimg.cc/JDcfFynX/cover-2-thumbnail.jpg",
@@ -174,7 +174,7 @@
         "alternative"
       ],
       "extraInfo": "An epic crescendo that soars through the musical scales.",
-      "cdCount": 2,
+      "cdCount": 1,
       "trackCount": 10,
       "partOfAlbum": "Galactic Odyssey",
       "cover": {
@@ -191,7 +191,7 @@
       "featuringArtists": [],
       "title": "Mystical Melodies",
       "cdYear": 2022,
-      "rating": 2,
+      "rating": 3,
       "tags": [
         "classical",
         "chamber music",
@@ -215,7 +215,7 @@
       "featuringArtists": [],
       "title": "Philharmonic Rhapsody",
       "cdYear": 2023,
-      "rating": 5,
+      "rating": 4,
       "tags": [
         "philharmonic",
         "rhapsody"
@@ -245,7 +245,7 @@
       ],
       "extraInfo": "An evocative collection of cinematic orchestral music.",
       "cdCount": 1,
-      "trackCount": 10,
+      "trackCount": 11,
       "partOfAlbum": "Waves of Time",
       "cover": {
         "cdThumbnail": "https://i.postimg.cc/gXd53YD2/cover-5-thumbnail.jpg",
@@ -270,7 +270,7 @@
       ],
       "extraInfo": "A live recording of an unforgettable night.",
       "cdCount": 2,
-      "trackCount": 13,
+      "trackCount": 24,
       "partOfAlbum": "Galactic Odyssey",
       "cover": {
         "cdThumbnail": "https://i.postimg.cc/9z13tqs5/cover-3-thumbnail.jpg",
