@@ -1,0 +1,589 @@
+{
+  "albums": [
+    {
+      "id": "18274593746201",
+      "type": "album",
+      "artist": "The Echoes",
+      "featuringArtists": [
+        "Singer X",
+        "Guitarist Y"
+      ],
+      "title": "Waves of Time",
+      "albumYear": 2019,
+      "rating": 2,
+      "tags": [
+        "rock",
+        "psychedelic",
+        "progressive"
+      ],
+      "extraInfo": "A concept album exploring the fluidity of time.",
+      "cdsInAlbum": 2,
+      "cover": {
+        "albumThumbnail": "https://i.postimg.cc/gXd53YD2/cover-5-thumbnail.jpg",
+        "albumFullSize": "https://i.postimg.cc/t1Fw11Fc/cover-5.jpg"
+      }
+    },
+    {
+      "id": "16283749381750",
+      "type": "album",
+      "artist": "Stellar Noise",
+      "featuringArtists": [],
+      "title": "Cosmic Frequencies",
+      "albumYear": 2022,
+      "rating": 3,
+      "tags": [
+        "ambient",
+        "space",
+        "electronic"
+      ],
+      "extraInfo": "A journey through the cosmos with minimal beats.",
+      "cdsInAlbum": 4,
+      "cover": {
+        "albumThumbnail": "https://i.postimg.cc/JsfS43HJ/cover-4-thumbnail.jpg",
+        "albumFullSize": "https://i.postimg.cc/BXvrhnG8/cover-4.jpg"
+      }
+    },
+    {
+      "id": "14263548372618",
+      "type": "album",
+      "artist": "Neon Skyline",
+      "featuringArtists": [
+        "DJ Pulse",
+        "MC Ray"
+      ],
+      "title": "City Lights",
+      "albumYear": 2020,
+      "rating": 4,
+      "tags": [
+        "electropop",
+        "synthwave",
+        "retro"
+      ],
+      "extraInfo": "A vibrant homage to 80s neon culture.",
+      "cdsInAlbum": 2,
+      "cover": {
+        "albumThumbnail": "https://i.postimg.cc/JDcfFynX/cover-2-thumbnail.jpg",
+        "albumFullSize": "https://i.postimg.cc/G9bwyj7x/cover-2.jpg"
+      }
+    },
+    {
+      "id": "19827364537210",
+      "type": "album",
+      "artist": "Echo Dunes",
+      "featuringArtists": [
+        "Vocalist Z"
+      ],
+      "title": "Sands of Silence",
+      "albumYear": 2018,
+      "rating": 4,
+      "tags": [
+        "folk",
+        "indie",
+        "acoustic"
+      ],
+      "extraInfo": "A mellow, reflective album about solitude and peace.",
+      "cdsInAlbum": 2,
+      "cover": {
+        "albumThumbnail": "https://i.postimg.cc/PpjGKbth/cover-1-thumbnail.jpg",
+        "albumFullSize": "https://i.postimg.cc/CR9pnTXR/cover-1.jpg"
+      }
+    },
+    {
+      "id": "10928374650123",
+      "type": "album",
+      "artist": "Solar Wind",
+      "featuringArtists": [
+        "Singer Q"
+      ],
+      "title": "Galactic Odyssey",
+      "albumYear": 2023,
+      "rating": 4,
+      "tags": [
+        "synth",
+        "new age",
+        "space rock"
+      ],
+      "extraInfo": "A celestial experience with soaring melodies.",
+      "cdsInAlbum": 3,
+      "cover": {
+        "albumThumbnail": "https://i.postimg.cc/9z13tqs5/cover-3-thumbnail.jpg",
+        "albumFullSize": "https://i.postimg.cc/QK82ZX9y/cover-3.jpg"
+      }
+    }
+  ],
+  "cds": [
+    {
+      "id": "1728329777009",
+      "type": "cd",
+      "artist": "Fictional Symphony",
+      "featuringArtists": [],
+      "title": "Orchestral Adventures",
+      "cdYear": 2019,
+      "rating": 5,
+      "tags": [
+        "classical",
+        "orchestra"
+      ],
+      "extraInfo": "An epic journey through classical music.",
+      "cdCount": 1,
+      "trackCount": 10,
+      "partOfAlbum": "Sands of Silence",
+      "cover": {
+        "cdThumbnail": "https://i.postimg.cc/PpjGKbth/cover-1-thumbnail.jpg",
+        "cdFullSize": "https://i.postimg.cc/CR9pnTXR/cover-1.jpg"
+      },
+      "albumYear": 2000,
+      "cdsInAlbum": 0
+    },
+    {
+      "id": "1728329777010",
+      "type": "cd",
+      "artist": "Fictional Orchestra",
+      "featuringArtists": [
+        "sss"
+      ],
+      "title": "Symphony of Dreams",
+      "cdYear": 2020,
+      "rating": 3,
+      "tags": [
+        "classical",
+        "symphony"
+      ],
+      "extraInfo": "A mesmerizing symphonic journey.",
+      "cdCount": 1,
+      "trackCount": 12,
+      "partOfAlbum": "City Lights",
+      "cover": {
+        "cdThumbnail": "https://i.postimg.cc/JDcfFynX/cover-2-thumbnail.jpg",
+        "cdFullSize": "https://i.postimg.cc/G9bwyj7x/cover-2.jpg"
+      },
+      "albumYear": 2000,
+      "cdsInAlbum": 0
+    },
+    {
+      "id": "1728329777011",
+      "type": "cd",
+      "artist": "Epic Ensemble",
+      "featuringArtists": [],
+      "title": "Epic Crescendo",
+      "cdYear": 2021,
+      "rating": 1,
+      "tags": [
+        "orchestra",
+        "epic",
+        "alternative"
+      ],
+      "extraInfo": "An epic crescendo that soars through the musical scales.",
+      "cdCount": 2,
+      "trackCount": 10,
+      "partOfAlbum": "Galactic Odyssey",
+      "cover": {
+        "cdThumbnail": "https://i.postimg.cc/9z13tqs5/cover-3-thumbnail.jpg",
+        "cdFullSize": "https://i.postimg.cc/QK82ZX9y/cover-3.jpg"
+      },
+      "albumYear": 2000,
+      "cdsInAlbum": 0
+    },
+    {
+      "id": "1728329777012",
+      "type": "cd",
+      "artist": "Mystical Chamber Orchestra",
+      "featuringArtists": [],
+      "title": "Mystical Melodies",
+      "cdYear": 2022,
+      "rating": 2,
+      "tags": [
+        "classical",
+        "chamber music",
+        "trance"
+      ],
+      "extraInfo": "A collection of enchanting chamber pieces.",
+      "cdCount": 1,
+      "trackCount": 14,
+      "partOfAlbum": "Cosmic Frequencies",
+      "cover": {
+        "cdThumbnail": "https://i.postimg.cc/JsfS43HJ/cover-4-thumbnail.jpg",
+        "cdFullSize": "https://i.postimg.cc/BXvrhnG8/cover-4.jpg"
+      },
+      "albumYear": 2000,
+      "cdsInAlbum": 0
+    },
+    {
+      "id": "1728329777013",
+      "type": "cd",
+      "artist": "Grand Philharmonic",
+      "featuringArtists": [],
+      "title": "Philharmonic Rhapsody",
+      "cdYear": 2023,
+      "rating": 5,
+      "tags": [
+        "philharmonic",
+        "rhapsody"
+      ],
+      "extraInfo": "A grand rhapsody performed by the Philharmonic.",
+      "cdCount": 1,
+      "trackCount": 12,
+      "partOfAlbum": "Waves of Time",
+      "cover": {
+        "cdThumbnail": "https://i.postimg.cc/gXd53YD2/cover-5-thumbnail.jpg",
+        "cdFullSize": "https://i.postimg.cc/t1Fw11Fc/cover-5.jpg"
+      },
+      "albumYear": 2000,
+      "cdsInAlbum": 0
+    },
+    {
+      "id": "1728329777014",
+      "type": "cd",
+      "artist": "Cinematic Orchestra",
+      "featuringArtists": [],
+      "title": "Cinematic Soundscapes",
+      "cdYear": 2024,
+      "rating": 3,
+      "tags": [
+        "cinematic",
+        "orchestral"
+      ],
+      "extraInfo": "An evocative collection of cinematic orchestral music.",
+      "cdCount": 1,
+      "trackCount": 10,
+      "partOfAlbum": "Waves of Time",
+      "cover": {
+        "cdThumbnail": "https://i.postimg.cc/gXd53YD2/cover-5-thumbnail.jpg",
+        "cdFullSize": "https://i.postimg.cc/t1Fw11Fc/cover-5.jpg"
+      },
+      "albumYear": 2000,
+      "cdsInAlbum": 0
+    },
+    {
+      "id": "1738329777012",
+      "type": "cd",
+      "artist": "Jazz Quintet",
+      "featuringArtists": [
+        "Special Guest"
+      ],
+      "title": "Jazz Nights",
+      "cdYear": 2020,
+      "rating": 4,
+      "tags": [
+        "jazz",
+        "live"
+      ],
+      "extraInfo": "A live recording of an unforgettable night.",
+      "cdCount": 2,
+      "trackCount": 13,
+      "partOfAlbum": "Galactic Odyssey",
+      "cover": {
+        "cdThumbnail": "https://i.postimg.cc/9z13tqs5/cover-3-thumbnail.jpg",
+        "cdFullSize": "https://i.postimg.cc/QK82ZX9y/cover-3.jpg"
+      },
+      "albumYear": 2000,
+      "cdsInAlbum": 0
+    }
+  ],
+  "tracks": [
+    {
+      "id": "1718329777010",
+      "type": "track",
+      "artist": "Solo Artist",
+      "featuringArtists": [
+        "Guest Singerddd"
+      ],
+      "title": "Echoes in Time",
+      "rating": 3,
+      "tags": [
+        "pop",
+        "single"
+      ],
+      "extraInfo": "A catchy pop single that resonates.",
+      "cdTitle": "Orchestral Adventures",
+      "trackNumber": "11",
+      "length": "4:45"
+    },
+    {
+      "id": "1738329777013",
+      "type": "track",
+      "artist": "Indie Band",
+      "featuringArtists": [
+        "Collaborator"
+      ],
+      "title": "Waves",
+      "rating": 2,
+      "tags": [
+        "indie",
+        "alternative"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Orchestral Adventures",
+      "trackNumber": 2,
+      "length": "4:30"
+    },
+    {
+      "id": "1708329777011",
+      "type": "track",
+      "artist": "Celestial Sounds",
+      "featuringArtists": [],
+      "title": "Chasing Stars",
+      "rating": 3,
+      "tags": [
+        "indie",
+        "alternative"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Orchestral Adventures",
+      "trackNumber": "2",
+      "length": "4:30"
+    },
+    {
+      "id": "1738329777014",
+      "type": "track",
+      "artist": "Nightfall Dreamers",
+      "featuringArtists": [
+        "Collaborator"
+      ],
+      "title": "Echoes in the Rain",
+      "rating": 5,
+      "tags": [
+        "rock",
+        "alternative"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Orchestral Adventures",
+      "trackNumber": 4,
+      "length": "2:35"
+    },
+    {
+      "id": "1728329777015",
+      "type": "track",
+      "artist": "Neon Shadows",
+      "featuringArtists": [
+        "Synthwave Society, Lunar Grooves"
+      ],
+      "title": "Midnight City Lights",
+      "rating": 4,
+      "tags": [
+        "rock",
+        "metal"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Orchestral Adventures",
+      "trackNumber": 5,
+      "length": "5:40"
+    },
+    {
+      "id": "1728329777017",
+      "type": "track",
+      "artist": "Time Traveler",
+      "featuringArtists": [
+        "Collaborator"
+      ],
+      "title": "Fading Memories",
+      "rating": 1,
+      "tags": [
+        "classical",
+        "alternative"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": "20",
+      "length": "6:08"
+    },
+    {
+      "id": "1728329777018",
+      "type": "track",
+      "artist": "Synthwave Society",
+      "featuringArtists": [
+        "Collaborator"
+      ],
+      "title": "Heartbeat",
+      "rating": 3,
+      "tags": [
+        "pop",
+        "dance"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 8,
+      "length": "3:22"
+    },
+    {
+      "id": "1728329777019",
+      "type": "track",
+      "artist": "Lunar Grooves",
+      "featuringArtists": [
+        "Twilight Collective"
+      ],
+      "title": "Dancing in the Moonlight",
+      "rating": 3,
+      "tags": [
+        "indie",
+        "dance"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 9,
+      "length": "5:55"
+    },
+    {
+      "id": "1728329777010",
+      "type": "track",
+      "artist": "The Celestial Sounds",
+      "featuringArtists": [],
+      "title": "Chasing Stars",
+      "rating": 4,
+      "tags": [
+        "ambient",
+        "chill"
+      ],
+      "extraInfo": "A soothing journey through sound.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 1,
+      "length": "4:30"
+    },
+    {
+      "id": "1728329777011",
+      "type": "track",
+      "artist": "Nightfall Dreamers",
+      "featuringArtists": [],
+      "title": "Echoes in the Rain",
+      "rating": 5,
+      "tags": [
+        "alternative",
+        "melancholic"
+      ],
+      "extraInfo": "A heartfelt ballad about love lost.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 2,
+      "length": "3:45"
+    },
+    {
+      "id": "1728329777012",
+      "type": "track",
+      "artist": "Mirage Echo",
+      "featuringArtists": [],
+      "title": "Lost in the Mirage",
+      "rating": 3,
+      "tags": [
+        "electronic",
+        "dream pop"
+      ],
+      "extraInfo": "A blend of dreams and reality.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 3,
+      "length": "6:15"
+    },
+    {
+      "id": "1728329777013",
+      "type": "track",
+      "artist": "Neon Shadows",
+      "featuringArtists": [],
+      "title": "Midnight City Lights",
+      "rating": 4,
+      "tags": [
+        "synthwave",
+        "retro"
+      ],
+      "extraInfo": "A tribute to urban nightlife.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 4,
+      "length": "5:10"
+    },
+    {
+      "id": "1728329777014",
+      "type": "track",
+      "artist": "Aqua Harmonics",
+      "featuringArtists": [],
+      "title": "Whispers of the Ocean",
+      "rating": 4,
+      "tags": [
+        "world",
+        "instrumental"
+      ],
+      "extraInfo": "A calming oceanic experience.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 5,
+      "length": "7:20"
+    },
+    {
+      "id": "1728329777015",
+      "type": "track",
+      "artist": "Time Traveler",
+      "featuringArtists": [],
+      "title": "Fading Memories",
+      "rating": 3,
+      "tags": [
+        "acoustic",
+        "nostalgia"
+      ],
+      "extraInfo": "A journey through lost moments.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 6,
+      "length": "4:55"
+    },
+    {
+      "id": "1728329777016",
+      "type": "track",
+      "artist": "Synthwave Society",
+      "featuringArtists": [],
+      "title": "Electric Heartbeat",
+      "rating": 5,
+      "tags": [
+        "dance",
+        "electronic"
+      ],
+      "extraInfo": "An energizing dance anthem.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 7,
+      "length": "3:30"
+    },
+    {
+      "id": "1728329777017",
+      "type": "track",
+      "artist": "Voyager's Journey",
+      "featuringArtists": [],
+      "title": "Infinite Horizons",
+      "rating": 4,
+      "tags": [
+        "epic",
+        "orchestral"
+      ],
+      "extraInfo": "An inspiring adventure through sound.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 8,
+      "length": "8:00"
+    },
+    {
+      "id": "1728329777018",
+      "type": "track",
+      "artist": "Lunar Grooves",
+      "featuringArtists": [
+        "Twilight Collective"
+      ],
+      "title": "Dancing in the Moonlight",
+      "rating": 3,
+      "tags": [
+        "indie",
+        "dance"
+      ],
+      "extraInfo": "",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 9,
+      "length": "5:55"
+    },
+    {
+      "id": "1728329777019",
+      "type": "track",
+      "artist": "The Twilight Collective",
+      "featuringArtists": [],
+      "title": "Fireflies at Dusk",
+      "rating": 5,
+      "tags": [
+        "folk",
+        "acoustic"
+      ],
+      "extraInfo": "A soothing song to end the day.",
+      "cdTitle": "Jazz Nights",
+      "trackNumber": 10,
+      "length": "4:20"
+    }
+  ]
+}
