@@ -122,7 +122,8 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
       inputType === 'added_album-cdCount' ||
       inputType === 'added_cd-cdCount' ||
       inputType === 'added_rating' ||
-      inputType === 'added_cd-trackCount'
+      inputType === 'added_cd-trackCount' ||
+      inputType === 'added_trackNumber'
         ? Number(value)
         : value;
     dispatch({
