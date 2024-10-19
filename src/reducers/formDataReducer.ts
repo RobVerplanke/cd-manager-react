@@ -1,9 +1,6 @@
 import { type Item, type ItemType } from '../lib/types/types';
 import {
   createNewItemObject,
-  defaultAlbum,
-  defaultCd,
-  defaultTrack,
   isAlbum,
   isCd,
   isItemType,
