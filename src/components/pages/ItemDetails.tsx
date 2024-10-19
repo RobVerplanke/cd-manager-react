@@ -36,12 +36,22 @@ function ViewItemPAge() {
       <div className="mb-4">
         {item.type === 'album' && (
           <dd>
-            <img src={item.cover.albumFullSize} alt="Album cover" />
+            <img
+              width="300"
+              height="300"
+              src={item.cover.albumFullSize}
+              alt="Album cover"
+            />
           </dd>
         )}
         {item.type === 'cd' && (
           <dd>
-            <img src={item.cover.cdFullSize} alt="Album cover" />
+            <img
+              width="300"
+              height="300"
+              src={item.cover.cdFullSize}
+              alt="Album cover"
+            />
           </dd>
         )}
       </div>
