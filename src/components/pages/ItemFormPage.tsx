@@ -447,6 +447,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
                 value={state.cdTitle}
                 onChange={(e) => handleChange('added_cdTitle', e)}
               >
+                <option>-- Select --</option>
                 {allCds.map((cd) => (
                   <option key={cd.id}>{cd.title}</option>
                 ))}
