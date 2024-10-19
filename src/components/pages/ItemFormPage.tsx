@@ -185,7 +185,7 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
   }
 
   // Display loading message when data is not available (yet)
-  if (!item) return <div>Loading data...</div>;
+  if (!item) return <div className="m-8">Loading data...</div>;
 
   // Render category-specific fields
   function renderCategorySpecificFields() {
@@ -447,7 +447,6 @@ function ItemFormPage({ isEditMode }: { isEditMode: boolean }) {
                 value={state.cdTitle}
                 onChange={(e) => handleChange('added_cdTitle', e)}
               >
-                <option>None</option>
                 {allCds.map((cd) => (
                   <option key={cd.id}>{cd.title}</option>
                 ))}
