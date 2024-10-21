@@ -14,45 +14,54 @@ Each item in the collection can be rated by the user. Ratings are displayed as a
 
 ### Search Functionality
 
-The app includes a search feature, allowing users to search for items by name, title, or release year. This helps users quickly find specific albums, CDs, or tracks in their collection.
-
-### Filter by Various Criteria
-
-Users can filter their collection based on several criteria, such as:
-
-- Artist name
-- Tags (e.g., genre, mood)
-- Release year
-- Rating
-
-This filtering functionality leverages `useMemo` to ensure efficient performance, especially with large collections.
+The app includes a search feature, allowing users to search for items by name, title, or tag. This helps users quickly find specific albums, CDs, or tracks in their collection.
 
 ### Overview of Each Category
 
-There are dedicated overview pages for each category, such as albums or artists. Users can sort these overviews alphabetically, by release year, or by track length. This provides a clear and organized view of the collection.
+There are dedicated overview pages for each category, such as albums or CDs. Users can sort their collection based on several criteria, such as:
+
+- Artist name
+- Containing amount of CDs (for albums and CDs)
+- Length (for tracks)
+- Rating
 
 ### Add Tags/Categories
 
-Users can assign tags or categories to items in the collection, such as genre, release year, or mood. These tags can be used to filter and sort the collection, allowing for better organization. Hooks like `useMemo` and `useCallback` are used to optimize the performance of filtering and sorting.
-
-### Dark Mode/Theme Switcher
-
-The app includes a theme switcher, allowing users to toggle between light mode and dark mode for a personalized look. This feature is implemented using React context and reducers, ensuring the theme preference is applied consistently across the entire app.
-
-### Offline Storage (localStorage)
-
-The app uses `localStorage` to store the user's collection locally on their device. This ensures that the data persists even without an internet connection, allowing users to manage and view their collection offline.
+Users can assign tags to items in the collection, such as genre or mood. These tags can be used to search for simlar items.
 
 ## Technologies Used
 
 - **React** for the front-end framework.
 - **TypeScript** to add type safety and improve development experience.
 - **useState, useEffect, useMemo, useCallback** hooks for state management and performance optimization.
-- **localStorage** for offline data storage.
-- **Context API and Reducers** to manage global states like theme switching.
+- **Context API and Reducers** to manage global states.
 
-## Future Enhancements
+## Installation
 
-- **Statistics and Analytics**: Provide users with insights into their collection, such as the most rated artists or total albums.
-- **Drag & Drop Functionality**: Allow users to rearrange items in their collection via drag-and-drop interfaces.
-- **Fuzzy Search**: Improve the search functionality with fuzzy search for better matching.
+Follow these steps to run the project locally:
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/RobVerplanke/cd-manager-react.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```sh
+   cd cd-manager-react
+   ```
+
+3. Install the dependencies:
+
+   ```sh
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+5. Open the application in your browser at `http://localhost:<portnr>`.
