@@ -58,10 +58,23 @@ Follow these steps to run the project locally:
    npm install
    ```
 
-4. Start the development server:
+4. Install json-server to serve the data locally (or use a similar server):
+
+   ```sh
+   npm install json-server
+   ```
+
+   Once installed, start the server with the following command in the project directory:
+
+   ```sh
+   json-server src/api/data/data.json
+
+   ```
+
+5. Start the development server:
 
    ```sh
    npm run dev
    ```
 
-5. Open the application in your browser at `http://localhost:<portnr>`.
+6. Open the application in your browser at `http://localhost:<portnr>`.
